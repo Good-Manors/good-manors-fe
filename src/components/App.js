@@ -1,4 +1,5 @@
 import React from 'react';
+import UserDash from '../containers/UserDash';
 import NavBar from './NavBar';
 import { useAuth0 } from '../react-auth0-spa';
 import { Router, Route, Switch } from 'react-router-dom';
@@ -19,6 +20,7 @@ function App() {
         <header>
           <NavBar />
         </header>
+        <UserDash />
         <Switch>
           <Route path='/' exact />
           <PrivateRoute path='/profile' component={Profile} />
