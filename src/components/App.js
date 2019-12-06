@@ -1,33 +1,52 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getSessionId, getSessionLoading } from '../selectors/sessionSelectors';
+import { sessionVerify } from '../actions/sessionActions';
 import UserDash from '../containers/UserDash';
-import NavBar from './NavBar';
-import { useAuth0 } from '../react-auth0-spa';
-import { Router, Route, Switch } from 'react-router-dom';
-import Profile from './Profile';
-import history from '../utils/history';
-import PrivateRoute from './PrivateRoute';
+import SignupUser from '../containers/SignupUser';
+import LoginUser from '../containers/LoginUser';
 
-function App() {
-  const { loading } = useAuth0();
+const PrivateRoute = ({ ...rest }) => {
+  const sessionId = useSelector(getSessionId);
+  const loading = useSelector(getSessionLoading);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(!sessionId) dispatch(sessionVerify());
+  }, []);
 
   if(loading) {
-    return <div>Loading...</div>;
+    return <h1>Loading...</h1>;
   }
+
+  if(!loading && !sessionId) {
+    console.log('loading: ', loading);
+    console.log('sessionId:', sessionId);
+    console.log('redirect');
+    return <Redirect to="/login" />;
+  }
+
+  return <Route {...rest} />;
+};
+
+function App() {
 
   return (
     <div className="App">
-      <Router history={history}>
-        <header>
-          <NavBar />
-        </header>
-        <UserDash />
+      <Router>
+        <PrivateRoute exact path='/' component={UserDash} />
         <Switch>
-          <Route path='/' exact />
-          <PrivateRoute path='/profile' component={Profile} />
+          <Route path="/login" component={LoginUser} />
+          <Route path="/signup" component={SignupUser} />
         </Switch>
       </Router>
     </div>
-    
+
   );
 }
 
