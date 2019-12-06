@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Form3 = ({ currentStep, index, drawer, card, skipModal, handleForm3 }) => {
+const Form3 = ({ currentStep, index, drawerName, card, skipModal, handleForm }) => {
   if(currentStep !== 3 + index) return null;
-  console.log(index);
   return (
     <>
-      <h3>Choose the cards that you find most useful for your {drawer}</h3>
+      <h3>Choose the cards that you find most useful for your {drawerName}</h3>
 
       <input type="checkbox" name={card} value="Appliance" /> Appliance
       <input type="checkbox" name={card} value="Structure" /> Structure
@@ -18,9 +18,18 @@ const Form3 = ({ currentStep, index, drawer, card, skipModal, handleForm3 }) => 
       <input type="checkbox" name={card} value="Pet" /> Pet
       
       <button onClick={skipModal}>Skip</button>
-      <button onClick={handleForm3}>Next</button>
+      <button onClick={() => handleForm(currentStep) }>Next</button>
     </>
   );
+};
+
+Form3.propTypes = {
+  currentStep: PropTypes.number,
+  index: PropTypes.number,
+  drawerName: PropTypes.string,
+  card: PropTypes.array,
+  skipModal: PropTypes.func,
+  handleForm: PropTypes.func
 };
 
 export default Form3;

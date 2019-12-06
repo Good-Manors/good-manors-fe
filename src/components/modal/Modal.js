@@ -15,33 +15,43 @@ const Modal = ({ isShowing, hide }) => {
     setName(target.value);
   };
 
-  const handleForm1 = () => {
-    setCurrentStep(2);
+  const handleForm = (step) => {
+    if(step === 2) {
+      const selectedDrawers = Array.from(document.querySelectorAll('input:checked')).map(drawer => {
+        return drawer.value;
+      });
+      setDrawer(selectedDrawers);
+    }
+    setCurrentStep(step + 1);
   };
 
-  const handleForm2 = () => {
-    const values = document.querySelectorAll('input:checked');
-    const arrayValues = Array.from(values);
-    const mappedArray = arrayValues.map(item => {
-      return item.value;
-    });
-    setDrawer(mappedArray);
-    setCurrentStep(3);
-  };
+  // const handleForm1 = () => {
+  //   setCurrentStep(2);
+  // };
 
-  const handleForm3 = () => {
-    setCurrentStep(currentStep + 1);
-  };
+  // const handleForm2 = () => {
+  //   const values = document.querySelectorAll('input:checked');
+  //   const arrayValues = Array.from(values);
+  //   const mappedArray = arrayValues.map(item => {
+  //     return item.value;
+  //   });
+  //   setDrawer(mappedArray);
+  //   setCurrentStep(3);
+  // };
+
+  // const handleForm3 = () => {
+  //   setCurrentStep(currentStep + 1);
+  // };
 
   const handleFormSubmit = () => {
     console.log('submit');
   };
 
   const drawerSteps = drawer.map((eachDrawer, i) => {
-    if(i === drawer.length) {
-      return <Form3 index={i} key={i} drawer={eachDrawer} currentStep={currentStep} card={card} handleForm3={handleFormSubmit} />;
+    if(i === drawer.length - 1) {
+      return <Form3 index={i} key={i} drawerName={eachDrawer} currentStep={currentStep} card={card} handleForm={handleFormSubmit} />;
     }
-    return <Form3 index={i} key={i} drawer={eachDrawer} currentStep={currentStep} card={card} handleForm3={handleForm3} />;
+    return <Form3 index={i} key={i} drawerName={eachDrawer} currentStep={currentStep} card={card} handleForm={handleForm} />;
   });
 
   return (
@@ -57,8 +67,8 @@ const Modal = ({ isShowing, hide }) => {
               </button>
             </div>
 
-            <Form1 handleChange={handleChange} handleForm1={handleForm1} name={name} currentStep={currentStep} />
-            <Form2 currentStep={currentStep} drawer={drawer} handleForm2={handleForm2} />
+            <Form1 handleChange={handleChange} handleForm={handleForm} name={name} currentStep={currentStep} />
+            <Form2 currentStep={currentStep} handleForm={handleForm} />
             {drawerSteps}
 
           </div>
