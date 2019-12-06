@@ -33,7 +33,14 @@ const Modal = ({ isShowing, hide }) => {
     setCurrentStep(currentStep + 1);
   };
 
+  const handleFormSubmit = () => {
+    console.log('submit');
+  };
+
   const drawerSteps = drawer.map((eachDrawer, i) => {
+    if(i === drawer.length) {
+      return <Form3 index={i} key={i} drawer={eachDrawer} currentStep={currentStep} card={card} handleForm3={handleFormSubmit} />;
+    }
     return <Form3 index={i} key={i} drawer={eachDrawer} currentStep={currentStep} card={card} handleForm3={handleForm3} />;
   });
 
