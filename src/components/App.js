@@ -26,7 +26,6 @@ function App() {
           <PrivateRoute path='/profile' component={Profile} />
         </Switch>
       </Router>
-   
     </div>
     
   );

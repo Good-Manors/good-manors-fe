@@ -30,4 +30,3 @@ PrivateRoute.propTypes = {
 };
 
 export default PrivateRoute;
-
