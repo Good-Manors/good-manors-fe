@@ -13,8 +13,8 @@ const UserForm = ({ buttonText, handleSubmit }) => {
 
   return (
     <form onSubmit={event => handleSubmit(event, username, password)}>
-      <input type="text" value={username} onChange={({ target }) => setUsername(target.value)} />
-      <input type="password" value={password} onChange={({ target }) => setPassword(target.value)} />
+      <input type="text" placeholder='username' value={username} onChange={({ target }) => setUsername(target.value)} />
+      <input type="password" placeholder='password' value={password} onChange={({ target }) => setPassword(target.value)} />
       <button>{buttonText}</button>
     </form>
   );
