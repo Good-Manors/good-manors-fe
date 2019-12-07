@@ -4,7 +4,7 @@ import styles from './Modal.css';
 import Form1 from './Form1';
 import Form2 from './Form2';
 import Form3 from './Form3';
-import { postHome } from '../../services/homes';
+import { postHome, postDrawer } from '../../services/homes';
 
 const Modal = ({ isShowing, hide }) => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -37,7 +37,12 @@ const Modal = ({ isShowing, hide }) => {
       return card.value;
     });
     setCard([...card, selectedCards]);
-    postHome(name);
+    postHome(name)
+      .then(home => {
+        drawer.forEach(one => {
+          postDrawer(one, home._id);
+        });
+      });
   };
 
   const drawerSteps = drawer.map((eachDrawer, i) => {
