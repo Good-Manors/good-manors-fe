@@ -11,8 +11,6 @@ import { sessionVerify } from '../actions/sessionActions';
 import UserDash from '../containers/UserDash';
 import Card from './Card';
 import Home from './Home';
-import SignupUser from '../containers/SignupUser';
-import LoginUser from '../containers/LoginUser';
 import CardList from './CardList';
 import AuthPage from './auth/AuthPage';
 
@@ -43,13 +41,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <PrivateRoute exact path='/' component={UserDash} />
         <Switch>
+          <PrivateRoute exact path='/' component={UserDash} />
           <Route path='/card' component={Card} />
           <Route path='/auth' component={AuthPage} />
           <Route path='/home' component={Home} />
-          <Route path="/login" component={LoginUser} />
-          <Route path="/signup" component={SignupUser} />
           <Route path='/cardlist' component={CardList} />
         </Switch>
       </Router>

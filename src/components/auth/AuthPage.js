@@ -4,14 +4,15 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getSessionId } from '../../selectors/sessionSelectors';
 import { connect } from 'react-redux';
-import { sessionLogin } from '../../actions/sessionActions';
+import { sessionSignup, sessionLogin } from '../../actions/sessionActions';
 import styles from './AuthPage.css';
-import logo from '../../assets/neatNOOKS.png';
+import logo from '../../assets/good-manors-logo.png';
 
-const AuthPage = ({ buttonText, handleSubmit }) => {
+const AuthPage = ({ handleSubmit }) => {
   const sessionId = useSelector(getSessionId);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [member, setMember] = useState(true);
 
   if(sessionId) return <Redirect to="/" />;
 
@@ -20,12 +21,12 @@ const AuthPage = ({ buttonText, handleSubmit }) => {
       <div>
         <img src={logo} />
       </div>
-      <form className={styles.Form} onSubmit={event => handleSubmit(event, username, password)}>
+      <form className={styles.Form} onSubmit={event => handleSubmit(event, username, password, member)}>
         <input type="text" placeholder='Username' value={username} onChange={({ target }) => setUsername(target.value)} />
         <input type="password" placeholder='Password' value={password} onChange={({ target }) => setPassword(target.value)} />
         <section id='signup-login-toggle' className={styles.Toggle}>
-          <span onClick={() => { console.log('clicked'); }}>Already a member?</span>
-          <button>{buttonText}</button>
+          <span onClick={() => { setMember(!member); }}>{member ? 'Make an account' : 'Already a member?'}</span>
+          <button>{member ? 'Login' : 'Signup'}</button>
         </section>
       </form>
     </section>
@@ -33,23 +34,18 @@ const AuthPage = ({ buttonText, handleSubmit }) => {
 };
 
 AuthPage.propTypes = {
-  buttonText: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired
 };
 
-const mapStateToProps = () => ({
-  buttonText: 'Login'
-});
-
 const mapDispatchToProps = dispatch => ({
-  handleSubmit(event, username, password) {
+  handleSubmit(event, username, password, member) {
     event.preventDefault();
-    dispatch(sessionLogin(username, password));
+    member ? dispatch(sessionLogin(username, password)) : dispatch(sessionSignup(username, password));
   }
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(AuthPage);
 
