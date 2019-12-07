@@ -27,12 +27,12 @@ const PrivateRoute = ({ ...rest }) => {
     return <h1>Loading...</h1>;
   }
 
-  // if(!loading && !sessionId) {
-  //   console.log('loading: ', loading);
-  //   console.log('sessionId:', sessionId);
-  //   console.log('redirect');
-  //   return <Redirect to="/login" />;
-  // }
+  if(!loading && !sessionId) {
+    console.log('loading: ', loading);
+    console.log('sessionId:', sessionId);
+    console.log('redirect');
+    return <Redirect to="/login" />;
+  }
 
   return <Route {...rest} />;
 };
