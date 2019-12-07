@@ -4,6 +4,7 @@ import styles from './Modal.css';
 import Form1 from './Form1';
 import Form2 from './Form2';
 import Form3 from './Form3';
+import { postHome, postDrawer } from '../../services/homes';
 
 const Modal = ({ isShowing, hide }) => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -22,29 +23,26 @@ const Modal = ({ isShowing, hide }) => {
       });
       setDrawer(selectedDrawers);
     }
+    if(step > 2) {
+      const selectedCards = Array.from(document.querySelectorAll('input:checked')).map(card => {
+        return card.value;
+      });
+      setCard([...card, selectedCards]);
+    }
     setCurrentStep(step + 1);
   };
 
-  // const handleForm1 = () => {
-  //   setCurrentStep(2);
-  // };
-
-  // const handleForm2 = () => {
-  //   const values = document.querySelectorAll('input:checked');
-  //   const arrayValues = Array.from(values);
-  //   const mappedArray = arrayValues.map(item => {
-  //     return item.value;
-  //   });
-  //   setDrawer(mappedArray);
-  //   setCurrentStep(3);
-  // };
-
-  // const handleForm3 = () => {
-  //   setCurrentStep(currentStep + 1);
-  // };
-
   const handleFormSubmit = () => {
-    console.log('submit');
+    const selectedCards = Array.from(document.querySelectorAll('input:checked')).map(card => {
+      return card.value;
+    });
+    setCard([...card, selectedCards]);
+    postHome(name)
+      .then(home => {
+        drawer.forEach(one => {
+          postDrawer(one, home._id);
+        });
+      });
   };
 
   const drawerSteps = drawer.map((eachDrawer, i) => {
