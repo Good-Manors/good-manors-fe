@@ -13,12 +13,21 @@ const AuthPage = ({ handleSubmit }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [member, setMember] = useState(true);
+  const [mouseX, setMouseX] = useState(null);
+  const [mouseY, setMouseY] = useState(null);
 
   if(sessionId) return <Redirect to="/" />;
 
+  const onMove = event => {
+
+    setMouseX(event.pageX);
+    setMouseY(event.pageY);
+  };
+
   return (
-    <section id='signup-login' className={styles.SignupLogin}>
-      <div>
+    <section id='signup-login' onPointerMove={onMove} className={styles.SignupLogin}>
+      <div className={styles.imgBox}></div>
+      <div className={styles.imgWrapper}>
         <img src={logo} />
       </div>
       <form className={styles.Form} onSubmit={event => handleSubmit(event, username, password, member)}>
