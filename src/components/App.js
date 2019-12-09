@@ -17,6 +17,7 @@ import DrawerDetail from '../containers/DrawerDetail';
 import HomePage from '../containers/HomePage';
 import CardList from './CardList';
 import AuthPage from './auth/AuthPage';
+import DrawerPage from '../containers/DrawerPage';
 
 const PrivateRoute = ({ ...rest }) => {
   const sessionId = useSelector(getSessionId);
@@ -49,7 +50,7 @@ function App() {
           <PrivateRoute exact path='/' component={UserDash} />
           <Route path='/card' component={Card} />
           <Route path='/auth' component={AuthPage} />
-          <Route path='/drawers' component={DrawerDetail} />
+          <Route path='/drawers' component={DrawerPage} />
           <Route path='/home' component={HomePage} />
           <Route path='/cardlist' component={CardList} />
         </Switch>
