@@ -12,8 +12,8 @@ export const postHome = (title) => post(`${BASE_URL}/homes`,
 export const postDrawer = (name, home) => post(`${BASE_URL}/drawers`,
 { name: name, home: home });
 
-export const postCard = (name, home) => post(`${BASE_URL}/cards`,
-  { name: name, home: home });
+export const postCard = (name, drawer) => post(`${BASE_URL}/cards`,
+  { name: name, drawer: drawer });
 
 
 

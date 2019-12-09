@@ -4,7 +4,7 @@ import styles from './Modal.css';
 import Form1 from './Form1';
 import Form2 from './Form2';
 import Form3 from './Form3';
-import { postHome, postDrawer } from '../../services/homes';
+import { postHome, postDrawer, postCard } from '../../services/homes';
 
 const Modal = ({ isShowing, hide }) => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -36,12 +36,30 @@ const Modal = ({ isShowing, hide }) => {
     const selectedCards = Array.from(document.querySelectorAll('input:checked')).map(card => {
       return card.value;
     });
-    setCard([...card, selectedCards]);
-    postHome(name)
-      .then(home => {
-        drawer.forEach(one => {
-          postDrawer(one, home._id);
-        });
+    setCard([...card, selectedCards])
+      .then(() => {
+        postHome(name)
+          .then(home => {
+            return Promise.all(
+              drawer.map(one => {
+                return postDrawer(one, home._id);
+              })
+            )
+              .then(drawers => {
+                console.log(drawers);
+                return Promise.all(
+                  card.map((drawerCards, i) => {
+                    console.log('drawer cards', drawerCards);
+                    return Promise.all(
+                      drawerCards.map(card => {
+                        console.log('single card', card);
+                        return postCard(card, drawers[i]._id);
+                      })
+                    );
+                  })
+                );
+              });
+          });
       });
   };
 
