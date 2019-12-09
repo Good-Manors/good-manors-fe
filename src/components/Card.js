@@ -27,6 +27,10 @@ const Card = ({ name, type, content }) => {
     target.name = target.value;
   };
 
+  const updateCard = () => {
+    console.log('updated card');
+  };
+
   const mappedDisplayElements = content.map((element, i) => {
     if(element[0] === 'text') return <Text text={element[1]} index={i} />;
     if(element[0] === 'key-value') return <KeyValue entryKey={element[1][0]} value={element[1][1]} index={i} />;
@@ -44,14 +48,14 @@ const Card = ({ name, type, content }) => {
   return (
     editMode ?
       <>
-        <h2>{name}</h2>
+        <h3>{name}</h3>
         <img src={icons[{ type }]} />
         {mappedEditElements}
         <button onClick={updateCard}>Save Changes</button>
       </>
       :
       <>
-        <h2>{name}</h2>
+        <h3>{name}</h3>
         <img src={icons[{ type }]} />
         {mappedDisplayElements}
         <button onClick={() => setEditMode(true)}>Edit</button>

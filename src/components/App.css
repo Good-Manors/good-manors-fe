@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Shrikhand|Sulphur+Point:300,400,700&display=swap');
+
+h2 {
+  font-family: 'Do Hyeon', sans-serif; 
+}
+
+body {
+  font-family: 'Arial';
+  width: 80vw;
+  margin: 0 auto;
+}

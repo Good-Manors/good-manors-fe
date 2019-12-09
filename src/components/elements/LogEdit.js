@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const LogEdit = ({ logEntries }) => {
+
+  const [newLog, setNewLog] = useState('');
+
+  const deleteItem = (i) => {
+    
+  }
 
   const displayedEntries = logEntries.map((entry, i) => {
     return (
@@ -16,7 +22,7 @@ const LogEdit = ({ logEntries }) => {
     <>
       <h3>Activity Log</h3>
       {displayedEntries}
-      <input type='text' value={newLog} onChange={handleChange} /><button onClick={addLog}>Add New</button>
+      <input type='text' value={newLog} onChange={() => setNewLog(event.target.value)} /><button onClick={addLog}>Add New</button>
     </>
   );
 

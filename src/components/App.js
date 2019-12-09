@@ -11,7 +11,9 @@ import { sessionVerify } from '../actions/sessionActions';
 import UserDash from '../containers/UserDash';
 import Card from './Card';
 import Home from './Home';
-import CardList from './CardList';
+import '../reset.css';
+import './App.css';
+import DrawerDetail from '../containers/DrawerDetail';
 import AuthPage from './auth/AuthPage';
 
 const PrivateRoute = ({ ...rest }) => {
@@ -46,7 +48,7 @@ function App() {
           <Route path='/card' component={Card} />
           <Route path='/auth' component={AuthPage} />
           <Route path='/home' component={Home} />
-          <Route path='/cardlist' component={CardList} />
+          <Route path='/drawers' component={DrawerDetail} />
         </Switch>
       </Router>
     </div>
