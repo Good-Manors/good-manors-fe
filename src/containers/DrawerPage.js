@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header/Header';
 import sampleData from '../assets/sampleData';
-import styles from './HomePage.css';
+import styles from './DrawerPage.css';
 import DrawerDetail from './DrawerDetail';
 
 const drawers = sampleData.drawers;
@@ -9,9 +9,9 @@ const drawers = sampleData.drawers;
 const DrawerPage = () => {
 
   return (
-    <section id='home-page-wrapper' className={styles.HomePageWrapper}>
+    <section id='drawer-page-wrapper' className={styles.DrawerPageWrapper}>
       <Header />
-      <DrawerDetail drawers={drawers} />
+      <DrawerDetail />
       
     </section>
   );
