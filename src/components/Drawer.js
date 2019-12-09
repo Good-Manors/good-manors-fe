@@ -15,13 +15,13 @@ const Drawer = ({ name, cards }) => {
 
   return (
     <section className={styles.Drawer}>
-      <div className={styles.Name}>
+      <div className={styles.Name} onClick={() => {
+        open ? setOpen(false) : setOpen(true);
+      }}>
         <p>{name}</p>
-        <button 
+        <button
           className={`${styles.dropButton} ${open ? styles.up : styles.down} `}
-          onClick={() => {
-            open ? setOpen(false) : setOpen(true);
-          }}>^</button>
+        >^</button>
       </div>
       <div className={`${styles.Tray} ${open ? styles.open : styles.closed} `}>
         {mappedCards}

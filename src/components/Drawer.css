@@ -16,7 +16,7 @@
     color: black;
     } 
 
-    .dropButton:focus {
+    .dropButton:focus { 
       outline: none;
     }
 
@@ -38,15 +38,19 @@
   }
 
   .open{
-    padding: 1rem;
-    max-height: 8rem;
+    max-height: 9rem;
+    border: red solid 2px;
+
     p {
+      margin-top: 2rem;
       padding: .5rem;
     }
+
   }
 
   .closed{
     visibility: hidden;
     max-height: 0px;
+
   }
 }
