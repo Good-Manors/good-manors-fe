@@ -1,4 +1,4 @@
-import { getHome, getHomeDrawers } from '../services/homes'
+import { getHome, getHomeDrawers } from '../services/homes';
 export const SET_HOME = 'CREATE_URL';
 
 export const setHome = (homeId) => dispatch => {
