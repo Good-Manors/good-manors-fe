@@ -9,7 +9,6 @@ const Home = () => {
     console.log('add drawer');
   };
 
-
   const mappedDrawers = house.drawers.map((drawer, i) => {
     return <Drawer key={i} drawer={drawer.name} cards={drawer.cards} />;
   });

@@ -4,6 +4,7 @@ import styles from './Modal.css';
 import Form1 from './Form1';
 import Form2 from './Form2';
 import Form3 from './Form3';
+import Form4 from './Form4';
 import { postHome, postDrawer, postCard } from '../../services/homes';
 
 const Modal = ({ isShowing, hide }) => {
@@ -32,47 +33,39 @@ const Modal = ({ isShowing, hide }) => {
     setCurrentStep(step + 1);
   };
 
-  const handleFormSubmit = () => {
-    const selectedCards = Array.from(document.querySelectorAll('input:checked')).map(card => {
-      return card.value;
-    });
-    setCard([...card, selectedCards])
-      .then(() => {
-        postHome(name)
-          .then(home => {
+  const handleFormSubmit = (step) => {
+    postHome(name)
+      .then(home => {
+        return Promise.all(
+          drawer.map(one => {
+            return postDrawer(one, home._id);
+          })
+        )
+          .then(drawers => {
+            console.log(drawers);
             return Promise.all(
-              drawer.map(one => {
-                return postDrawer(one, home._id);
-              })
-            )
-              .then(drawers => {
-                console.log(drawers);
+              card.map((drawerCards, i) => {
+                console.log('drawer cards', drawerCards);
                 return Promise.all(
-                  card.map((drawerCards, i) => {
-                    console.log('drawer cards', drawerCards);
-                    return Promise.all(
-                      drawerCards.map(card => {
-                        console.log('single card', card);
-                        return postCard(card, drawers[i]._id);
-                      })
-                    );
+                  drawerCards.map(card => {
+                    console.log('single card', card);
+                    return postCard(card, drawers[i]._id);
                   })
                 );
-              });
+              })
+            );
           });
       });
+    setCurrentStep(step + 1);
   };
 
   const drawerSteps = drawer.map((eachDrawer, i) => {
-    if(i === drawer.length - 1) {
-      return <Form3 index={i} key={i} drawerName={eachDrawer} currentStep={currentStep} card={card} handleForm={handleFormSubmit} />;
-    }
     return <Form3 index={i} key={i} drawerName={eachDrawer} currentStep={currentStep} card={card} handleForm={handleForm} />;
   });
 
   return (
     isShowing ? ReactDOM.createPortal(
-      <React.Fragment>
+      <>
         <div className={styles.modalOverlay} />
         <div className={styles.modalWrapper} aria-modal aria-hidden tabIndex={-1} role="dialog">
           <div className={styles.modal}>
@@ -86,10 +79,10 @@ const Modal = ({ isShowing, hide }) => {
             <Form1 handleChange={handleChange} handleForm={handleForm} name={name} currentStep={currentStep} />
             <Form2 currentStep={currentStep} handleForm={handleForm} />
             {drawerSteps}
-
+            <Form4 currentStep={currentStep} drawer={drawer} card={card} handleFormSubmit={handleFormSubmit} />
           </div>
         </div>
-      </React.Fragment>, document.body
+      </>, document.body
     ) : null
   );
 };

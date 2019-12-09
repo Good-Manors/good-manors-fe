@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 
 const Form1 = ({ name, currentStep, handleChange, handleForm }) => {
   if(currentStep !== 1) return null;
-  console.log(currentStep);
-
   return (
     <>
       <h2>Welcome to HubKeep! Let's get started.</h2>
