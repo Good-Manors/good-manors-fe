@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
@@ -10,7 +11,7 @@ import { getSessionId, getSessionLoading } from '../selectors/sessionSelectors';
 import { sessionVerify } from '../actions/sessionActions';
 import UserDash from '../containers/UserDash';
 import Card from './Card';
-import Home from './Home';
+import HomePage from '../containers/HomePage';
 import CardList from './CardList';
 import AuthPage from './auth/AuthPage';
 
@@ -45,7 +46,7 @@ function App() {
           <PrivateRoute exact path='/' component={UserDash} />
           <Route path='/card' component={Card} />
           <Route path='/auth' component={AuthPage} />
-          <Route path='/home' component={Home} />
+          <Route path='/home' component={HomePage} />
           <Route path='/cardlist' component={CardList} />
         </Switch>
       </Router>

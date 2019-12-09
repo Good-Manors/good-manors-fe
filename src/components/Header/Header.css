@@ -1,0 +1,6 @@
+.Header {
+  grid-area: header;
+  background:rgb(154, 194, 154);
+  padding-top: 2rem;
+}
+

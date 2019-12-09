@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.css';
+import Logo from '../Logo/Logo';
 
 export default function Header() {
   return (
     <header className={styles.Header}>
-      <img src="src/assets/good-manors-logo.png" />
-      <div id="app"></div>
+      <Logo />
       <nav>
         <Link to="/">Dashboard</Link>
         <Link to="/about-us">About Us</Link>
