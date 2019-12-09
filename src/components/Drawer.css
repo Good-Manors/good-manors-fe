@@ -1,0 +1,52 @@
+.Drawer {
+
+  .Name {
+    display: flex;
+    justify-content: space-between;
+    background: rgb(228, 228, 228);
+    margin: 1rem;
+    padding: 0.5rem;
+
+    .dropButton {
+    background: transparent;
+    border:none;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+    font-size: 1.5rem;
+    color: black;
+    } 
+
+    .dropButton:focus {
+      outline: none;
+    }
+
+    .up {
+      transform: rotate(180deg);
+    }
+    
+    .down{
+      transform: rotate(90deg);
+    }
+  }
+
+  .Tray {
+    display: flex;
+    flex-direction: column;
+    margin: -1rem 1rem 0 1rem;
+    transition: max-height 0.3s;
+    background: rgb(244, 231, 221);
+  }
+
+  .open{
+    padding: 1rem;
+    max-height: 8rem;
+    p {
+      padding: .5rem;
+    }
+  }
+
+  .closed{
+    visibility: hidden;
+    max-height: 0px;
+  }
+}
