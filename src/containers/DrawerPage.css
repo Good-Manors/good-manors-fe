@@ -3,7 +3,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: 20% 80%;
+  grid-template-rows: 18% 82%;
   grid-template-areas: "header ."
                        "header cardList";
                        
@@ -12,7 +12,7 @@
 .CardListWrapper {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 82vh;
   align-content: center;
   overflow: auto;
   margin: 2em 1em;

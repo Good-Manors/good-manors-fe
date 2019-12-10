@@ -4,15 +4,16 @@
   display: grid;
   grid-template-columns: 25% 75%;
   grid-template-rows: 20% 80%;
-  grid-template-areas: "header ."
-                       "header drawerList";
+  grid-template-areas: "header menu"
+                       "header drawerListWrapper";
                        
 }
 
 .DrawerListWrapper {
+  grid-area: drawerListWrapper;
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 80vh;
   align-content: center;
   overflow: auto;
   margin: 2em 1em;

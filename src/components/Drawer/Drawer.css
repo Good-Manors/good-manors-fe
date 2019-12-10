@@ -1,12 +1,10 @@
 .Drawer {
-
   .Name {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background: #a7d0b1;
     margin: 20px 40px;
-    padding: 9px 20px;
+    padding: 5px 20px;
 
     img {
       width: 27px;
@@ -14,6 +12,7 @@
     }
     
     h3 {
+      height: fit-content;
       font-family: 'Sulphur', sans-serif;
       font-weight: 700;
       font-size: 1.5em;
@@ -32,6 +31,7 @@
       font-weight: 700;
       font-size: 1.5em;
       color: black;
+      padding: 0;
     } 
 
     .dropButton:focus { 
@@ -75,10 +75,10 @@
       font-weight: 600;
       font-size: 1.1em;
       letter-spacing: .07em;
-      color: orchid;
+      color: #d58ac3;
       padding: 5px 15px;
       margin: 5px 10px;
-      border: 5px solid orchid;
+      border: 5px solid #d58ac3;
     }
 
   }
