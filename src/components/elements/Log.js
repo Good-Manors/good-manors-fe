@@ -14,7 +14,7 @@ const Log = ({ logEntries }) => {
 
   return (
     <>
-      <h3>Activity Log</h3>
+      <h4>Activity Log</h4>
       {displayedEntries}
     </>
   );

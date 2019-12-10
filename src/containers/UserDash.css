@@ -4,12 +4,16 @@
 }
 
 button {
+  font-family: 'Sulphur', sans-serif;
+  font-weight: 700;
   font-size: .9rem;
   font-weight: 700;
+  letter-spacing: .08em;
   border: none;
-  border-radius: 3px;
   padding: .3rem 1rem;
-  margin-left: .5rem;
+  margin: 20px 0 0 40px;
+  background: orchid;
+  color: white;
 }
 
 .buttonDefault {

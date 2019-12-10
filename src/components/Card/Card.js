@@ -8,7 +8,8 @@ import Log from '../elements/Log';
 import KeyValueEdit from '../elements/KeyValueEdit';
 import LogEdit from '../elements/LogEdit';
 import sampleData from '../../assets/sampleData';
-
+import styles from './Card.css';
+import tempIcon from '../../assets/temp-icon.png';
 
 const name = sampleData.drawers[0].cards[0].name;
 const type = sampleData.drawers[0].cards[0].type;
@@ -55,17 +56,25 @@ const Card = () => {
   return (
     editMode ?
       <>
-        <h3>{name}</h3>
-        <img src={icons[{ type }]} />
-        {mappedEditElements}
-        <button onClick={updateCard}>Save Changes</button>
+        <div className={styles.CardEdit}>
+          <section>
+            <h3>{name}</h3>
+            <img src={tempIcon} />
+          </section>
+          {mappedEditElements}
+          <button onClick={updateCard}>Save Changes</button>
+        </div>
       </>
       :
       <>
-        <h3>{name}</h3>
-        <img src={icons[{ type }]} />
-        {mappedDisplayElements}
-        <button onClick={() => setEditMode(true)}>Edit</button>
+        <div className={styles.Card}>
+          <section>
+            <h3>{name}</h3>
+            <img src={tempIcon} />
+          </section>
+          {mappedDisplayElements}
+          <button onClick={() => setEditMode(true)}>Edit</button>
+        </div>
       </>
   );
 

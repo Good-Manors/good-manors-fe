@@ -8,8 +8,9 @@ const DrawerPage = () => {
   return (
     <section id='drawer-page-wrapper' className={styles.DrawerPageWrapper}>
       <Header />
-      <CardList />
-      
+      <section className={styles.CardListWrapper}>
+        <CardList />
+      </section>
     </section>
   );
 

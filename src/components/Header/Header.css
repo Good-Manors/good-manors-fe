@@ -1,6 +1,9 @@
 .Header {
   grid-area: header;
-  background:rgb(154, 194, 154);
+  background:url(../../assets/cat-yard.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   padding-top: 2rem;
 }
 

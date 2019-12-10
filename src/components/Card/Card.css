@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Sulphur+Point:300,400,700&display=swap');
+
+.Card {
+  background: white;
+  width: 75%;
+  height: auto;
+  margin: 40px;
+  border-top-right-radius: 40px 40px;
+  border-bottom: 20px solid orchid;
+  padding: 30px 35px;
+  -webkit-box-shadow: 10px 10px 20px -5px rgba(233,245,241,1);
+  -moz-box-shadow: 10px 10px 20px -5px rgba(233,245,241,1);
+  box-shadow: 10px 10px 20px -5px rgba(233,245,241,1);
+  
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  h3 {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 700;
+    font-size: 1.8em;
+    letter-spacing: .08em;
+    margin: 10px 0 20px 0;
+  }
+
+  img {
+    width: 32px;
+    height: 40px;
+  }
+
+  pre {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 300;
+    line-height: 1.2em;
+    letter-spacing: .06em;
+    text-overflow: inherit;
+  }
+
+  p {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 300;
+    line-height: 1.2em;
+    letter-spacing: .06em;
+    margin: 5px 0;
+  }
+
+  h4 {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin: 40px 0 20px 0;
+  }
+
+  button {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: white;
+    border: 5px solid orchid;
+    color: orchid;
+    width: 25%;
+    margin: 20px 0 5px;
+  }
+}
