@@ -7,8 +7,15 @@ import Image from '../elements/Image';
 import Log from '../elements/Log';
 import KeyValueEdit from '../elements/KeyValueEdit';
 import LogEdit from '../elements/LogEdit';
+import sampleData from '../../assets/sampleData';
 
-const Card = ({ name, type, content }) => {
+
+const name = sampleData.drawers[0].cards[0].name;
+const type = sampleData.drawers[0].cards[0].type;
+const content = sampleData.drawers[0].cards[0].content;
+
+
+const Card = () => {
 
   const [editMode, setEditMode] = useState(false);
 
