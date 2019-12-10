@@ -15,8 +15,8 @@ const DrawerList = ({ drawers }) => {
 
   return (
     <section id='drawer-list' className={styles.DrawerList}>
-      {mappedDrawers}
       <button onClick={addDrawer}>+ New Drawer</button>
+      {mappedDrawers}
     </section>
   );
 };

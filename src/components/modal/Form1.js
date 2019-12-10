@@ -6,8 +6,9 @@ const Form1 = ({ name, currentStep, handleChange, handleForm }) => {
   if(currentStep !== 1) return null;
   return (
     <>
-      <h2>Welcome to HubKeep! Let's get started.</h2>
-      <h3>What would you like to call your home?</h3>
+      <h3>Welcome to good manors, an app that allows you to document and reference your home maintenance.</h3>
+      <h3>Let's get started!</h3>
+      <h4>What would you like to call your home?</h4>
       <input type="text" value={name} onChange={handleChange} />
       <button onClick={() => handleForm(currentStep) }>Next</button>
     </>

@@ -25,10 +25,11 @@
   z-index: 100;
   background: white;
   position: relative;
-  margin: 1.75rem auto;
+  margin: 30vh auto;
   border-radius: 3px;
   max-width: 500px;
-  padding: 2rem;
+  padding: 20px;
+  border-bottom: 20px solid #d58ac3;
 }
 
 .modalHeader {
@@ -40,8 +41,10 @@
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1;
-  color: #000;
-  opacity: .3;
+  color: black;
+  background-color: transparent;
+  opacity: .6;
+  border-radius: 50%;
+  border: transparent;
   cursor: pointer;
-  border: none;
 }

@@ -6,7 +6,7 @@ const Text = ({ text }) => {
 
   return (
     <>
-      <pre>{text}</pre>
+      <p>{text}</p>
     </>
   );
 

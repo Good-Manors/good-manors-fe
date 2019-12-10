@@ -19,7 +19,7 @@ const CardList = () => {
   return (
     <section className={styles.CardList}>
       <h2>{house.drawers[0].name}</h2>
-      <button onClick={addNewCard}>+ New Card</button>
+      <button className={styles.CardButton} onClick={addNewCard}>+ New Card</button>
       <section>
         {mappedCards}
       </section>
