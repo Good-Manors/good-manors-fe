@@ -11,7 +11,9 @@ const HomePage = () => {
   return (
     <section id='home-page-wrapper' className={styles.HomePageWrapper}>
       <Header />
-      <DrawerList drawers={drawers} />
+      <section className={styles.DrawerListWrapper}>
+        <DrawerList drawers={drawers} />
+      </section>
       
     </section>
   );

@@ -3,17 +3,35 @@
   .Name {
     display: flex;
     justify-content: space-between;
-    background: rgb(228, 228, 228);
-    margin: 1rem;
-    padding: 0.5rem;
+    align-items: center;
+    background: #a7d0b1;
+    margin: 20px 40px;
+    padding: 9px 20px;
+
+    img {
+      width: 27px;
+      height: 35px;
+    }
+    
+    h3 {
+      font-family: 'Sulphur', sans-serif;
+      font-weight: 700;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: black;
+    }
 
     .dropButton {
-    background: transparent;
-    border:none;
-    transform: rotate(0deg);
-    transition: transform 0.3s;
-    font-size: 1.5rem;
-    color: black;
+      height: fit-content;
+      background: transparent;
+      border: none;
+      transform: rotate(0deg);
+      transition: transform 0.3s;
+      font-family: 'Sulphur', sans-serif;
+      font-weight: 700;
+      font-size: 1.5em;
+      color: black;
     } 
 
     .dropButton:focus { 
@@ -22,28 +40,45 @@
 
     .up {
       transform: rotate(180deg);
+      margin-top: 0;
     }
     
-    .down{
-      transform: rotate(90deg);
+    .down {
+      transform: rotate(90deg);   
+      margin-top: 0; 
     }
   }
 
   .Tray {
     display: flex;
     flex-direction: column;
-    margin: -1rem 1rem 0 1rem;
     transition: max-height 0.3s;
-    background: rgb(244, 231, 221);
+    background: white;
+    margin: -20px 40px 20px 40px;
+    justify-content: center;
   }
 
   .open{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     max-height: 9rem;
-    border: red solid 2px;
+    padding: 15px;
+
+    img {
+      width: 27px;
+      height: 35px;
+    }
 
     p {
-      margin-top: 2rem;
-      padding: .5rem;
+      font-family: 'Sulphur', sans-serif;
+      font-weight: 600;
+      font-size: 1.1em;
+      letter-spacing: .07em;
+      color: orchid;
+      padding: 5px 15px;
+      margin: 5px 10px;
+      border: 5px solid orchid;
     }
 
   }
@@ -51,6 +86,5 @@
   .closed{
     visibility: hidden;
     max-height: 0px;
-
   }
 }

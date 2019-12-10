@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Drawer.css';
+import icon from '../../assets/temp-icon-black.png';
+import cardIcon from '../../assets/temp-icon.png';
 
 
 const Drawer = ({ name, cards }) => {
@@ -8,7 +10,7 @@ const Drawer = ({ name, cards }) => {
 
   const mappedCards = cards.map((card, i) => {
     return <div key={i}>
-      <p>{card.name}</p>
+      <p><img src={cardIcon} /> {card.name}</p>
       {/* <img src={card.type} /> */}
     </div>;
   });
@@ -18,11 +20,13 @@ const Drawer = ({ name, cards }) => {
       <div className={styles.Name} onClick={() => {
         open ? setOpen(false) : setOpen(true);
       }}>
-        <p>{name}</p>
+        <img src={icon} />
+        <h3>{name}</h3>
         <button
           className={`${styles.dropButton} ${open ? styles.up : styles.down} `}
         >^</button>
       </div>
+
       <div className={`${styles.Tray} ${open ? styles.open : styles.closed} `}>
         {mappedCards}
       </div>

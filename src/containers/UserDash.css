@@ -1,22 +1,20 @@
 .UserDash {
   text-align: center;
-  padding-top: 2rem;
 }
 
 button {
   font-family: 'Sulphur', sans-serif;
   font-weight: 700;
-  font-size: .9rem;
-  font-weight: 700;
+  font-size: 1rem;
   letter-spacing: .08em;
   border: none;
   padding: .3rem 1rem;
-  margin: 20px 0 0 40px;
+  margin: 20px 0;
   background: orchid;
   color: white;
 }
 
 .buttonDefault {
   background: #247BA0;
-  color: #fff;
+  color: white;
 }
