@@ -1,17 +1,14 @@
 import React from 'react';
 import Header from '../components/Header/Header';
-import sampleData from '../assets/sampleData';
 import styles from './DrawerPage.css';
-import DrawerDetail from './DrawerDetail';
-
-const drawers = sampleData.drawers;
+import CardList from '../components/Card/CardList';
 
 const DrawerPage = () => {
 
   return (
     <section id='drawer-page-wrapper' className={styles.DrawerPageWrapper}>
       <Header />
-      <DrawerDetail />
+      <CardList />
       
     </section>
   );

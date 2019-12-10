@@ -10,12 +10,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getSessionId, getSessionLoading } from '../selectors/sessionSelectors';
 import { sessionVerify } from '../actions/sessionActions';
 import UserDash from '../containers/UserDash';
-import Card from './Card';
+import Card from './Card/Card';
 import '../reset.css';
 import './App.css';
-import DrawerDetail from '../containers/DrawerDetail';
 import HomePage from '../containers/HomePage';
-import CardList from './CardList';
 import AuthPage from './auth/AuthPage';
 import DrawerPage from '../containers/DrawerPage';
 
@@ -52,7 +50,6 @@ function App() {
           <Route path='/auth' component={AuthPage} />
           <Route path='/drawers' component={DrawerPage} />
           <Route path='/home' component={HomePage} />
-          <Route path='/cardlist' component={CardList} />
         </Switch>
       </Router>
     </div>

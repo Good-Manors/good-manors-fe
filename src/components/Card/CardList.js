@@ -1,9 +1,9 @@
 import React from 'react';
-import Card from '../components/Card';
-import house from '../assets/sampleData';
-import styles from './DrawerDetail.css';
+import Card from './Card';
+import house from '../../assets/sampleData';
+import styles from './CardList.css';
 
-const DrawerDetail = () => {
+const CardList = () => {
 
   const cards = house.drawers[0].cards;
 
@@ -17,7 +17,7 @@ const DrawerDetail = () => {
 
 
   return (
-    <section className={styles.DrawerDetail}>
+    <section className={styles.CardList}>
       <h2>{house.drawers[0].name}</h2>
       <button onClick={addNewCard}>+ New Card</button>
       <section>
@@ -27,4 +27,4 @@ const DrawerDetail = () => {
   );
 };
 
-export default DrawerDetail;
+export default CardList;

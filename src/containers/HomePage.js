@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header/Header';
-import DrawerList from '../components/DrawerList';
+import DrawerList from '../components/Drawer/DrawerList';
 import sampleData from '../assets/sampleData';
 import styles from './HomePage.css';
 

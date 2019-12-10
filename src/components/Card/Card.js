@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Text from './elements/Text';
-import TextEdit from './elements/TextEdit';
-import KeyValue from './elements/KeyValue';
-import Image from './elements/Image';
-import Log from './elements/Log';
-import KeyValueEdit from './elements/KeyValueEdit';
-import LogEdit from './elements/LogEdit';
+import Text from '../elements/Text';
+import TextEdit from '../elements/TextEdit';
+import KeyValue from '../elements/KeyValue';
+import Image from '../elements/Image';
+import Log from '../elements/Log';
+import KeyValueEdit from '../elements/KeyValueEdit';
+import LogEdit from '../elements/LogEdit';
 
 const Card = ({ name, type, content }) => {
 
