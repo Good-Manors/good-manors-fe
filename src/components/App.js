@@ -48,7 +48,7 @@ function App() {
           <PrivateRoute exact path='/' component={UserDash} />
           <Route path='/card' component={Card} />
           <Route path='/auth' component={AuthPage} />
-          <Route path='/drawers' component={DrawerPage} />
+          <Route path='/cards' component={DrawerPage} />
           <Route path='/home' component={HomePage} />
         </Switch>
       </Router>

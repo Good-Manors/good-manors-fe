@@ -1,4 +1,13 @@
 .DrawerList {
-  grid-area: drawerList;
+  button {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: .08em;
+    border: none;
+    padding: .3rem 1rem;
+    margin: 20px 40px;
+    background: #d58ac3;
+    color: white;
+  }
 }
-

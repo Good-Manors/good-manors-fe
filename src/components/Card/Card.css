@@ -2,15 +2,15 @@
 
 .Card {
   background: white;
-  width: 75%;
+  width: 80%;
   height: auto;
-  margin: 40px;
   border-top-right-radius: 40px 40px;
-  border-bottom: 20px solid orchid;
+  border-bottom: 20px solid #d58ac3;
   padding: 30px 35px;
   -webkit-box-shadow: 10px 10px 20px -5px rgba(233,245,241,1);
   -moz-box-shadow: 10px 10px 20px -5px rgba(233,245,241,1);
   box-shadow: 10px 10px 20px -5px rgba(233,245,241,1);
+  margin: 0 40px 20px 40px;
   
   section {
     display: flex;
@@ -32,20 +32,12 @@
     height: 40px;
   }
 
-  pre {
-    font-family: 'Sulphur', sans-serif;
-    font-weight: 300;
-    line-height: 1.2em;
-    letter-spacing: .06em;
-    text-overflow: inherit;
-  }
-
   p {
     font-family: 'Sulphur', sans-serif;
     font-weight: 300;
     line-height: 1.2em;
     letter-spacing: .06em;
-    margin: 5px 0;
+    margin-bottom: 10px;
   }
 
   h4 {
@@ -63,8 +55,8 @@
     letter-spacing: .1em;
     text-transform: uppercase;
     background: white;
-    border: 5px solid orchid;
-    color: orchid;
+    border: 5px solid #d58ac3;
+    color: #d58ac3;
     width: 25%;
     margin: 20px 0 5px;
   }

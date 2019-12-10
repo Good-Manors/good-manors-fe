@@ -41,10 +41,10 @@ const Card = () => {
   };
 
   const mappedDisplayElements = content.map((element, i) => {
-    if(element[0] === 'text') return <Text text={element[1]} index={i} />;
-    if(element[0] === 'key-value') return <KeyValue entryKey={element[1][0]} value={element[1][1]} index={i} />;
-    if(element[0] === 'image') return <Image image={element[1]} index={i} />;
-    if(element[0] === 'log') return <Log logEntries={element[1]} index={i} />;
+    if(element[0] === 'text') return <Text key={i} text={element[1]} index={i} />;
+    if(element[0] === 'key-value') return <KeyValue key={i} entryKey={element[1][0]} value={element[1][1]} index={i} />;
+    if(element[0] === 'image') return <Image key={i} image={element[1]} index={i} />;
+    if(element[0] === 'log') return <Log key={i} logEntries={element[1]} index={i} />;
   });
 
   const mappedEditElements = content.map((element, i) => {
