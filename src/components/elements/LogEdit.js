@@ -7,7 +7,11 @@ const LogEdit = ({ logEntries }) => {
 
   const deleteItem = (i) => {
     
-  }
+  };
+
+  const addLog = () => {
+
+  };
 
   const displayedEntries = logEntries.map((entry, i) => {
     return (
