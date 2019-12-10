@@ -1,21 +1,8 @@
-import { getHome, getHomeDrawers } from '../services/homes';
-export const SET_HOME = 'CREATE_URL';
+export const SET_HOME = 'SET_HOME';
 
-export const setHome = (homeId) => dispatch => {
-  return Promise.all(
-    getHome(homeId),
-    getHomeDrawers(homeId)
-  )
-    .then(home =>
-      dispatch({
-        type: SET_HOME,
-        payload: {
-          title: home[0].title,
-          homeId: home[0]._id,
-          drawers: home[1]
-        }
-      }));
-};
+export const setHome = (home) => ({
+  type: SET_HOME,
+  payload: home
+});
 
-export const ADD_CARD = 'ADD_CARD';
 

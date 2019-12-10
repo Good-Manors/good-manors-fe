@@ -24,6 +24,9 @@ export const deleteCard = (id) => del(`${BASE_URL}/${id}`);
 
 export const getDrawerCards = (drawerId) => get(`${BASE_URL}/cards/drawers/${drawerId}`);
 
+export const initializeHome = (title, drawers, cards) => post(`${BASE_URL}/initialize`,
+  { title: title, drawers: drawers, cards: cards });
+
 
 
 

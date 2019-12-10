@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import styles from './Modal.css';
 import Form1 from './Form1';
 import Form2 from './Form2';
 import Form3 from './Form3';
 import Form4 from './Form4';
-import { postHome, postDrawer, postCard } from '../../services/homes';
+import { initializeHome } from '../../services/homes';
+import { setHome } from '../../actions/homeActions';
 
 const Modal = ({ isShowing, hide }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [name, setName] = useState('');
   const [drawer, setDrawer] = useState([]);
   const [card, setCard] = useState([]);
+  const [redirect, setRedirect] = useState(false);
+  const dispatch = useDispatch();
 
   const handleChange = ({ target }) => {
     setName(target.value);
@@ -33,35 +38,20 @@ const Modal = ({ isShowing, hide }) => {
     setCurrentStep(step + 1);
   };
 
-  const handleFormSubmit = (step) => {
-    postHome(name)
+  const handleFormSubmit = () => {
+    initializeHome(name, drawer, card)
       .then(home => {
-        return Promise.all(
-          drawer.map(one => {
-            return postDrawer(one, home._id);
-          })
-        )
-          .then(drawers => {
-            console.log(drawers);
-            return Promise.all(
-              card.map((drawerCards, i) => {
-                console.log('drawer cards', drawerCards);
-                return Promise.all(
-                  drawerCards.map(card => {
-                    console.log('single card', card);
-                    return postCard(card, drawers[i]._id);
-                  })
-                );
-              })
-            );
-          });
+        dispatch(setHome(home));
+        hide();
+        setRedirect(true);
       });
-    setCurrentStep(step + 1);
   };
 
   const drawerSteps = drawer.map((eachDrawer, i) => {
     return <Form3 index={i} key={i} drawerName={eachDrawer} currentStep={currentStep} card={card} handleForm={handleForm} />;
   });
+
+  if(redirect) return <Redirect to="/home" />;
 
   return (
     isShowing ? ReactDOM.createPortal(

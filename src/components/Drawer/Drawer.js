@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Drawer.css';
 import icon from '../../assets/temp-icon-black.png';
 import cardIcon from '../../assets/temp-icon.png';
+import { getCards } from '../../selectors/homeSelectors';
 
 
-const Drawer = ({ name, cards }) => {
+const Drawer = ({ name, index }) => {
   const [open, setOpen] = useState(false);
+  const cards = useSelector(state => getCards(state, index));
 
   const mappedCards = cards.map((card, i) => {
     return <div key={i}>
