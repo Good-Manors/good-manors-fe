@@ -1,22 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header/Header';
 import Menu from '../components/Menu';
 import DrawerList from '../components/Drawer/DrawerList';
-import sampleData from '../assets/sampleData';
 import styles from './HomePage.css';
+import { getDrawers } from '../selectors/homeSelectors';
+import { getFirstHome } from '../services/homes';
+import { setHome } from '../actions/homeActions';
+import Search from '../components/Search';
 
-const drawers = sampleData.drawers;
 
 const HomePage = () => {
+
+  const dispatch = useDispatch();
+  const drawers = useSelector(getDrawers);
+
+
+  useEffect(() => {
+    getFirstHome()
+      .then(home => {
+        dispatch(setHome(home));
+      });
+  }, []);
+
+
 
   return (
     <section id='home-page-wrapper' className={styles.HomePageWrapper}>
       <Header />
       <Menu />
+      <Search />
       <section className={styles.DrawerListWrapper}>
-        <DrawerList drawers={drawers} />
+        <DrawerList drawers={drawers || []} />
       </section>
-      
+
     </section>
   );
 

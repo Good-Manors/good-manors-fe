@@ -9,7 +9,7 @@ const UserForm = ({ buttonText, handleSubmit }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  if(sessionId) return <Redirect to="/" />;
+  if(sessionId) return <Redirect to="/home" />;
 
   return (
     <form onSubmit={event => handleSubmit(event, username, password)}>
