@@ -9,11 +9,11 @@ const ImageEdit = () => {
     <form onSubmit={event => {
       event.preventDefault();
       fileReader(file)
-        .then(result => { 
+        .then(result => {
           return uploadImageToCloudinary(result);
         })
-        .then(res => {
-          console.log(res);
+        .then(result => {
+          console.log(result);
         });
     }}>
       <input type="file" id="input" onChange={({ target }) => { setFile(target.files[0]); }} />

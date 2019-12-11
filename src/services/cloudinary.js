@@ -4,7 +4,13 @@ function uploadImageToCloudinary(image) {
   let fd = new FormData();
   fd.append('upload_preset', 'devdev');
   fd.append('file', image);
-  return fetch(URL, { method: 'POST', body: fd });
+  return fetch(URL, { method: 'POST', body: fd })
+    .then(res => {
+      if(!res.ok){
+        throw `Unable to fetch from ${URL}`;
+      }
+      return res.json();
+    });
 }
 
 export default uploadImageToCloudinary;
