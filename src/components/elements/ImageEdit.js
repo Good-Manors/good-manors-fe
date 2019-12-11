@@ -22,7 +22,7 @@ const ImageEdit = () => {
         });
     }}>
       <input type="file" id="input" onChange={({ target }) => { setFile(target.files[0]); }} />
-      <img src={uploadedImage || placeholderImage} ></img>
+      <img src={uploadedImage || placeholderImage}/>
       <button>Submit</button>
     </form>
   );
