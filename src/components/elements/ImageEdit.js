@@ -5,8 +5,8 @@ import fileReader from '../../services/readFile';
 const ImageEdit = () => {
   const [file, setFile] = useState();
   const [returnUrl, setReturnUrl] = useState();
-  
-  const uploadedImage = returnUrl || '../../assets/blank-file.png';
+
+  const uploadedImage = '../../assets/blank-file.png';
 
   return (
     <form onSubmit={event => {
@@ -16,8 +16,9 @@ const ImageEdit = () => {
           return uploadImageToCloudinary(result);
         })
         .then(result => {
-          console.log(result.url);
-          returnUrl = result.file;
+          console.log(result);
+          // result.delete_token <-- This token allows us to delete images from the front end.
+          // returnUrl = result.file;
         });
     }}>
       <input type="file" id="input" onChange={({ target }) => { setFile(target.files[0]); }} />
