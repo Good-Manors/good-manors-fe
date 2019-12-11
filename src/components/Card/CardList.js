@@ -8,11 +8,15 @@ const CardList = () => {
   const cards = house.drawers[0].cards;
 
   const mappedCards = cards.map((card, i) => {
-    return <Card key={i} {...card} />;
+    return <Card key={i} {...card} addElement={addElement} />;
   });
 
   const addNewCard = () => {
     console.log('add new card');
+  };
+
+  const addElement = () => {
+    console.log('Add new Element');
   };
 
 

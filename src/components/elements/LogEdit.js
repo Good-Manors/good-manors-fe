@@ -6,7 +6,7 @@ const LogEdit = ({ logEntries }) => {
   const [newLog, setNewLog] = useState('');
 
   const deleteItem = (i) => {
-    
+    console.log(`deleted ${i}`);
   };
 
   const addLog = () => {
@@ -15,10 +15,10 @@ const LogEdit = ({ logEntries }) => {
 
   const displayedEntries = logEntries.map((entry, i) => {
     return (
-      <>
-        <p key={i}>{entry}</p><button onClick={() => deleteItem(i)}>X</button>
+      <div key={i}>
+        <p>{entry}</p><button onClick={() => deleteItem(i)}>X</button>
         <hr />
-      </>
+      </div>
     );
   });
 

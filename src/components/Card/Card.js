@@ -4,7 +4,7 @@ import Text from '../elements/Text';
 import TextEdit from '../elements/TextEdit';
 import KeyValue from '../elements/KeyValue';
 import Image from '../elements/Image';
-import ImageEdit from '../elements/Image';
+import ImageEdit from '../elements/ImageEdit';
 import Log from '../elements/Log';
 import KeyValueEdit from '../elements/KeyValueEdit';
 import LogEdit from '../elements/LogEdit';
@@ -17,7 +17,7 @@ const type = sampleData.drawers[0].cards[0].type;
 const content = sampleData.drawers[0].cards[0].content;
 
 
-const Card = () => {
+const Card = (addElement) => {
 
   const [editMode, setEditMode] = useState(false);
 
@@ -48,11 +48,12 @@ const Card = () => {
   });
 
   const mappedEditElements = content.map((element, i) => {
-    if(element[0] === 'text') return <TextEdit text={element[1]} index={i} handleChange={handleChange} />;
-    if(element[0] === 'key-value') return <KeyValueEdit entryKey={element[1][0]} value={element[1][1]} index={i} handleChange={handleChange} />;
-    if(element[0] === 'image') return <ImageEdit image={element[1]} index={i} />;
-    if(element[0] === 'log') return <LogEdit logEntries={element[1]} index={i} />;
+    if(element[0] === 'text') return <TextEdit text={element[1]} index={i} handleChange={handleChange} key={i} />;
+    if(element[0] === 'key-value') return <KeyValueEdit entryKey={element[1][0]} value={element[1][1]} index={i} handleChange={handleChange} key={i} />;
+    if(element[0] === 'image') return <ImageEdit image={element[1]} index={i} key={i} />;
+    if(element[0] === 'log') return <LogEdit logEntries={element[1]} index={i} key={i} />;
   });
+
 
   return (
     editMode ?
@@ -64,7 +65,7 @@ const Card = () => {
           </section>
           {mappedEditElements}
           <button onClick={updateCard}>Save Changes</button>
-          <button onClick={addElement}>Add Element</button>
+          <button onClick={addElement}>+ New Field</button>
         </div>
       </>
       :
@@ -86,6 +87,7 @@ Card.propTypes = {
   name: PropTypes.string,
   type: PropTypes.string,
   content: PropTypes.array,
+  addElement: PropTypes.func
 };
 
 export default Card;

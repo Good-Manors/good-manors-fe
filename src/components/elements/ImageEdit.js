@@ -1,26 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-const cloudName = 'good-manors';
+// import PropTypes from 'prop-types';
+import uploadImageToCloudinary from '../../services/cloudinary';
 
-function uploadFile(file) {
-  var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
-  var xhr = new XMLHttpRequest();
-  var fd = new FormData();
-  xhr.open('POST', url, true);
-  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-}
+// let fd = new FormData();
 
 
-const ImageEdit = ({ image }) => {
+const ImageEdit = () => {
 
   return (
-    <input type="file" src={image} onSubmit={uploadFile} />
+    <>
+      <input type="file"  />
+      <button onSubmit={uploadImageToCloudinary}>Submit</button>
+    </>
   );
 
-};
-
-Image.propTypes = {
-  image: PropTypes.string,
 };
 
 export default ImageEdit;

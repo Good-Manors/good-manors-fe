@@ -5,10 +5,10 @@ const Log = ({ logEntries }) => {
 
   const displayedEntries = logEntries.map((entry, i) => {
     return (
-      <>
-        <p key={i}>{entry}</p>
+      <div key={i}>
+        <p >{entry}</p>
         <hr />
-      </>
+      </div>
     );
   });
 
