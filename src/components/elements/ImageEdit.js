@@ -1,21 +1,23 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import uploadImageToCloudinary from '../../services/cloudinary';
-
-// let fd = new FormData();
-const upload = new File();
-
+import fileReader from '../../services/readFile';
 
 const ImageEdit = () => {
+  const [file, setFile] = useState();
 
   return (
-    <>
-      <input type="file" value={upload} />
-      <button onSubmit={() => {
-        uploadImageToCloudinary(),
-          console.log(upload);
-      }}>Submit</button>
-    </>
+    <form onSubmit={() => {
+      fileReader(file)
+        .then(result => {
+          uploadImageToCloudinary(result);
+        })
+        .then(res => {
+          console.log(res);
+        });
+    }}>
+      <input type="file" id="input" onChange={({ target }) => { setFile(target.files[0]); }} />
+      <button>Submit</button>
+    </form>
   );
 
 };
