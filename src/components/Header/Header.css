@@ -1,6 +1,6 @@
 .Header {
   grid-area: header;
-  background:url(../../assets/cat-yard.jpg);
+  background:url(../../assets/img-vertical/cat-yard-vert.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

@@ -12,7 +12,7 @@
 .CardListWrapper {
   display: flex;
   flex-direction: column;
-  height: 82vh;
+  height: 100vh;
   align-content: center;
   overflow: auto;
   margin: 2em 1em;

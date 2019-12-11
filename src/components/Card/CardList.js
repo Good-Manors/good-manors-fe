@@ -17,13 +17,15 @@ const CardList = () => {
 
 
   return (
-    <section className={styles.CardList}>
-      <h2>{house.drawers[0].name}</h2>
-      <button className={styles.CardButton} onClick={addNewCard}>+ New Card</button>
-      <section>
-        {mappedCards}
+    <>
+      <h2 className={styles.DrawerName}>{house.drawers[0].name}</h2>
+      <section className={styles.CardList}>
+        <button className={styles.CardButton} onClick={addNewCard}>+ New Card</button>
+        <div>
+          {mappedCards}
+        </div>
       </section>
-    </section>
+    </>
   );
 };
 
