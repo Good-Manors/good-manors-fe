@@ -51,7 +51,7 @@ const Card = ({ name, type, content, id }) => {
   const mappedEditElements = content.map((element, i) => {
     if(element[0] === 'text') return <TextEdit key={i} title={element[1]} text={element[2]} index={i} handleChange={handleChange} />;
     if(element[0] === 'key-value') return <KeyValueEdit key={i} entryKey={element[1][0]} value={element[1][1]} index={i} handleChange={handleChange} />;
-    if(element[0] === 'image') return <Image key={i} image={element[1]} index={i} />;
+    if(element[0] === 'image') return <ImageEdit key={i} image={element[1]} index={i} />;
     if(element[0] === 'log') return <LogEdit key={i} title={element[1]} logEntries={element[2]} index={i} />;
   });
 
