@@ -5,9 +5,9 @@ const KeyValueEdit = ({ entryKey, value, handleChange }) => {
 
 
   return (
-    <>
-      <p>{entryKey}: <input type='text' name='value' value={value} onChange={handleChange} /></p>
-    </>
+
+    <p>{entryKey}: <input type='text' name='value' value={value} onChange={handleChange} /></p>
+
 
   );
 

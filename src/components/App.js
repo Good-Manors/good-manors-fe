@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSessionId, getSessionLoading } from '../selectors/sessionSelectors';
@@ -48,7 +48,7 @@ function App() {
           <PrivateRoute exact path='/' component={UserDash} />
           <Route path='/card' component={Card} />
           <Route path='/auth' component={AuthPage} />
-          <Route path='/cards' component={DrawerPage} />
+          <Route path='/cards/:drawerId' component={DrawerPage} />
           <Route path='/home' component={HomePage} />
         </Switch>
       </Router>

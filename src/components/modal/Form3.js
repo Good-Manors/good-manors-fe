@@ -12,7 +12,6 @@ const Form3 = ({ currentStep, index, drawerName, card, skipModal, handleForm }) 
 
         <form>
           <input type="checkbox" name={card} value="Appliance" /> Appliance
-          <input type="checkbox" name={card} value="Structure" /> Structure
           <input type="checkbox" name={card} value="Material" /> Material
           <input type="checkbox" name={card} value="Paint" /> Paint
           <input type="checkbox" name={card} value="Utility" /> Utility

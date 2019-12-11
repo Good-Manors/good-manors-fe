@@ -1,21 +1,18 @@
 import React from 'react';
-import { useSelector} from 'react-redux';
 import Drawer from './Drawer';
 import PropTypes from 'prop-types';
 import styles from './DrawerList.css';
-import { getDrawers } from '../../selectors/homeSelectors';
 
 
 const DrawerList = ({ drawers }) => {
-
-  console.log(drawers);
 
   const addDrawer = () => {
     console.log('add drawer');
   };
 
   const mappedDrawers = drawers.map((drawer, i) => {
-    return <Drawer key={i} name={drawer.name} index={i} />;
+    console.log(drawer);
+    return <Drawer key={i} name={drawer.name} id={drawer._id} index={i} />;
   });
 
   return (

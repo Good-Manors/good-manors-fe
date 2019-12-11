@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Drawer.css';
@@ -7,15 +8,16 @@ import cardIcon from '../../assets/temp-icon.png';
 import { getCards } from '../../selectors/homeSelectors';
 
 
-const Drawer = ({ name, index }) => {
+const Drawer = ({ name, index, id }) => {
   const [open, setOpen] = useState(false);
   const cards = useSelector(state => getCards(state, index));
 
   const mappedCards = cards.map((card, i) => {
-    return <div key={i}>
-      <p><img src={cardIcon} /> {card.name}</p>
-      {/* <img src={card.type} /> */}
-    </div>;
+    return <Link key={i} to={`/cards/${id}#${card._id}`}>
+      <div>
+        <p><img src={cardIcon} /> {card.name}</p>
+        {/* <img src={card.type} /> */}
+      </div></Link>;
   });
 
   return (
@@ -39,7 +41,9 @@ const Drawer = ({ name, index }) => {
 
 Drawer.propTypes = {
   name: PropTypes.string,
-  cards: PropTypes.array
+  cards: PropTypes.array,
+  index: PropTypes.number,
+  id: PropTypes.string
 };
 
 export default Drawer;

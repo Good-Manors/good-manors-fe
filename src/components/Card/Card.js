@@ -7,16 +7,13 @@ import Image from '../elements/Image';
 import Log from '../elements/Log';
 import KeyValueEdit from '../elements/KeyValueEdit';
 import LogEdit from '../elements/LogEdit';
-import sampleData from '../../assets/sampleData';
 import styles from './Card.css';
 import tempIcon from '../../assets/temp-icon.png';
-
-const name = sampleData.drawers[0].cards[0].name;
-const type = sampleData.drawers[0].cards[0].type;
-const content = sampleData.drawers[0].cards[0].content;
+import { updateCard } from '../../services/homes';
 
 
-const Card = () => {
+
+const Card = ({ name, type, content, id }) => {
 
   const [editMode, setEditMode] = useState(false);
 
@@ -35,39 +32,47 @@ const Card = () => {
     target.name = target.value;
   };
 
-  const updateCard = () => {
+  const handleUpdateCard = () => {
+    const body = {
+      name: name,
+      type: type,
+      content: content
+    };
+    updateCard(id, body);
     console.log('updated card');
   };
 
   const mappedDisplayElements = content.map((element, i) => {
-    if(element[0] === 'text') return <Text key={i} text={element[1]} index={i} />;
+    if(element[0] === 'text') return <Text key={i} title={element[1]} text={element[2]} index={i} />;
     if(element[0] === 'key-value') return <KeyValue key={i} entryKey={element[1][0]} value={element[1][1]} index={i} />;
     if(element[0] === 'image') return <Image key={i} image={element[1]} index={i} />;
-    if(element[0] === 'log') return <Log key={i} logEntries={element[1]} index={i} />;
+    if(element[0] === 'log') return <Log key={i} title={element[1]} logEntries={element[2]} index={i} />;
   });
 
   const mappedEditElements = content.map((element, i) => {
-    if(element[0] === 'text') return <TextEdit key={i} text={element[1]} index={i} handleChange={handleChange} />;
+    if(element[0] === 'text') return <TextEdit key={i} title={element[1]} text={element[2]} index={i} handleChange={handleChange} />;
     if(element[0] === 'key-value') return <KeyValueEdit key={i} entryKey={element[1][0]} value={element[1][1]} index={i} handleChange={handleChange} />;
     if(element[0] === 'image') return <Image key={i} image={element[1]} index={i} />;
-    if(element[0] === 'log') return <LogEdit key={i} logEntries={element[1]} index={i} />;
+    if(element[0] === 'log') return <LogEdit key={i} title={element[1]} logEntries={element[2]} index={i} />;
   });
+
 
   return (
     editMode ?
       <>
-        <div className={styles.CardEdit}>
+        <div className={styles.Card}>
           <section>
-            <h3>{name}</h3>
+            <p>Card Title: <input type="text" name='name' value={name} onChange={handleChange} /></p>
             <img src={tempIcon} />
           </section>
           {mappedEditElements}
-          <button onClick={updateCard}>Save Changes</button>
+          <button onClick={handleUpdateCard}>Save Changes</button>
         </div>
       </>
       :
       <>
         <div className={styles.Card}>
+          <a name={id}></a>
           <section>
             <h3>{name}</h3>
             <img src={tempIcon} />
