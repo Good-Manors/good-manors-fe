@@ -11,6 +11,8 @@ import LogEdit from '../elements/LogEdit';
 import styles from './Card.css';
 import tempIcon from '../../assets/temp-icon.png';
 // import { updateCard } from '../../services/homes';
+import uploadImageToCloudinary from '../../services/cloudinary';
+import fileReader from '../../services/readFile';
 
 const Card = ({ name, type, content, id, edit }) => {
 
@@ -73,6 +75,22 @@ const Card = ({ name, type, content, id, edit }) => {
     }));
   };
 
+  const handleImageUpload = event => {
+    event.preventDefault();
+
+    let file = event.target;
+
+    fileReader(file)
+      .then(result => {
+        return uploadImageToCloudinary(result);
+      })
+      .then(result => {
+        console.log(result);
+        // result.delete_token <-- This token allows us to delete images from the front end.
+        // returnUrl = result.url;
+      });
+  };
+
   // [ ['key-value',['key','']] , ['log', title, []] , ['text', title, ''] , ['image', ''] ]
 
 
@@ -88,6 +106,8 @@ const Card = ({ name, type, content, id, edit }) => {
           return [element[0], element[1], target.value];
         case 'key-value':
           return [element[0], [element[1][0], target.value]];
+        case 'image':
+          return [element[1], target.value];
         default:
           break;
       }
@@ -125,6 +145,7 @@ const Card = ({ name, type, content, id, edit }) => {
       return <ImageEdit
         key={i}
         index={i}
+        handleImageUpload={handleImageUpload}
         image={element[1]}
       />;
   });
@@ -133,8 +154,9 @@ const Card = ({ name, type, content, id, edit }) => {
     if(element[0] === 'text') return <Text key={i} title={element[1]} text={element[2]} index={i} />;
     if(element[0] === 'key-value') return <KeyValue key={i} entryKey={element[1][0]} value={element[1][1]} index={i} />;
     if(element[0] === 'log') return <Log key={i} title={element[1]} logEntries={element[2]} index={i} />;
+    if(element[0] === 'image') return <Image key={i} image={element[1]} index={i} />;
   });
-  
+
   return (
     editMode ?
       <>
