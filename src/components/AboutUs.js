@@ -1,19 +1,15 @@
 import React from 'react';
 import styles from './AboutUs.css';
-import Angela from '../assets/angela.png';
-import Allison from '../assets/allison.jpg';
-import Luke from '../assets/luke.jpg';
-import John from '../assets/john.jpg';
 
 export default function AboutUs() {
   return (
     <section className={styles.AboutUs}>
       <h1>Meet our team</h1>
 
-      <ul className="ch-grid">
+      <ul className={styles.chGrid}>
         <li>
-          <div className="ch-item ">
-            <div className="ch-info ch-img-1">
+          <div className={styles.chItem}>
+            <div className={styles.chInfo, styles.chImg1}>
               <h3>
                 Angela Vawser</h3>
               <p>description</p>
@@ -23,8 +19,8 @@ export default function AboutUs() {
         </li>
 
         <li>
-          <div className="ch-item ">
-            <div className="ch-info ch-img-2">
+          <div className={styles.chItem}>
+            <div className={styles.chInfo, styles.chImg2}>
               <h3>
                 Allison Busse</h3>
               <p>description</p>
@@ -34,8 +30,8 @@ export default function AboutUs() {
         </li>
 
         <li>
-          <div className="ch-item ">
-            <div className="ch-info ch-img-3">
+          <div className={styles.chItem}>
+            <div className={styles.chInfo, styles.chImg3}>
               <h3>
                 Luke Donahue</h3>
               <p>description</p>
@@ -45,8 +41,8 @@ export default function AboutUs() {
         </li>
 
         <li>
-          <div className="ch-item ">
-            <div className="ch-info ch-img-4">
+          <div className={styles.chItem}>
+            <div className={styles.chInfo, styles.chImg4}>
               <h3>
                 John Nelson</h3>
               <p>description</p>
