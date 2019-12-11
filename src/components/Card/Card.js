@@ -17,16 +17,16 @@ const Card = ({ name, type, content, id }) => {
 
   const [editMode, setEditMode] = useState(false);
 
-  const icons = {
-    plant: '',
-    paint: '',
-    appliance: '',
-    utility: '',
-    structure: '',
-    material: '',
-    contact: '',
-    pet: ''
-  };
+  // const icons = {
+  //   plant: '',
+  //   paint: '',
+  //   appliance: '',
+  //   utility: '',
+  //   structure: '',
+  //   material: '',
+  //   contact: '',
+  //   pet: ''
+  // };
 
   const handleChange = ({ target }) => {
     target.name = target.value;
@@ -86,6 +86,7 @@ const Card = ({ name, type, content, id }) => {
 };
 
 Card.propTypes = {
+  id: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.string,
   content: PropTypes.array,
