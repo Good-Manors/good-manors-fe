@@ -13,7 +13,6 @@ export const postDrawer = (name, home) => post(`${BASE_URL}/drawers`,
 
 export const getHomeDrawers = (homeId) => get(`${BASE_URL}/drawers/home/${homeId}`);
 
-
 export const postCard = (name, type, drawer) => post(`${BASE_URL}/cards`,
   { name: name, type: type, drawer: drawer });
 
