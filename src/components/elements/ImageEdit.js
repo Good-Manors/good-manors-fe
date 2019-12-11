@@ -3,14 +3,18 @@ import React from 'react';
 import uploadImageToCloudinary from '../../services/cloudinary';
 
 // let fd = new FormData();
+const upload = new File();
 
 
 const ImageEdit = () => {
 
   return (
     <>
-      <input type="file"  />
-      <button onSubmit={uploadImageToCloudinary}>Submit</button>
+      <input type="file" value={upload} />
+      <button onSubmit={() => {
+        uploadImageToCloudinary(),
+          console.log(upload);
+      }}>Submit</button>
     </>
   );
 

@@ -4,6 +4,7 @@ function uploadImageToCloudinary(image) {
   let fd = new FormData();
   // fd.append('upload_preset', config.uploadPreset);
   fd.append('file', image);
+  console.log(image);
   return fetch(URL, { method: 'POST', body: fd });
 }
 
