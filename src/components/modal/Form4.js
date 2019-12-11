@@ -3,14 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Form4 = ({ currentStep, drawer, handleFormSubmit }) => {
-  console.log('currentStep: ', currentStep, 'drawer.length: ', drawer.length);
 
   if(currentStep !== 3 + drawer.length) return null;
 
   return (
     <>
       <h2>Thanks! We've set up a home for you based on your answers.</h2>
-      <button onClick={() => handleFormSubmit(currentStep)}>Next</button>
+      <button onClick={() => handleFormSubmit(currentStep)}>Finish</button>
     </>
   );
 };

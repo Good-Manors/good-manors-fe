@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Log = ({ logEntries }) => {
+const Log = ({ logEntries, title }) => {
 
   const displayedEntries = logEntries.map((entry, i) => {
     return (
@@ -13,16 +13,17 @@ const Log = ({ logEntries }) => {
   });
 
   return (
-    <>
-      <h4>Activity Log</h4>
+    <div>
+      <h4>{title}</h4>
       {displayedEntries}
-    </>
+    </div>
   );
 
 };
 
 Log.propTypes = {
-  logEntries: PropTypes.array
+  logEntries: PropTypes.array,
+  title: PropTypes.string
 };
 
 export default Log;

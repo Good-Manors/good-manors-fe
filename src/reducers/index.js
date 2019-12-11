@@ -3,5 +3,6 @@ import session from './sessionReducer';
 import homes from './homeReducer';
 
 export default combineReducers({
-  session
+  session,
+  homes
 });

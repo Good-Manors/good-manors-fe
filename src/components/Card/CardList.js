@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import useModal from '../../hooks/useModal';
 import Card from './Card';
-import house from '../../assets/sampleData';
 import styles from './CardList.css';
+import PropTypes from 'prop-types';
+import { getCardsByDrawer } from '../../selectors/homeSelectors';
+import { getFirstHome } from '../../services/homes';
+import { setHome } from '../../actions/homeActions';
+import NewCardModal from './NewCardModal';
 
-const CardList = () => {
 
-  const cards = house.drawers[0].cards;
+const CardList = ({ drawer }) => {
+
+  const { isShowing, toggle } = useModal();
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    getFirstHome()
+      .then(home => {
+        dispatch(setHome(home));
+      });
+  }, []);
+
+  const cards = useSelector(state => getCardsByDrawer(state, drawer));
 
   const mappedCards = cards.map((card, i) => {
     return <Card key={i} {...card} addElement={addElement} />;
   });
 
-  const addNewCard = () => {
-    console.log('add new card');
-  };
+
 
   const addElement = () => {
     console.log('Add new Element');
@@ -22,13 +38,18 @@ const CardList = () => {
 
   return (
     <section className={styles.CardList}>
-      <h2>{house.drawers[0].name}</h2>
-      <button className={styles.CardButton} onClick={addNewCard}>+ New Card</button>
+      <h2>{drawer.name}</h2>
+      <button className={styles.CardButton} onClick={toggle}>+ New Card</button>
+      <NewCardModal isShowing={isShowing} hide={toggle} drawer={drawer} />
       <section>
         {mappedCards}
       </section>
     </section>
   );
+};
+
+CardList.propTypes = {
+  drawer: PropTypes.object
 };
 
 export default CardList;

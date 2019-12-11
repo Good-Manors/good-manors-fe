@@ -70,7 +70,7 @@
 
 .SignupLogin::before {
   content: "";
-  background: url('../../assets/livingRoom.jpg');
+  background: url('../../assets/img-horizontal/livingRoom.jpg');
   position: absolute;
   top: 0;
   bottom: 0;

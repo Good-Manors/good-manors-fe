@@ -3,6 +3,7 @@ import Drawer from './Drawer';
 import PropTypes from 'prop-types';
 import styles from './DrawerList.css';
 
+
 const DrawerList = ({ drawers }) => {
 
   const addDrawer = () => {
@@ -10,7 +11,8 @@ const DrawerList = ({ drawers }) => {
   };
 
   const mappedDrawers = drawers.map((drawer, i) => {
-    return <Drawer key={i} name={drawer.name} cards={drawer.cards} />;
+    console.log(drawer);
+    return <Drawer key={i} name={drawer.name} id={drawer._id} index={i} />;
   });
 
   return (
