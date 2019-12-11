@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const LogEdit = ({ logEntries, title }) => {
+const LogEdit = ({ logEntries, title, index, handleAddLogEntry, handleRemoveLogEntry, handleLogEntryChange }) => {
 
-  const [newLog, setNewLog] = useState('');
+  console.log('logEntries: ', logEntries);
 
-  const deleteItem = (i) => {
-    
-  };
-
-  const addLog = () => {
-    console.log('log added');
-  };
-
-  const displayedEntries = logEntries.map((entry, i) => {
+  const entries = logEntries.map((entry, i) => {
     return (
       <div key={i}>
-        <p>{entry}</p><button onClick={() => deleteItem(i)}>X</button>
+        <input 
+          data-index={index} 
+          data-entry-index={i}
+          value={entry} 
+          onChange={handleLogEntryChange} 
+        />
+        <button data-index={index} data-entry-index={i} onClick={handleRemoveLogEntry}>X</button>
         <hr />
       </div>
     );
@@ -25,15 +23,20 @@ const LogEdit = ({ logEntries, title }) => {
   return (
     <div>
       <h4>{title}</h4>
-      {displayedEntries}
-      <input type='text' value={newLog} onChange={() => setNewLog(event.target.value)} /><button onClick={addLog}>Add New</button>
+      {entries}
+      <button data-index={index} onClick={handleAddLogEntry}>Add New</button>
     </div>
   );
 
 };
 
 LogEdit.propTypes = {
-  logEntries: PropTypes.array
+  title: PropTypes.string,
+  logEntries: PropTypes.array,
+  index: PropTypes.number,
+  handleAddLogEntry: PropTypes.func,
+  handleRemoveLogEntry: PropTypes.func,
+  handleLogEntryChange: PropTypes.func
 };
 
 export default LogEdit;

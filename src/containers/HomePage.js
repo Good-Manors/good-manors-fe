@@ -15,15 +15,12 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const drawers = useSelector(getDrawers);
 
-
   useEffect(() => {
     getFirstHome()
       .then(home => {
         dispatch(setHome(home));
       });
   }, []);
-
-
 
   return (
     <section id='home-page-wrapper' className={styles.HomePageWrapper}>

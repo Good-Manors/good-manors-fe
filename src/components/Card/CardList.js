@@ -15,7 +15,6 @@ const CardList = ({ drawer }) => {
   const { isShowing, toggle } = useModal();
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     getFirstHome()
       .then(home => {
@@ -26,15 +25,8 @@ const CardList = ({ drawer }) => {
   const cards = useSelector(state => getCardsByDrawer(state, drawer));
 
   const mappedCards = cards.map((card, i) => {
-    return <Card key={i} {...card} addElement={addElement} />;
+    return <Card key={i} {...card} edit={false} />;
   });
-
-
-
-  const addElement = () => {
-    console.log('Add new Element');
-  };
-
 
   return (
     <section className={styles.CardList}>
@@ -49,7 +41,7 @@ const CardList = ({ drawer }) => {
 };
 
 CardList.propTypes = {
-  drawer: PropTypes.object
+  drawer: PropTypes.string
 };
 
 export default CardList;
