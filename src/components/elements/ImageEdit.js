@@ -6,10 +6,11 @@ const ImageEdit = () => {
   const [file, setFile] = useState();
 
   return (
-    <form onSubmit={() => {
+    <form onSubmit={event => {
+      event.preventDefault();
       fileReader(file)
-        .then(result => {
-          uploadImageToCloudinary(result);
+        .then(result => { 
+          return uploadImageToCloudinary(result);
         })
         .then(res => {
           console.log(res);
