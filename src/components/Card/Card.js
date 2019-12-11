@@ -11,8 +11,6 @@ import styles from './Card.css';
 import tempIcon from '../../assets/temp-icon.png';
 import { updateCard } from '../../services/homes';
 
-
-
 const Card = ({ name, type, content, id }) => {
 
   const [editMode, setEditMode] = useState(false);
