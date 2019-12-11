@@ -15,7 +15,8 @@ const Drawer = ({ name, index, id }) => {
   const mappedCards = cards.map((card, i) => {
     return <Link key={i} to={`/cards/${id}#${card._id}`}>
       <div>
-        <p><img src={cardIcon} /> {card.name}</p>
+        <img src={cardIcon} />
+        <p>{card.name}</p>
         {/* <img src={card.type} /> */}
       </div></Link>;
   });

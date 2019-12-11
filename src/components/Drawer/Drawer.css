@@ -19,6 +19,7 @@
       text-transform: uppercase;
       letter-spacing: .07em;
       color: black;
+      margin: 10px 20px 10px 10px;
     }
 
     .dropButton {
@@ -55,19 +56,28 @@
     transition: max-height 0.3s;
     background: white;
     margin: -20px 40px 20px 40px;
-    justify-content: center;
+    justify-content: left;
   }
 
   .open{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-height: 9rem;
     padding: 15px;
+
+    div {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      padding: 5px 15px;
+      margin: 5px 10px;
+      border: 5px solid #d58ac3;
+    }
 
     img {
       width: 27px;
       height: 35px;
+      margin-right: 10px;
     }
 
     p {
@@ -76,9 +86,6 @@
       font-size: 1.1em;
       letter-spacing: .07em;
       color: #d58ac3;
-      padding: 5px 15px;
-      margin: 5px 10px;
-      border: 5px solid #d58ac3;
     }
 
   }

@@ -7,7 +7,7 @@ import styles from './DrawerPage.css';
 import CardList from '../components/Card/CardList';
 import { getFirstHome } from '../services/homes';
 import { setHome } from '../actions/homeActions';
-import { getCardsByDrawer } from '../selectors/homeSelectors';
+import { getDrawers } from '../selectors/homeSelectors';
 
 
 
@@ -17,7 +17,11 @@ const DrawerPage = () => {
 
 
   const { drawerId } = useParams();
-  console.log('params from drawerpage', drawerId);
+  const drawers = useSelector(getDrawers);
+  let drawerName;
+  for(let i = 0; i < drawers.length; i++) {
+    if(drawers[i]._id === drawerId) drawerName = drawers[i].name;
+  }
 
   useEffect(() => {
     getFirstHome()
@@ -31,6 +35,7 @@ const DrawerPage = () => {
       <Header />
       <Menu />
       <section className={styles.CardListWrapper}>
+        <h2>{drawerName}</h2>
         <CardList drawer={drawerId || ''} />
       </section>
     </section>

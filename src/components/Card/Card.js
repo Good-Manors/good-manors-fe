@@ -40,6 +40,8 @@ const Card = ({ name, type, content, id }) => {
     console.log('updated card');
   };
 
+  console.log(content);
+
   const mappedDisplayElements = content.map((element, i) => {
     if(element[0] === 'text') return <Text key={i} title={element[1]} text={element[2]} index={i} />;
     if(element[0] === 'key-value') return <KeyValue key={i} entryKey={element[1][0]} value={element[1][1]} index={i} />;
