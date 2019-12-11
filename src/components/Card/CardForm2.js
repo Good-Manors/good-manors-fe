@@ -6,11 +6,9 @@ import Card from './Card';
 const CardForm2 = ({ name, type, cardContent, currentStep, handleChange, handleForm }) => {
   if(currentStep !== 2) return null;
 
-
-
   return (
     <>
-      <Card type={type} name={name} content={cardContent} />
+      <Card type={type} name={name} content={cardContent} edit={true}/>
       <button onClick={() => handleForm(currentStep) }>Next</button>
     </>
   );
