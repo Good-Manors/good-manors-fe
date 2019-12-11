@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Text from '../elements/Text';
 import TextEdit from '../elements/TextEdit';
@@ -9,13 +10,15 @@ import KeyValueEdit from '../elements/KeyValueEdit';
 import LogEdit from '../elements/LogEdit';
 import styles from './Card.css';
 import tempIcon from '../../assets/temp-icon.png';
-// import { updateCard } from '../../services/homes';
+import { updateCard } from '../../services/homes';
+import { setHome } from '../../actions/homeActions'; 
 
-const Card = ({ name, type, content, id, edit }) => {
+const Card = ({ name, type, content, _id, edit }) => {
 
   const [editMode, setEditMode] = useState(edit);
   const [editedName, setEditedName] = useState(name);
   const [editedContent, setEditedContent] = useState(content);
+  const dispatch = useDispatch();
 
   //localContent will look like 
   // [ ['key-value',['key','']] , ['log', title, []] , ['text', title, ''] , ['image', ''] ]
@@ -72,9 +75,6 @@ const Card = ({ name, type, content, id, edit }) => {
     }));
   };
 
-  // [ ['key-value',['key','']] , ['log', title, []] , ['text', title, ''] , ['image', ''] ]
-
-
   const handleElementChange = ({ target }) => {
     const changedIndex = target.getAttribute('data-index');
 
@@ -91,6 +91,17 @@ const Card = ({ name, type, content, id, edit }) => {
           break;
       }
     }));
+  };
+
+  const handleSaveChanges = () => {
+    
+    updateCard(_id, { name: editedName, content: editedContent, type: type })
+      .then(home => {
+        dispatch(setHome(home));
+      })
+      .then(()=>{
+        setEditMode(false);
+      });
   };
 
   const mappedEditElements = editedContent.map((element, i) => {
@@ -144,13 +155,13 @@ const Card = ({ name, type, content, id, edit }) => {
             <img src={tempIcon} />
           </section>
           {mappedEditElements}
-          <button>Save Changes</button>
+          <button onClick={handleSaveChanges}>Save Changes</button>
         </div>
       </>
       :
       <>
         <div className={styles.Card}>
-          <a name={id}></a>
+          <a name={_id}></a>
           <section>
             <h3>{name}</h3>
             <img src={tempIcon} />
@@ -164,7 +175,7 @@ const Card = ({ name, type, content, id, edit }) => {
 };
 
 Card.propTypes = {
-  id: PropTypes.string,
+  _id: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.string,
   content: PropTypes.array,
