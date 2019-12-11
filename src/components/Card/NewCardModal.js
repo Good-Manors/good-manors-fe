@@ -23,20 +23,20 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
   const handleForm = (step) => {
     const cardType = document.getElementById('card-type').value;
     setCardType(cardType);
-    setCurrentStep(step + 1);
     postCard(cardName, cardType, drawer)
       .then(() => {
         setCardContent(allCards[allCards.length - 1].content);
+        setCurrentStep(step + 1);
       });
   };
 
-  const handleFormSubmit = () => {
-    initializeHome(name, drawer, card)
-      .then(home => {
-        dispatch(setHome(home));
-        hide();
-      });
-  };
+  // const handleFormSubmit = () => {
+  //   initializeHome(name, drawer, card)
+  //     .then(home => {
+  //       dispatch(setHome(home));
+  //       hide();
+  //     });
+  // };
 
 
   return (

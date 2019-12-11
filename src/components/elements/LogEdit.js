@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 const LogEdit = ({ logEntries, title, index, handleAddLogEntry, handleRemoveLogEntry, handleLogEntryChange }) => {
 
-  console.log('logEntries: ', logEntries);
-
   const entries = logEntries.map((entry, i) => {
     return (
       <div key={i}>
