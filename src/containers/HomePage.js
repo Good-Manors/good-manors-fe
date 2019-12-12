@@ -14,7 +14,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const home = useSelector(getHomeInfo);
   let title;
-  if(home) title = home.title;
+  if (home) title = home.title;
 
   const drawers = useSelector(getDrawers);
 
@@ -28,7 +28,7 @@ const HomePage = () => {
   return (
     <section id='home-page-wrapper' className={styles.HomePageWrapper}>
       <Header />
-      <Menu />
+      <Menu handleSubmit={() => { }} />
       <Search home={home} />
       <section className={styles.DrawerListWrapper}>
         <DrawerList drawers={drawers || []} home={home || {}} />

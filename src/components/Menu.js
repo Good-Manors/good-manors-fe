@@ -1,39 +1,76 @@
-// import { slide as Menu } from 'react-burger-menu';
-
-// class Menu extends React.Component {
-//   showSettings(event) {
-//     event.preventDefault();
-//   }
-
-//   render() {
-//     // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
-//     return (
-//       <Menu right>
-//         <a id="home" className="menu-item" href="/">Home</a>
-//         <a id="about" className="menu-item" href="/about">About</a>
-//       </Menu>
-//     );
-//   }
-// }
-
 import React from 'react';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+// import { useSelector } from 'react-redux';
+// import { getSessionUsername } from '../selectors/sessionSelectors';
+import { reveal as Menu } from 'react-burger-menu';
 import styles from './Menu.css';
-import { getSessionUsername } from '../selectors/sessionSelectors';
 
-export default function Menu() {
+const mapStateToProps = (state) => ({
+  username: state.username
+});
 
-  const username = useSelector(getSessionUsername);
+class hamburgerMenu extends React.Component {
+  showSettings(event) {
+    event.preventDefault();
+  }
 
-  return (
-    <div className={styles.Menu}>
-      <h5>hi, {username}</h5>
-      <nav>
-        <Link to="/">Dashboard</Link>
-        <Link to="/home">Home</Link>
-        <Link to="/about-us">About Us</Link>
-      </nav>
-    </div>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuOpen: false
+    };
+  }
+
+  handleStateChange(state) {
+    this.setState({ menuOpen: state.isOpen });
+  }
+
+  closeMenu() {
+    this.setState({ menuOpen: false });
+  }
+
+  render() {
+    return (
+      <>
+        <div className={styles.Menu} id="outer-container">
+          <h5>hi, {this.state.username}</h5>
+          <Menu right reveal width={'200px'} pageWrapId={'page-wrap'} outerContainerId={'outer-container'} isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)}>
+            <Link to="/" onClick={() => this.closeMenu()}>Dashboard</Link>
+            <Link to="/home" onClick={() => this.closeMenu()}>Home</Link>
+            <Link to="/about-us" onClick={() => this.closeMenu()}>About Us</Link>
+          </Menu>
+        </div>
+      </>
+    );
+  }
 }
+
+hamburgerMenu.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
+};
+
+export default connect(mapStateToProps)(hamburgerMenu);
+
+// import React from 'react';
+// import { useSelector } from 'react-redux';
+// import { Link } from 'react-router-dom';
+// import styles from './Menu.css';
+// import { getSessionUsername } from '../selectors/sessionSelectors';
+
+// export default function Menu() {
+
+//   const username = useSelector(getSessionUsername);
+
+//   return (
+//     <div className={styles.Menu}>
+//       <h5>hi, {username}</h5>
+//       <nav>
+//         <Link to="/">Dashboard</Link>
+//         <Link to="/home">Home</Link>
+//         <Link to="/about-us">About Us</Link>
+//       </nav>
+//     </div>
+//   );
+// }

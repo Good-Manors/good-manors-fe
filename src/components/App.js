@@ -16,6 +16,7 @@ import './App.css';
 import HomePage from '../containers/HomePage';
 import AuthPage from './auth/AuthPage';
 import DrawerPage from '../containers/DrawerPage';
+// import loader from '../assets/loader.gif';
 
 const PrivateRoute = ({ ...rest }) => {
   const sessionId = useSelector(getSessionId);
@@ -27,6 +28,8 @@ const PrivateRoute = ({ ...rest }) => {
 
   if(loading) {
     return <h1>Loading...</h1>;
+    // return <img src={loader} alt="Loading..."/>;
+
   }
 
   if(!loading && !sessionId) {
