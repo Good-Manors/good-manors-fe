@@ -1,5 +1,5 @@
 {
-  "name": "hubkeep-fe",
+  "name": "Good-Manors",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -22,7 +22,7 @@
     "build": "webpack -p --devtool source-map"
   },
   "keywords": [],
-  "author": "",
+  "author": "John Nelson, Angela Vawser, Luke Donahue, Allison Busse",
   "license": "ISC",
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.6.0",
