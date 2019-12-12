@@ -12,16 +12,18 @@ import icon from '../assets/icons/custom-drawer-icon.png';
 
 const UserDash = () => {
   const { isShowing, toggle } = useModal();
-  const [userHomes, setHomes] = useState();
+  const [userHomes, setUserHomes] = useState();
   const [redirect, setRedirect] = useState(false);
-
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     getAllHomes()
       .then(homes => {
-        setHomes(homes);
+        if(!homes) {
+          setUserHomes('none');
+        }
+        setUserHomes(homes);
       });
   }, []);
 
@@ -35,8 +37,8 @@ const UserDash = () => {
 
   if(redirect) return <Redirect to='/home' />;
 
-
   if(!userHomes) return <h1>Loading</h1>;
+
   const mappedHomes = userHomes.map(home => {
     return <div className={styles.homeDisplay} key={home._id} onClick={() => handleHomeClick(home._id)}>
       <img src={icon} />
@@ -44,6 +46,7 @@ const UserDash = () => {
     </div>;
   });
 
+  if(userHomes === 'none') toggle();
 
   return (
     <section className={styles.UserDash}>
