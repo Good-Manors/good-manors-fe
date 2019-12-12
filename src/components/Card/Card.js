@@ -11,11 +11,8 @@ import KeyValueEdit from '../elements/KeyValueEdit';
 import LogEdit from '../elements/LogEdit';
 import styles from './Card.css';
 import tempIcon from '../../assets/temp-icon.png';
-// import { updateCard } from '../../services/homes';
-// import uploadImageToCloudinary from '../../services/cloudinary';
-// import fileReader from '../../services/readFile';
 import { updateCard } from '../../services/homes';
-import { setHome } from '../../actions/homeActions'; 
+import { setHome } from '../../actions/homeActions';
 
 const Card = ({ name, type, content, _id, edit }) => {
 
@@ -91,21 +88,28 @@ const Card = ({ name, type, content, _id, edit }) => {
           return [element[0], element[1], target.value];
         case 'key-value':
           return [element[0], [element[1][0], target.value]];
-        case 'image':
-          return [element[1], target.value];
         default:
           break;
       }
     }));
   };
 
+  const handleImageUpload = (url, idx) => {
+    setEditedContent(editedContent.map((element, i)=>{
+      if(idx != i){
+        return element;
+      }
+      return [element[0], url];
+    }));
+  };
+
   const handleSaveChanges = () => {
-    
+
     updateCard(_id, { name: editedName, content: editedContent, type: type })
       .then(home => {
         dispatch(setHome(home));
       })
-      .then(()=>{
+      .then(() => {
         setEditMode(false);
       });
   };
