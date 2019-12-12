@@ -6,7 +6,7 @@ export const postHome = (title) => post(`${BASE_URL}/homes`,
 
 export const getHome = (homeId) => get(`${BASE_URL}/homes/${homeId}`);
 
-export const getFirstHome = () => get(`${BASE_URL}/homes`);
+export const getAllHomes = () => get(`${BASE_URL}/homes`);
 
 export const getDefaultHomeId = () => get(`${BASE_URL}/users/default-home`);
 

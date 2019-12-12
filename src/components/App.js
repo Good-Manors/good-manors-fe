@@ -49,7 +49,7 @@ function App() {
           <PrivateRoute exact path='/' component={UserDash} />
           <PrivateRoute path='/card' component={Card} />
           <Route path='/auth' component={AuthPage} />
-          <PrivateRoute path='/cards/:drawerId' component={DrawerPage} />
+          <PrivateRoute path='/cards/:homeId/:drawerId' component={DrawerPage} />
           <PrivateRoute path='/home' component={HomePage} />
         </Switch>
       </Router>
