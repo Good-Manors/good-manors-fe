@@ -49,8 +49,6 @@ const Drawer = ({ name, index, home, id }) => {
     Pet: petIcon
   };
   
-
-
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
     return <Link key={i} to={`/cards/${home._id}/${id}#${card._id}`}>
@@ -80,6 +78,7 @@ const Drawer = ({ name, index, home, id }) => {
 };
 
 Drawer.propTypes = {
+  home: PropTypes.object,
   name: PropTypes.string,
   cards: PropTypes.array,
   index: PropTypes.number,

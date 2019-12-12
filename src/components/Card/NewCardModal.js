@@ -13,6 +13,7 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
   const [cardName, setCardName] = useState('');
   const [cardType, setCardType] = useState('');
   const [cardContent, setCardContent] = useState([]);
+  const [cardId, setCardId] = useState('');
   const dispatch = useDispatch();
 
   const allCards = useSelector(state => getCardsByDrawer(state, drawer));
@@ -24,20 +25,22 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
     const cardType = document.getElementById('card-type').value;
     setCardType(cardType);
     postCard(cardName, cardType, drawer)
-      .then(() => {
-        setCardContent(allCards[allCards.length - 1].content);
+      .then(card => {
+        console.log(card);
+        setCardId(card._id);
+        setCardContent(card.content);
         setCurrentStep(step + 1);
       });
   };
 
-  // const handleFormSubmit = () => {
-  //   initializeHome(name, drawer, card)
-  //     .then(home => {
-  //       dispatch(setHome(home));
-  //       hide();
-  //     });
-  // };
-
+  const handleFormSubmit = () => {
+    hide();
+    setCurrentStep(1);
+    setCardName('');
+    setCardType('');
+    setCardContent([]);
+    setCardId('');
+  };
 
   return (
     isShowing ? ReactDOM.createPortal(
@@ -52,7 +55,7 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
               </button>
             </div>
             <CardForm1 handleChange={handleChange} handleForm={handleForm} cardName={cardName} currentStep={currentStep} />
-            <CardForm2 name={cardName} type={cardType} cardContent={cardContent} currentStep={currentStep} handleForm={handleForm} />
+            <CardForm2 name={cardName} type={cardType} cardContent={cardContent} currentStep={currentStep} cardId={cardId} handleForm={handleFormSubmit} />
           </div>
         </div>
       </>, document.body
