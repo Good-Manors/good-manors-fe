@@ -1,4 +1,6 @@
 export const getHomeState = state => state.homes;
+export const getHomeInfo = state => state.homes.home;
+export const getHomeName = state => state.homes.home.title;
 export const getDrawers = state => state.homes.drawers;
 export const getSingleDrawer = (state, i) => getHomeState(state).drawers[i];
 
