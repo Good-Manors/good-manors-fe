@@ -25,8 +25,6 @@ const CardList = ({ drawer }) => {
   const cards = useSelector(state => getCardsByDrawer(state, drawer));
 
   const mappedCards = cards.map((card, i) => {
-    console.log(card);
-    
     return <Card key={i} {...card} edit={false} />;
   });
 
