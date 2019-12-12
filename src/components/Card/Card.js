@@ -10,6 +10,15 @@ import LogEdit from '../elements/LogEdit';
 import styles from './Card.css';
 import tempIcon from '../../assets/temp-icon.png';
 import { updateCard } from '../../services/homes';
+import applianceIcon from '../../assets/icons/appliance-icon.png';
+import materialIcon from '../../assets/icons/material-icon.png';
+import paintIcon from '../../assets/icons/paint-icon.png';
+import utilityIcon from '../../assets/icons/utility-icon.png';
+import contactIcon from '../../assets/icons/contact-icon.png';
+import plantIcon from '../../assets/icons/plant-icon.png';
+import petIcon from '../../assets/icons/pet-icon.png';
+import customIcon from '../../assets/icons/custom-card-icon.png';
+
 
 const Card = ({ name, type, content, id }) => {
 
@@ -40,7 +49,6 @@ const Card = ({ name, type, content, id }) => {
     console.log('updated card');
   };
 
-  console.log(content);
 
   const mappedDisplayElements = content.map((element, i) => {
     if(element[0] === 'text') return <Text key={i} title={element[1]} text={element[2]} index={i} />;
@@ -56,6 +64,16 @@ const Card = ({ name, type, content, id }) => {
     if(element[0] === 'log') return <LogEdit key={i} title={element[1]} logEntries={element[2]} index={i} />;
   });
 
+  const cardIcons = {
+    Appliance: applianceIcon,
+    Material: materialIcon,
+    PaintSwatch: paintIcon,
+    Utility: utilityIcon,
+    Contact: contactIcon,
+    Plant: plantIcon,
+    Pet: petIcon
+  };
+
 
   return (
     editMode ?
@@ -63,7 +81,7 @@ const Card = ({ name, type, content, id }) => {
         <div className={styles.Card}>
           <section>
             <p>Card Title: <input type="text" name='name' value={name} onChange={handleChange} /></p>
-            <img src={tempIcon} />
+            <img src={cardIcons[type]} />
           </section>
           {mappedEditElements}
           <button onClick={handleUpdateCard}>Save Changes</button>
@@ -75,7 +93,7 @@ const Card = ({ name, type, content, id }) => {
           <a name={id}></a>
           <section>
             <h3>{name}</h3>
-            <img src={tempIcon} />
+            <img src={cardIcons[type]} />
           </section>
           {mappedDisplayElements}
           <button onClick={() => setEditMode(true)}>Edit</button>
