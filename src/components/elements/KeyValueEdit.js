@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const KeyValueEdit = ({ entryKey, value, handleChange }) => {
+const KeyValueEdit = ({ entryKey, value, handleKeyValueChange, index }) => {
 
 
   return (
 
-    <p>{entryKey}: <input type='text' name='value' value={value} onChange={handleChange} /></p>
+    <p>{entryKey}: <input type='text' name='value' data-index={index} value={value} onChange={handleKeyValueChange} /></p>
 
 
   );
@@ -14,9 +14,10 @@ const KeyValueEdit = ({ entryKey, value, handleChange }) => {
 };
 
 KeyValueEdit.propTypes = {
+  index: PropTypes.number,
   entryKey: PropTypes.string,
   value: PropTypes.string,
-  handleChange: PropTypes.func,
+  handleKeyValueChange: PropTypes.func,
   handleUpdate: PropTypes.func
 };
 

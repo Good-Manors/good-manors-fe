@@ -3,8 +3,9 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: 20% 80%;
+  grid-template-rows: 15% 15% 70%;
   grid-template-areas: "header menu"
+                       "header search"
                        "header drawerListWrapper";
                        
 }
