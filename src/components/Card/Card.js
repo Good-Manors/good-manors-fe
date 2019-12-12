@@ -10,7 +10,7 @@ import Log from '../elements/Log';
 import KeyValueEdit from '../elements/KeyValueEdit';
 import LogEdit from '../elements/LogEdit';
 import styles from './Card.css';
-import { updateCard } from '../../services/homes';
+import { updateCard, } from '../../services/homes';
 import applianceIcon from '../../assets/icons/appliance-icon.png';
 import materialIcon from '../../assets/icons/material-icon.png';
 import paintIcon from '../../assets/icons/paint-icon.png';
@@ -103,8 +103,8 @@ const Card = ({ name, type, content, _id, edit }) => {
   };
 
   const handleImageUpload = (url, idx) => {
-    setEditedContent(editedContent.map((element, i)=>{
-      if(idx != i){
+    setEditedContent(editedContent.map((element, i) => {
+      if(idx != i) {
         return element;
       }
       return [element[0], url];
@@ -112,12 +112,13 @@ const Card = ({ name, type, content, _id, edit }) => {
   };
 
   const handleSaveChanges = () => {
-
+    console.log(_id);
     updateCard(_id, { name: editedName, content: editedContent, type: type })
       .then(home => {
         dispatch(setHome(home));
       })
       .then(() => {
+        console.log('editMode');
         setEditMode(false);
       });
   };
@@ -158,7 +159,7 @@ const Card = ({ name, type, content, _id, edit }) => {
       />;
   });
 
-  const mappedDisplayElements = content.map((element, i) => {
+  const mappedDisplayElements = editedContent.map((element, i) => {
     if(element[0] === 'text') return <Text key={i} title={element[1]} text={element[2]} index={i} />;
     if(element[0] === 'key-value') return <KeyValue key={i} entryKey={element[1][0]} value={element[1][1]} index={i} />;
     if(element[0] === 'log') return <Log key={i} title={element[1]} logEntries={element[2]} index={i} />;

@@ -3,13 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 
-const CardForm2 = ({ name, type, cardContent, currentStep, handleChange, handleForm }) => {
+const CardForm2 = ({ name, type, cardContent, currentStep, handleChange, cardId, handleForm }) => {
+  
   if(currentStep !== 2) return null;
-
+  console.log(cardId);
   return (
     <>
-      <Card type={type} name={name} content={cardContent} edit={true}/>
-      <button onClick={() => handleForm(currentStep) }>Next</button>
+      <Card type={type} name={name} _id={cardId} content={cardContent} edit={true} />
+      <button onClick={() => handleForm(currentStep)}>Finish</button>
     </>
   );
 };
@@ -17,6 +18,7 @@ const CardForm2 = ({ name, type, cardContent, currentStep, handleChange, handleF
 CardForm2.propTypes = {
   name: PropTypes.string,
   type: PropTypes.string,
+  cardId: PropTypes.number,
   cardContent: PropTypes.array,
   currentStep: PropTypes.number,
   handleChange: PropTypes.func,

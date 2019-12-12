@@ -14,8 +14,9 @@ const AuthPage = ({ handleSubmit }) => {
   const [password, setPassword] = useState('');
   const [member, setMember] = useState(true);
 
-  if(sessionId) return <Redirect to="/" />;
-
+  if(sessionId && member) return <Redirect to='/home' />;
+  if(sessionId && !member) return <Redirect to='/' />;
+ 
   return (
     <section id='signup-login' className={styles.SignupLogin}>
       <div>
