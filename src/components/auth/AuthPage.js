@@ -75,7 +75,7 @@ const AuthPage = ({ handleSubmit }) => {
         <img src={logo} />
       </div>
       <form className={styles.Form} onSubmit={event => handleSubmit(event, username, password, member)}>
-      <p>this is our dope ass app -- use it and stop asking fucking questions...we tired!</p>
+        <p><span className={styles.Light}>home management</span><span> made simple</span></p>
         <input type="text" placeholder='Username' value={username} onChange={({ target }) => setUsername(target.value)} />
         <input type="password" placeholder='Password' value={password} onChange={({ target }) => setPassword(target.value)} />
         <section id='signup-login-toggle' className={styles.Toggle}>
@@ -83,6 +83,13 @@ const AuthPage = ({ handleSubmit }) => {
           <button>{member ? 'Login' : 'Signup'}</button>
         </section>
       </form>
+      <img src={deck} className={styles.Invisible} />
+      <img src={garden} className={styles.Invisible} />
+      <img src={bedroom} className={styles.Invisible} />
+      <img src={dining} className={styles.Invisible} />
+      <img src={houseplants} className={styles.Invisible} />
+      <img src={nursery} className={styles.Invisible} />
+      <img src={livingRoom} className={styles.Invisible} />
     </section>
   );
 };
