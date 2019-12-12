@@ -5,27 +5,29 @@ import Header from '../components/Header/Header';
 import Menu from '../components/Menu';
 import styles from './DrawerPage.css';
 import CardList from '../components/Card/CardList';
-import { getFirstHome } from '../services/homes';
+import { getHome } from '../services/homes';
 import { setHome } from '../actions/homeActions';
 import { getDrawers } from '../selectors/homeSelectors';
+import loading from '../assets/loader.gif';
 
 const DrawerPage = () => {
 
   const dispatch = useDispatch();
-
-  const { drawerId } = useParams();
-  console.log('params from drawerpage', drawerId);
+  const { drawerId, homeId } = useParams();
 
   useEffect(() => {
-    getFirstHome()
+    getHome(homeId)
       .then(home => {
         dispatch(setHome(home));
       });
-  }, []);
+  });
+
 
   const drawers = useSelector(getDrawers);
 
-  if(!drawers) return <h1>Loading</h1>;
+  if(!drawers) {
+    return <div><img className={styles.loading} src={loading} /></div>;
+  }
 
   let drawerName;
 

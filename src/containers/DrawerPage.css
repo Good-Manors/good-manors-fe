@@ -3,8 +3,8 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: 18% 82%;
-  grid-template-areas: "header ."
+  grid-template-rows: 15% 85%;
+  grid-template-areas: "header menu"
                        "header cardList";
                        
 }
@@ -15,5 +15,16 @@
   height: 100vh;
   align-content: center;
   overflow: auto;
-  margin: 2em 1em;
+  margin: 0 1em;
+
+  h2 {
+    color: black;
+    font-size: 2.4em;
+  }
+}
+
+.loading {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
 }

@@ -10,8 +10,16 @@ import Log from '../elements/Log';
 import KeyValueEdit from '../elements/KeyValueEdit';
 import LogEdit from '../elements/LogEdit';
 import styles from './Card.css';
-import tempIcon from '../../assets/temp-icon.png';
-import { updateCard } from '../../services/homes';
+import { updateCard, } from '../../services/homes';
+import applianceIcon from '../../assets/icons/appliance-icon.png';
+import materialIcon from '../../assets/icons/material-icon.png';
+import paintIcon from '../../assets/icons/paint-icon.png';
+import utilityIcon from '../../assets/icons/utility-icon.png';
+import contactIcon from '../../assets/icons/contact-icon.png';
+import plantIcon from '../../assets/icons/plant-icon.png';
+import petIcon from '../../assets/icons/pet-icon.png';
+import customIcon from '../../assets/icons/custom-card-icon.png';
+
 import { setHome } from '../../actions/homeActions';
 
 const Card = ({ name, type, content, _id, edit }) => {
@@ -95,8 +103,8 @@ const Card = ({ name, type, content, _id, edit }) => {
   };
 
   const handleImageUpload = (url, idx) => {
-    setEditedContent(editedContent.map((element, i)=>{
-      if(idx != i){
+    setEditedContent(editedContent.map((element, i) => {
+      if(idx != i) {
         return element;
       }
       return [element[0], url];
@@ -104,12 +112,13 @@ const Card = ({ name, type, content, _id, edit }) => {
   };
 
   const handleSaveChanges = () => {
-
+    console.log(_id);
     updateCard(_id, { name: editedName, content: editedContent, type: type })
       .then(home => {
         dispatch(setHome(home));
       })
       .then(() => {
+        console.log('editMode');
         setEditMode(false);
       });
   };
@@ -150,12 +159,23 @@ const Card = ({ name, type, content, _id, edit }) => {
       />;
   });
 
-  const mappedDisplayElements = content.map((element, i) => {
+  const mappedDisplayElements = editedContent.map((element, i) => {
     if(element[0] === 'text') return <Text key={i} title={element[1]} text={element[2]} index={i} />;
     if(element[0] === 'key-value') return <KeyValue key={i} entryKey={element[1][0]} value={element[1][1]} index={i} />;
     if(element[0] === 'log') return <Log key={i} title={element[1]} logEntries={element[2]} index={i} />;
     if(element[0] === 'image') return <Image key={i} image={element[1]} index={i} />;
   });
+
+  const cardIcons = {
+    Appliance: applianceIcon,
+    Material: materialIcon,
+    PaintSwatch: paintIcon,
+    Utility: utilityIcon,
+    Contact: contactIcon,
+    Plant: plantIcon,
+    Pet: petIcon
+  };
+
 
   return (
     editMode ?
@@ -163,7 +183,7 @@ const Card = ({ name, type, content, _id, edit }) => {
         <div className={styles.Card}>
           <section>
             <p>Card Title: <input type="text" name='name' value={editedName} onChange={handleNameChange} /></p>
-            <img src={tempIcon} />
+            <img src={cardIcons[type]} />
           </section>
           {mappedEditElements}
           <button onClick={handleSaveChanges}>Save Changes</button>
@@ -175,7 +195,7 @@ const Card = ({ name, type, content, _id, edit }) => {
           <a name={_id}></a>
           <section>
             <h3>{name}</h3>
-            <img src={tempIcon} />
+            <img src={cardIcons[type]} />
           </section>
           {mappedDisplayElements}
           <button onClick={() => setEditMode(true)}>Edit</button>

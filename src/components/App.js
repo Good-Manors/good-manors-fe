@@ -21,6 +21,7 @@ const PrivateRoute = ({ ...rest }) => {
   const sessionId = useSelector(getSessionId);
   const loading = useSelector(getSessionLoading);
   const dispatch = useDispatch();
+
   useEffect(() => {
     if(!sessionId) dispatch(sessionVerify());
   }, []);
@@ -46,10 +47,10 @@ function App() {
       <Router>
         <Switch>
           <PrivateRoute exact path='/' component={UserDash} />
-          <Route path='/card' component={Card} />
+          <PrivateRoute path='/card' component={Card} />
           <Route path='/auth' component={AuthPage} />
-          <Route path='/cards/:drawerId' component={DrawerPage} />
-          <Route path='/home' component={HomePage} />
+          <PrivateRoute path='/cards/:homeId/:drawerId' component={DrawerPage} />
+          <PrivateRoute path='/home' component={HomePage} />
         </Switch>
       </Router>
     </div>

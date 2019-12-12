@@ -16,7 +16,7 @@ const DrawerList = ({ drawers }) => {
 
 
   const mappedDrawers = drawers.map((drawer, i) => {
-    return <Drawer key={i} name={drawer.name} id={drawer._id} index={i} />;
+    return <Drawer key={i} name={drawer.name} home={home} id={drawer._id} index={i} />;
   });
 
   return (

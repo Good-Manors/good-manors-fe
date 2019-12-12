@@ -20,6 +20,7 @@
       letter-spacing: .06em;
       color: black;
       margin: 10px 20px 10px 10px;
+      flex-grow: 1;
     }
 
     .dropButton {
@@ -42,11 +43,13 @@
     .up {
       transform: rotate(180deg);
       margin-top: 0;
+      margin-bottom: 10px;
     }
     
     .down {
       transform: rotate(90deg);   
       margin-top: 0; 
+      margin-bottom: 0;
     }
   }
 
@@ -60,52 +63,52 @@
   }
 
   .Appliance {
-    border: 5px solid #9e5569;
+    border: 3px solid #9e5569;
     p {
       color: #9e5569;
     }
   }
 
   .Material {
-    border: 5px solid #c08962;
+    border: 3px solid #c08962;
     p {
       color: #c08962;
     }
   }
 
   .PaintSwatch {
-    border: 5px solid #d58ac3;
+    border: 3px solid #d58ac3;
     p {
       color: #d58ac3;
     }
   }
 
   .Utility {
-    border: 5px solid #97a5bf;
+    border: 3px solid #97a5bf;
     p {
       color: #97a5bf;
     }
   }
 
   .Contact {
-    border: 5px solid #fb9e7f;
+    border: 3px solid #fb9e7f;
     p {
       color: #fb9e7f;
     }
   }
 
   .Plant {
-    border: 5px solid #95b565;
+    border: 3px solid #95b565;
     p {
       color: #95b565;
     }
   }
 
-  .Appliance {
-    border: 5px solid #9e5569;
+  .Pet {
+    border: 3px solid #c7c1cb;
 
     p {
-      color: #9e5569;
+      color: #c7c1cb;
     }
   }
 
@@ -118,9 +121,10 @@
     div {
       display: flex;
       align-items: center;
-      height: 40px;
+      height: 35px;
       padding: 5px 15px;
       margin: 5px 10px;
+      border-radius: 10px;
     }
 
     img {
@@ -134,6 +138,7 @@
       font-weight: 600;
       font-size: 1.1em;
       letter-spacing: .07em;
+      text-transform: lowercase;
     }
 
   }
