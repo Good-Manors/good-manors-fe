@@ -13,6 +13,9 @@ const DrawerPage = () => {
 
   const dispatch = useDispatch();
 
+  const { drawerId } = useParams();
+  console.log('params from drawerpage', drawerId);
+
   useEffect(() => {
     getFirstHome()
       .then(home => {
@@ -20,7 +23,6 @@ const DrawerPage = () => {
       });
   }, []);
 
-  const { drawerId } = useParams();
   const drawers = useSelector(getDrawers);
 
   if(!drawers) return <h1>Loading</h1>;
@@ -41,7 +43,6 @@ const DrawerPage = () => {
       </section>
     </section>
   );
-
 };
 
 export default DrawerPage;
