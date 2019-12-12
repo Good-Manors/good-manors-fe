@@ -12,21 +12,12 @@ import loading from '../assets/loader.gif';
 
 const DrawerPage = () => {
 
-  const dispatch = useDispatch();
 
   const { drawerId } = useParams();
-
-  // useEffect(() => {
-  //   getFirstHome()
-  //     .then(home => {
-  //       dispatch(setHome(home));
-  //     });
-  // }, []);
 
   const drawers = useSelector(getDrawers);
 
   if(!drawers) {
-    console.log('loading');
     return <div><img className={styles.loading} src={loading} /></div>;
   }
 

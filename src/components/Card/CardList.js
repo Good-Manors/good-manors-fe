@@ -13,15 +13,7 @@ import NewCardModal from './NewCardModal';
 const CardList = ({ drawer }) => {
 
   const { isShowing, toggle } = useModal();
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    getFirstHome()
-      .then(home => {
-        dispatch(setHome(home));
-      });
-  }, []);
-  
   const cards = useSelector(state => getCardsByDrawer(state, drawer));
 
   const mappedCards = cards.map((card, i) => {
