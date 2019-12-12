@@ -9,19 +9,9 @@ import { getFirstHome } from '../services/homes';
 import { setHome } from '../actions/homeActions';
 import { getDrawers } from '../selectors/homeSelectors';
 
-
-
 const DrawerPage = () => {
 
   const dispatch = useDispatch();
-
-
-  const { drawerId } = useParams();
-  const drawers = useSelector(getDrawers);
-  let drawerName;
-  for(let i = 0; i < drawers.length; i++) {
-    if(drawers[i]._id === drawerId) drawerName = drawers[i].name;
-  }
 
   useEffect(() => {
     getFirstHome()
@@ -29,6 +19,17 @@ const DrawerPage = () => {
         dispatch(setHome(home));
       });
   }, []);
+
+  const { drawerId } = useParams();
+  const drawers = useSelector(getDrawers);
+
+  if(!drawers) return <h1>Loading</h1>;
+
+  let drawerName;
+
+  for(let i = 0; i < drawers.length; i++) {
+    if(drawers[i]._id === drawerId) drawerName = drawers[i].name;
+  }
 
   return (
     <section id='drawer-page-wrapper' className={styles.DrawerPageWrapper}>

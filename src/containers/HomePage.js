@@ -10,7 +10,6 @@ import { setHome } from '../actions/homeActions';
 import Search from '../components/Search';
 import HomeTitle from '../components/HomeTitle';
 
-
 const HomePage = () => {
 
   const dispatch = useDispatch();
@@ -20,15 +19,12 @@ const HomePage = () => {
 
   const drawers = useSelector(getDrawers);
 
-
   useEffect(() => {
     getFirstHome()
       .then(home => {
         dispatch(setHome(home));
       });
   }, []);
-
-
 
   return (
     <section id='home-page-wrapper' className={styles.HomePageWrapper}>
