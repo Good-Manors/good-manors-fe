@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { useSelector } from 'react-redux';
 // import { getSessionUsername } from '../selectors/sessionSelectors';
-import { reveal as Menu } from 'react-burger-menu';
+import { slide as HamburgerMenu } from 'react-burger-menu';
 import styles from './Menu.css';
 
 const mapStateToProps = (state) => ({
@@ -34,13 +34,13 @@ class hamburgerMenu extends React.Component {
   render() {
     return (
       <>
-        <div className={styles.Menu} id="outer-container">
+        <div className={styles.Menu}>
           <h5>hi, {this.state.username}</h5>
-          <Menu right reveal width={'200px'} pageWrapId={'page-wrap'} outerContainerId={'outer-container'} isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)}>
+          <HamburgerMenu right width={'200px'} isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)}>
             <Link to="/" onClick={() => this.closeMenu()}>Dashboard</Link>
             <Link to="/home" onClick={() => this.closeMenu()}>Home</Link>
             <Link to="/about-us" onClick={() => this.closeMenu()}>About Us</Link>
-          </Menu>
+          </HamburgerMenu>
         </div>
       </>
     );

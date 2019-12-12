@@ -57,8 +57,8 @@ const Modal = ({ isShowing, hide }) => {
   return (
     isShowing ? ReactDOM.createPortal(
       <>
+        <div className={styles.modalOverlay} style={{ background: 'rgba(0, 0, 0, .5)' }} />
         <Fade top>
-          <div className={styles.modalOverlay} />
           <div className={styles.modalWrapper} aria-modal aria-hidden tabIndex={-1} role="dialog">
             <div className={styles.modal}>
 

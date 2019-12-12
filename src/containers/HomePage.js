@@ -14,7 +14,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const home = useSelector(getHomeInfo);
   let title;
-  if (home) title = home.title;
+  if(home) title = home.title;
 
   const drawers = useSelector(getDrawers);
 

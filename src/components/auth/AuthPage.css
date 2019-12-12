@@ -7,7 +7,7 @@
   justify-content: center;
   position: relative;
 
-  div {
+  .logoDiv {
     width: 250px;
     height: 250px;
     background: #E9F5F1;
@@ -32,6 +32,17 @@
     margin: 0 auto;
     z-index: 2;
 
+    p {
+      color: white;
+      font-family: 'Sulphur', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: .08em;
+      line-height: 1.4em;
+      margin: 5px 0 20px 10px; 
+      text-align: center;
+    }
+
     input {
       margin: .5em 0;
       padding: .3em;
@@ -53,8 +64,10 @@
       display: flex;
       justify-content: flex-end;
       color: white;
-      font-family: sans-serif;
-      letter-spacing: .05rem;
+      font-family: 'Sulphur', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .09em;
       text-shadow: 0px 0px 3px black;
 
       span {
@@ -68,10 +81,10 @@
   }
 }
 
-.SignupLogin::before {
+.Before {
   content: "";
-  background: url('../../assets/img-horizontal/livingRoom.jpg');
   position: absolute;
+  background: url(../../assets/img-horizontal/livingRoom.jpg);
   top: 0;
   bottom: 0;
   left: 0;
@@ -81,5 +94,7 @@
   width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
+  background-blend-mode: darken;
+  transition: 3s;
 }
