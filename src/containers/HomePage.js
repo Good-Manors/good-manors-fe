@@ -5,9 +5,10 @@ import Menu from '../components/Menu';
 import DrawerList from '../components/Drawer/DrawerList';
 import styles from './HomePage.css';
 import { getDrawers, getHomeInfo } from '../selectors/homeSelectors';
-import { getFirstHome } from '../services/homes';
+import { getDefaultHomeId, getHome } from '../services/homes';
 import { setHome } from '../actions/homeActions';
 import Search from '../components/Search';
+import loading from '../assets/loader.gif';
 
 const HomePage = () => {
 
@@ -19,11 +20,17 @@ const HomePage = () => {
   const drawers = useSelector(getDrawers);
 
   useEffect(() => {
-    getFirstHome()
-      .then(home => {
-        dispatch(setHome(home));
-      });
+    if(!home)
+      getDefaultHomeId()
+        .then(res => {
+          return getHome(res.home);
+        })
+        .then(home => {
+          dispatch(setHome(home));
+        });
   }, []);
+
+  if(!home) return <img src={loading} />;
 
   return (
     <section id='home-page-wrapper' className={styles.HomePageWrapper}>

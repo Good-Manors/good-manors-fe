@@ -15,19 +15,20 @@ const DrawerPage = () => {
   const dispatch = useDispatch();
 
   const { drawerId } = useParams();
-  console.log('params from drawerpage', drawerId);
 
-  useEffect(() => {
-    getFirstHome()
-      .then(home => {
-        dispatch(setHome(home));
-      });
-  }, []);
+  // useEffect(() => {
+  //   getFirstHome()
+  //     .then(home => {
+  //       dispatch(setHome(home));
+  //     });
+  // }, []);
 
   const drawers = useSelector(getDrawers);
 
-  if(drawers) return <div><img className={styles.loading} src={loading} /></div>;
-  if(!drawers) return <div><img className={styles.loading} src={loading} /></div>;
+  if(!drawers) {
+    console.log('loading');
+    return <div><img className={styles.loading} src={loading} /></div>;
+  }
 
   let drawerName;
 

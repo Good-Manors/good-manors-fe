@@ -21,7 +21,7 @@ const CardList = ({ drawer }) => {
         dispatch(setHome(home));
       });
   }, []);
-
+  
   const cards = useSelector(state => getCardsByDrawer(state, drawer));
 
   const mappedCards = cards.map((card, i) => {

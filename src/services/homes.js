@@ -8,6 +8,8 @@ export const getHome = (homeId) => get(`${BASE_URL}/homes/${homeId}`);
 
 export const getFirstHome = () => get(`${BASE_URL}/homes`);
 
+export const getDefaultHomeId = () => get(`${BASE_URL}/users/default-home`);
+
 export const postDrawer = (name, home) => post(`${BASE_URL}/drawers`,
   { name: name, home: home });
 
