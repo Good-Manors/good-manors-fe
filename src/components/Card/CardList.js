@@ -5,7 +5,6 @@ import Card from './Card';
 import styles from './CardList.css';
 import PropTypes from 'prop-types';
 import { getCardsByDrawer } from '../../selectors/homeSelectors';
-import { getFirstHome } from '../../services/homes';
 import { setHome } from '../../actions/homeActions';
 import NewCardModal from './NewCardModal';
 

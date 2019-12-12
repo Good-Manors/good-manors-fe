@@ -25,7 +25,7 @@ import petIcon from '../../assets/icons/pet-icon.png';
 import customIcon from '../../assets/icons/custom-card-icon.png';
 
 
-const Drawer = ({ name, index, id }) => {
+const Drawer = ({ name, index, home, id }) => {
   const [open, setOpen] = useState(false);
   const cards = useSelector(state => getCards(state, index));
 
@@ -53,7 +53,7 @@ const Drawer = ({ name, index, id }) => {
 
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
-    return <Link key={i} to={`/cards/${id}#${card._id}`}>
+    return <Link key={i} to={`/cards/${home._id}/${id}#${card._id}`}>
       <div className={styles[type]}>
         <img src={cardIcons[card.type]} />
         <p>{card.name}</p>

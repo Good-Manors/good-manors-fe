@@ -1,6 +1,39 @@
 .UserDash {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 15% 85%;
+  grid-template-areas: "header menu"
+                       "header userDashWrapper";
   text-align: center;
 }
+
+.UserDashWrapper {
+  grid-area: userDashWrapper;
+  height: 80vh;
+}
+
+.homeSection {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.homeDisplay {
+  background-color: #d7e393;
+  padding: 10px;
+  margin: 10px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+}
+
 
 button {
   font-family: 'Sulphur', sans-serif;
