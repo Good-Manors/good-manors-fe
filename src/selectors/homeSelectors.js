@@ -16,6 +16,10 @@ export const getCardsByDrawer = (state, id) => {
   }
 };
 
-export const getCards = (state, i) => state.homes.cards[i];
+export const getCards = (state, i) => {
+  const cards = state.homes.cards[i];
+  if(!cards) return [];
+  return cards;
+};
 
 export const getSingleCard = (state, i, cardIndex) => getSingleDrawer(state, i).content[cardIndex];
