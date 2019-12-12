@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Logo.css';
+import logo from '../../assets/good-manors-logo.png';
 
 const Logo = () => {
 
   return (
     <div id='logo-background' className={styles.Logo}>
-      <img src="src/assets/good-manors-logo.png" />
+      <img src={logo} />
     </div>
   );
 };

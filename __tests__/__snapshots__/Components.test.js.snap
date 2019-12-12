@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests small components AboutUs.js 1`] = `
+<section
+  className="AboutUs"
+>
+  <h1>
+    Meet our team
+  </h1>
+  <ul
+    className="chGrid"
+  >
+    <li>
+      <div
+        className="chItem"
+      >
+        <div
+          className="chImg1"
+        >
+          <h3>
+            Angela Vawser
+          </h3>
+          <p>
+            description
+          </p>
+          <h5>
+            hello-jelly.com
+          </h5>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div
+        className="chItem"
+      >
+        <div
+          className="chImg2"
+        >
+          <h3>
+            Allison Busse
+          </h3>
+          <p>
+            description
+          </p>
+          <h5>
+            allisonbusse.com
+          </h5>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div
+        className="chItem"
+      >
+        <div
+          className="chImg3"
+        >
+          <h3>
+            Luke Donahue
+          </h3>
+          <p>
+            description
+          </p>
+          <h5>
+            github.com/Luke9389
+          </h5>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div
+        className="chItem"
+      >
+        <div
+          className="chImg4"
+        >
+          <h3>
+            John Nelson
+          </h3>
+          <p>
+            description
+          </p>
+          <h5>
+            github.com/John4850
+          </h5>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+`;
+
+exports[`Tests small components Menu.js 1`] = `[Function]`;
+
+exports[`Tests small components Search.js 1`] = `
+<div
+  className="Search"
+>
+  <img
+    src="/path/image"
+  />
+  <p>
+    search keyword
+  </p>
+</div>
+`;
+
+exports[`User folder Dashboard.js 1`] = `
+<h1>
+  Dashboard
+</h1>
+`;
+
+exports[`User folder UserForm.js 1`] = `[Function]`;

@@ -8,7 +8,6 @@ import { getDrawers, getHomeInfo } from '../selectors/homeSelectors';
 import { getFirstHome } from '../services/homes';
 import { setHome } from '../actions/homeActions';
 import Search from '../components/Search';
-import HomeTitle from '../components/HomeTitle';
 
 const HomePage = () => {
 
