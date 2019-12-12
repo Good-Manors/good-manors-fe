@@ -18,7 +18,9 @@ const Form2 = ({ currentStep, handleForm }) => {
           <input type="checkbox" name='drawer' value="Master" /> Master
           <input type="checkbox" name='drawer' value="Bedroom" /> Bedroom
           <input type="checkbox" name='drawer' value="Bathroom" /> Bathroom
+          <input type="checkbox" name='drawer' value="Laundry" /> Laundry
           <input type="checkbox" name='drawer' value="Exterior" /> Exterior
+          <input type="checkbox" name='drawer' value="Office" /> Office
           <input type="checkbox" name='drawer' value="Utilities" /> Utilities
 
           <button onClick={() => handleForm(currentStep)}>Next</button>
