@@ -163,7 +163,7 @@ const Card = ({ name, type, content, _id, edit }) => {
     if(element[0] === 'text') return <Text key={i} title={element[1]} text={element[2]} index={i} />;
     if(element[0] === 'key-value') return <KeyValue key={i} entryKey={element[1][0]} value={element[1][1]} index={i} />;
     if(element[0] === 'log') return <Log key={i} title={element[1]} logEntries={element[2]} index={i} />;
-    if(element[0] === 'image') return <Image key={i} image={element[1]} index={i} />;
+    if(element[0] === 'image') return <Image key={i} image={element[1]} className={styles.CloudImg} index={i} />;
   });
 
   const cardIcons = {
@@ -183,7 +183,7 @@ const Card = ({ name, type, content, _id, edit }) => {
         <div className={styles.Card}>
           <section>
             <p>Card Title: <input type="text" name='name' value={editedName} onChange={handleNameChange} /></p>
-            <img src={cardIcons[type]} />
+            <img className={styles.Icon} src={cardIcons[type]} />
           </section>
           {mappedEditElements}
           <button onClick={handleSaveChanges}>Save Changes</button>
@@ -195,7 +195,7 @@ const Card = ({ name, type, content, _id, edit }) => {
           <a name={_id}></a>
           <section>
             <h3>{name}</h3>
-            <img src={cardIcons[type]} />
+            <img className={styles.Icon} src={cardIcons[type]} />
           </section>
           {mappedDisplayElements}
           <button onClick={() => setEditMode(true)}>Edit</button>
