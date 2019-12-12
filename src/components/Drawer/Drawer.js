@@ -3,21 +3,60 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Drawer.css';
-import icon from '../../assets/temp-icon-black.png';
+// import icon from '../../assets/temp-icon-black.png';
 import cardIcon from '../../assets/temp-icon.png';
 import { getCards } from '../../selectors/homeSelectors';
+import kitchen from '../../assets/icons/kitchen-icon.png';
+import bathroom from '../../assets/icons/bathroom-icon.png';
+import living from '../../assets/icons/living-icon.png';
+import bedroom from '../../assets/icons/bedroom-icon.png';
+import master from '../../assets/icons/master-icon.png';
+import dining from '../../assets/icons/dining-icon.png';
+import exterior from '../../assets/icons/exterior-icon.png';
+import utilities from '../../assets/icons/utilities-icon.png';
+import custom from '../../assets/icons/custom-drawer-icon.png';
+import applianceIcon from '../../assets/icons/appliance-icon.png';
+import materialIcon from '../../assets/icons/material-icon.png';
+import paintIcon from '../../assets/icons/paint-icon.png';
+import utilityIcon from '../../assets/icons/utility-icon.png';
+import contactIcon from '../../assets/icons/contact-icon.png';
+import plantIcon from '../../assets/icons/plant-icon.png';
+import petIcon from '../../assets/icons/pet-icon.png';
+import customIcon from '../../assets/icons/custom-card-icon.png';
 
 
 const Drawer = ({ name, index, id }) => {
   const [open, setOpen] = useState(false);
   const cards = useSelector(state => getCards(state, index));
 
+  let icon;
+  if(name === 'Kitchen') icon = kitchen;
+  if(name === 'Bathroom') icon = bathroom;
+  if(name === 'Living') icon = living;
+  if(name === 'Dining') icon = dining;
+  if(name === 'Master') icon = master;
+  if(name === 'Bedroom') icon = bedroom;
+  if(name === 'Exterior') icon = exterior;
+  if(name === 'Utilities') icon = utilities;
+
+  const cardIcons = {
+    Appliance: applianceIcon,
+    Material: materialIcon,
+    PaintSwatch: paintIcon,
+    Utility: utilityIcon,
+    Contact: contactIcon,
+    Plant: plantIcon,
+    Pet: petIcon
+  };
+  
+
+
   const mappedCards = cards.map((card, i) => {
+    const type = card.type;
     return <Link key={i} to={`/cards/${id}#${card._id}`}>
-      <div>
-        <img src={cardIcon} />
+      <div className={styles[type]}>
+        <img src={cardIcons[card.type]} />
         <p>{card.name}</p>
-        {/* <img src={card.type} /> */}
       </div></Link>;
   });
 
