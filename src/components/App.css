@@ -55,4 +55,10 @@ a {
   text-decoration: none;
 }
 
+.loading {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+}
+
 

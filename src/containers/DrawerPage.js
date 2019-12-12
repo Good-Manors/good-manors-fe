@@ -8,6 +8,7 @@ import CardList from '../components/Card/CardList';
 import { getFirstHome } from '../services/homes';
 import { setHome } from '../actions/homeActions';
 import { getDrawers } from '../selectors/homeSelectors';
+import loading from '../assets/loader.gif';
 
 const DrawerPage = () => {
 
@@ -25,7 +26,8 @@ const DrawerPage = () => {
 
   const drawers = useSelector(getDrawers);
 
-  if(!drawers) return <h1>Loading</h1>;
+  if(drawers) return <div><img className={styles.loading} src={loading} /></div>;
+  if(!drawers) return <div><img className={styles.loading} src={loading} /></div>;
 
   let drawerName;
 

@@ -63,7 +63,7 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(jpeg|jpg|png|svg)$/,
+        test: /\.(jpeg|jpg|png|gif|svg)$/,
         use: {
           loader: 'url-loader',
           options: { limit: 1000 },
