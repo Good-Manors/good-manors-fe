@@ -27,10 +27,12 @@
     margin: 10px 0 20px 0;
   }
 
-  img {
+  .Icon {
     width: 40px;
     height: 40px;
   }
+
+  
 
   p {
     font-family: 'Sulphur', sans-serif;
