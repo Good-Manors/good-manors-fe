@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { getSessionUsername } from '../selectors/sessionSelectors';
 import { slide as HamburgerMenu } from 'react-burger-menu';
 import styles from './Menu.css';
 
 const mapStateToProps = (state) => ({
-  username: state.username
+  username: getSessionUsername(state)
 });
 
 class hamburgerMenu extends React.Component {
@@ -29,10 +30,11 @@ class hamburgerMenu extends React.Component {
   }
 
   render() {
+
     return (
       <>
         <div className={styles.Menu}>
-          <h5>hi, {this.state.username}</h5>
+          <h5>hi, {this.props.username}</h5>
           <HamburgerMenu right width={'200px'} isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)}>
             <Link to="/" onClick={() => this.closeMenu()} className={'menu-item'}>Dashboard</Link>
             <Link to="/about-us" onClick={() => this.closeMenu()} className={'menu-item'}>About Us</Link>
