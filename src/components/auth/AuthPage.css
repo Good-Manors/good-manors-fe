@@ -102,6 +102,19 @@
       background: rgba(0, 0, 0, 0.427);
       width: 15rem;
       align-self: center;
+
+      button{
+        width: 40%;
+        padding: 8px 12px;
+        margin: 5px 0px 0px 10px;
+      }
+
+      .Toggle {
+        span{
+          text-align: center;
+        }
+      }
+
     }
   }
 }

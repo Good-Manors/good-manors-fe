@@ -42,7 +42,7 @@ const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
   }, [isOpen, searchTerm]);
 
   let icon;
-  switch (name) {
+  switch(name) {
     case 'Kitchen':
       icon = kitchen;
       break;
@@ -99,7 +99,6 @@ const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
 
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
-    console.log(type, type === term, term);
     return <Link key={i} to={`/cards/${home._id}/${id}#${card._id}`}>
       <div className={`${styles[type]} ${type.toLowerCase().includes(term.toLowerCase()) && term !== '' ? styles.Highlight : null}`}>
         <img src={cardIcons[card.type]} />
@@ -109,17 +108,17 @@ const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
 
   return (
     <section className={styles.Drawer}>
-      <div className={styles.Name}>
+      <div className={styles.Name} onClick={()=>{}}>
         <img src={icon} />
         <Link to={`/cards/${home._id}/${id}`}><h3>{name}</h3></Link>
-        <button className={styles.goButton} onClick={() => {
+        <button className={`${styles.goButton} ${open ? styles.down : null }`} onClick={() => {
           open ? setOpen(false) : setOpen(true);
         }}>></button>
         <div className={styles.spaceDiv}></div>
         <button
           className={`${styles.dropButton}`}
           onClick={() => handleDeleteDrawer(id)}
-        >x</button>
+        >X</button>
       </div>
 
       <div className={`${styles.Tray} ${open ? styles.open : styles.closed} `}>

@@ -10,6 +10,7 @@
 }
 
 .CardListWrapper {
+  grid-area: cardListWrapper;
   align-content: center;
   margin: 0 1em;
   overflow: scroll;
@@ -25,4 +26,17 @@
   width: 500px;
   height: 500px;
   border-radius: 50%;
+}
+
+@media only screen and (max-width: 450px) {
+  .DrawerPageWrapper{
+    grid-template-columns: 100%;
+    grid-template-rows: 18% 82% ;
+    grid-template-areas: "header"
+                         "cardListWrapper"; 
+  }
+
+  .CardListWrapper{
+    margin-top: 1.4rem;
+  }
 }
