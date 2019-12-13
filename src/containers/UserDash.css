@@ -38,6 +38,8 @@
   }
 
   p {
+    font-family: 'Sulphur' sans-serif;
+    font-weight: 700;
     font-size: 1.4em;
     margin: 0;
     flex-grow: 1
