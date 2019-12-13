@@ -8,7 +8,7 @@ import { getDrawers, getHomeInfo } from '../selectors/homeSelectors';
 import { getDefaultHomeId, getHome } from '../services/homes';
 import { setHome } from '../actions/homeActions';
 import Search from '../components/Search';
-import loading from '../assets/loader.gif';
+import Loader from '../components/Loader/Loader';
 
 const HomePage = () => {
   const [drawersOpen, setDrawersOpen] = useState(false);
@@ -36,7 +36,7 @@ const HomePage = () => {
     if(searchTerm === '') setDrawersOpen(false);
   }, [searchTerm]);
 
-  if(!home) return <img src={loading} />;
+  if(!home) return <Loader />;
 
   return (
     <section id='home-page-wrapper' className={styles.HomePageWrapper}>

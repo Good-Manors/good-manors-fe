@@ -9,6 +9,7 @@ import styles from './UserDash.css';
 import { getAllHomes, getHome, deleteHome } from '../services/homes';
 import { setHome } from '../actions/homeActions';
 import icon from '../assets/icons/custom-drawer-icon.png';
+import Loader from '../components/Loader/Loader';
 
 const UserDash = () => {
   const { isShowing, toggle } = useModal();
@@ -47,7 +48,7 @@ const UserDash = () => {
 
   if(redirect) return <Redirect to='/home' />;
 
-  if(!userHomes) return <h1>Loading</h1>;
+  if(!userHomes) return <Loader />;
 
   const mappedHomes = userHomes.map(home => {
     return <div className={styles.homeDisplay} key={home._id} onClick={() => handleHomeClick(home._id)}>

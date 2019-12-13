@@ -1,4 +1,5 @@
 # Good Manors
+![UML Diagram](assets/good-manors-square.png)
 Keep all of the relevant info about your home in one place with Good Manors. This app offers users the opportunity to create one or more digital homes. Each home has individual cards to store your content and drawers to keep those cards organized. 
 
 ## Deployed Site
@@ -21,11 +22,11 @@ Keep all of the relevant info about your home in one place with Good Manors. Thi
 - MongoDB
 
 ## Wireframe / Mockup
-![UML Diagram](assets/goodManors-Layout.jpg)
-![UML Diagram](assets/goodManors-Layout2.jpg)
-![UML Diagram](assets/goodManors-Layout3.jpg)
-![UML Diagram](assets/goodManors-Layout4.jpg)
-![UML Diagram](assets/goodManors-Layout5.jpg)
+![UML Diagram](assets/wireframe/goodManors-Layout.jpg)
+![UML Diagram](assets/wireframe/goodManors-Layout2.jpg)
+![UML Diagram](assets/wireframe/goodManors-Layout3.jpg)
+![UML Diagram](assets/wireframe/goodManors-Layout4.jpg)
+![UML Diagram](assets/wireframe/goodManors-Layout5.jpg)
 
 ## Created By
 This app was made at Alchemy Code Lab by:
