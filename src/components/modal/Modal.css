@@ -27,7 +27,7 @@
   position: relative;
   margin: 30vh auto;
   border-radius: 3px;
-  max-width: 580px;
+  max-width: 700px;
   padding: 40px;
   border-bottom: 20px solid #8ab4b1;
 
@@ -42,6 +42,7 @@
   button {
     text-align: center;
   }
+
 }
 
 .modalHeader {
@@ -73,4 +74,12 @@
 
 .column {
   text-align: left;
+
+  input {
+    width: 20px;
+  }
+
+  .textBox {
+    width: 200px;
+  }
 }

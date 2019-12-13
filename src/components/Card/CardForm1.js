@@ -10,7 +10,7 @@ const CardForm1 = ({ cardName, currentStep, handleChange, handleForm }) => {
       <h3>Add a New Card</h3>
       <p>Card Name: <input type='text' value={cardName} onChange={handleChange} /></p>
       <p>What type of card would you like?</p>
-      <select id='card-type'>
+      <select className={styles.cardType} id='card-type'>
         <option value="Appliance"> Appliance</option>
         <option value="Material"> Material</option>
         <option value="PaintSwatch"> Paint</option>

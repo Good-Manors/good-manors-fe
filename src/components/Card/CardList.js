@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import useModal from '../../hooks/useModal';
 import Card from './Card';
 import styles from './CardList.css';
@@ -13,6 +13,7 @@ const CardList = ({ drawer }) => {
   const { isShowing, toggle } = useModal();
 
   const cards = useSelector(state => getCardsByDrawer(state, drawer));
+
 
   const mappedCards = cards.map((card, i) => {
     return <Card key={i} {...card} edit={false} />;

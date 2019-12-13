@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -8,7 +7,6 @@ import styles from './Drawer.css';
 import cardIcon from '../../assets/temp-icon.png';
 import { getCards } from '../../selectors/homeSelectors';
 import { deleteDrawer } from '../../services/homes';
-
 import kitchen from '../../assets/icons/kitchen-icon.png';
 import bathroom from '../../assets/icons/bathroom-icon.png';
 import living from '../../assets/icons/living-icon.png';
@@ -25,20 +23,25 @@ import utilityIcon from '../../assets/icons/utility-icon.png';
 import contactIcon from '../../assets/icons/contact-icon.png';
 import plantIcon from '../../assets/icons/plant-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
-import { setHome } from '../../actions/homeActions';
-
 import office from '../../assets/icons/office-icon.png';
 import laundry from '../../assets/icons/laundry-icon.png';
+import { setHome } from '../../actions/homeActions';
 
 
-const Drawer = ({ name, index, home, id }) => {
-  const [open, setOpen] = useState(false);
+const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
+  const [open, setOpen] = useState(isOpen);
+  const [term, setTerm] = useState(searchTerm);
   const cards = useSelector(state => getCards(state, index));
   const dispatch = useDispatch();
 
 
+  useEffect(() => {
+    setOpen(isOpen);
+    setTerm(searchTerm);
+  }, [isOpen, searchTerm]);
+
   let icon;
-  switch (name) {
+  switch(name) {
     case 'Kitchen':
       icon = kitchen;
       break;
@@ -91,12 +94,11 @@ const Drawer = ({ name, index, home, id }) => {
       });
   };
 
-
-
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
+    console.log(type, type === term, term);
     return <Link key={i} to={`/cards/${home._id}/${id}#${card._id}`}>
-      <div className={styles[type]}>
+      <div className={`${styles[type]} ${type.toLowerCase().includes(term.toLowerCase()) && term !== '' ? styles.Highlight : null}`}>
         <img src={cardIcons[card.type]} />
         <p>{card.name}</p>
       </div></Link>;
