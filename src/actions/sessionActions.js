@@ -65,3 +65,10 @@ export const sessionEnd = () => dispatch => {
       });
     });
 };
+
+export const defaultHomeAction = (defaultHomeId) => dispatch => {
+  dispatch({
+    SET_SESSION_DEFAULT,
+    payload: defaultHomeId
+  });
+};

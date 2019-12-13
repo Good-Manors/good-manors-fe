@@ -9,6 +9,7 @@ import styles from './UserDash.css';
 import { getAllHomes, getHome, deleteHome, setDefaultHomeId } from '../services/homes';
 import { setHome } from '../actions/homeActions';
 import icon from '../assets/icons/custom-drawer-icon.png';
+import { defaultHomeAction } from '../actions/sessionActions';
 
 const UserDash = () => {
   const { isShowing, toggle } = useModal();
@@ -47,11 +48,8 @@ const UserDash = () => {
 
   const handleDefaultHome = (id) => {
     setDefaultHomeId(id)
-      .then(() => {
-        getAllHomes()
-          .then(homes => {
-            setUserHomes(homes);
-          });
+      .then(res=> {
+        defaultHomeAction(res.user.defaultHome);
       });
   };
 
