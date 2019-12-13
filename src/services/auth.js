@@ -1,6 +1,6 @@
 import { post, get } from './request';
 
-const AUTH_URL = 'http://localhost:7891/api/v1/auth';
+const AUTH_URL = 'https://good-manors.herokuapp.com/api/v1';
 
 export const signup = (username, password) => post(`${AUTH_URL}/signup`,
   { username, password });
