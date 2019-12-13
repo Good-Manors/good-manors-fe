@@ -17,6 +17,7 @@ import HomePage from '../containers/HomePage';
 import AuthPage from './auth/AuthPage';
 import DrawerPage from '../containers/DrawerPage';
 import AboutPage from '../components/AboutPage';
+import Loader from '../components/Loader/Loader';
 
 const PrivateRoute = ({ ...rest }) => {
   const sessionId = useSelector(getSessionId);
@@ -28,7 +29,7 @@ const PrivateRoute = ({ ...rest }) => {
   }, []);
 
   if(loading) {
-    return <h1>Loading...</h1>;
+    return <Loader />;
 
   }
 
