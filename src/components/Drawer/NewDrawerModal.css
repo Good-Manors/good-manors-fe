@@ -1,0 +1,7 @@
+.column {
+  text-align: left;
+  
+  input {
+    width: 20px;
+  }
+}

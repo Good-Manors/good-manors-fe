@@ -1,5 +1,5 @@
 import { post, get, put, del } from './request';
-const BASE_URL = 'http://localhost:7891/api/v1';
+const BASE_URL = 'https://good-manors.herokuapp.com/api/v1';
 
 export const postHome = (title) => post(`${BASE_URL}/homes`,
   { title: title });
@@ -9,6 +9,9 @@ export const getHome = (homeId) => get(`${BASE_URL}/homes/${homeId}`);
 export const getAllHomes = () => get(`${BASE_URL}/homes`);
 
 export const getDefaultHomeId = () => get(`${BASE_URL}/users/default-home`);
+
+export const setDefaultHomeId = (id) => put(`${BASE_URL}/users/default-home`,
+  { home: id });
 
 export const deleteHome = (id) => del(`${BASE_URL}/homes/${id}`);
 

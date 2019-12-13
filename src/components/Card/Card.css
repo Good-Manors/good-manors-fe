@@ -5,7 +5,6 @@
   width: 80%;
   height: auto;
   border-top-right-radius: 40px 40px;
-  border-bottom: 20px solid #d58ac3;
   padding: 30px 35px;
   -webkit-box-shadow: 10px 10px 20px -5px rgba(233,245,241,1);
   -moz-box-shadow: 10px 10px 20px -5px rgba(233,245,241,1);
@@ -84,3 +83,51 @@
   }
 }
 
+.Appliance {
+  border-bottom: 20px solid #9e5569;
+  h3 {
+    color: #9e5569;
+  }
+}
+
+.Material {
+  border-bottom: 20px solid #c08962;
+  h3 {
+    color: #c08962;
+  }
+}
+
+.PaintSwatch {
+  border-bottom: 20px solid #d58ac3;
+  h3 {
+    color: #d58ac3;
+  }
+}
+
+.Utility {
+  border-bottom: 20px solid #97a5bf;
+  h3 {
+    color: #97a5bf;
+  }
+}
+
+.Contact {
+  border-bottom: 20px solid #fb9e7f;
+  h3 {
+    color: #fb9e7f;
+  }
+}
+
+.Plant {
+  border-bottom: 20px solid #95b565;
+  h3 {
+    color: #95b565;
+  }
+}
+
+.Pet {
+  border-bottom: 20px solid #c7c1cb;
+  h3 {
+    color: #c7c1cb;
+  }
+}

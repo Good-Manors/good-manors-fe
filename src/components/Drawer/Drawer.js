@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Drawer.css';
-// import icon from '../../assets/temp-icon-black.png';
-import cardIcon from '../../assets/temp-icon.png';
 import { getCards } from '../../selectors/homeSelectors';
 import { deleteDrawer } from '../../services/homes';
 import kitchen from '../../assets/icons/kitchen-icon.png';
@@ -23,10 +21,9 @@ import utilityIcon from '../../assets/icons/utility-icon.png';
 import contactIcon from '../../assets/icons/contact-icon.png';
 import plantIcon from '../../assets/icons/plant-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
-import { setHome } from '../../actions/homeActions';
-
 import office from '../../assets/icons/office-icon.png';
 import laundry from '../../assets/icons/laundry-icon.png';
+import { setHome } from '../../actions/homeActions';
 
 
 const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
@@ -95,8 +92,6 @@ const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
       });
   };
 
-
-
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
     return <Link key={i} to={`/cards/${home._id}/${id}#${card._id}`}>
@@ -113,6 +108,7 @@ const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
         <Link to={`/cards/${home._id}/${id}`}><h3>{name}</h3></Link>
         <button className={`${styles.goButton} ${open ? styles.down : null }`} onClick={() => {
           open ? setOpen(false) : setOpen(true);
+        // eslint-disable-next-line react/no-unescaped-entities
         }}>></button>
         <div className={styles.spaceDiv}></div>
         <button
@@ -133,7 +129,9 @@ Drawer.propTypes = {
   name: PropTypes.string,
   cards: PropTypes.array,
   index: PropTypes.number,
-  id: PropTypes.string
+  id: PropTypes.string,
+  searchTerm: PropTypes.string,
+  isOpen: PropTypes.bool
 };
 
 export default Drawer;
