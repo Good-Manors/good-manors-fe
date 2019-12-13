@@ -112,7 +112,6 @@ const Card = ({ name, type, content, _id, edit }) => {
           if(idx != i) {
             return element;
           }
-          console.log('got there');
           return [element[0], result.url];
         }));
       });
@@ -186,7 +185,7 @@ const Card = ({ name, type, content, _id, edit }) => {
     editMode ?
       <>
         <div className={styles.Card}>
-          <section>
+          <section className={styles.Section}>
             <p>Card Title: <input type="text" name='name' value={editedName} onChange={handleNameChange} /></p>
             <img className={styles.Icon} src={cardIcons[type]} />
           </section>
@@ -198,7 +197,7 @@ const Card = ({ name, type, content, _id, edit }) => {
       <>
         <div className={styles.Card}>
           <a name={_id}></a>
-          <section>
+          <section className={styles.Section}>
             <h3>{name}</h3>
             <img className={styles.Icon} src={cardIcons[type]} />
           </section>

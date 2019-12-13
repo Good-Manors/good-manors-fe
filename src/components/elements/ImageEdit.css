@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
 
-  div{
-    display: flex;
+  .Image{
+    display: block;
+    width: 80%;
   }
 
 }
