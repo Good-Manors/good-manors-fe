@@ -20,7 +20,18 @@
       letter-spacing: .06em;
       color: black;
       margin: 10px 20px 10px 10px;
+    }
+
+    .goButton {
+      margin: 0;
+      background-color: #a7d0b1;
+      color: black;
+    }
+
+    .spaceDiv {
       flex-grow: 1;
+      width: 15px;
+
     }
 
     .dropButton {
@@ -31,8 +42,9 @@
       transition: transform 0.3s;
       font-family: 'Sulphur', sans-serif;
       font-weight: 700;
-      font-size: 1.5em;
+      font-size: 1.0em;
       color: black;
+      opacity: 0.3;
       padding: 0;
     } 
 

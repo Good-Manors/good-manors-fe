@@ -6,7 +6,6 @@ import Card from './Card';
 const CardForm2 = ({ name, type, cardContent, currentStep, handleChange, cardId, handleForm }) => {
   
   if(currentStep !== 2) return null;
-  console.log(cardId);
   return (
     <>
       <Card type={type} name={name} _id={cardId} content={cardContent} edit={true} />

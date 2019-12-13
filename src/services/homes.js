@@ -27,7 +27,7 @@ export const getCard = (cardId) => get(`${BASE_URL}/${cardId}`);
 export const updateCard = (id, body) => put(`${BASE_URL}/cards/${id}`,
   body);
 
-export const deleteCard = (id) => del(`${BASE_URL}/${id}`);
+export const deleteCard = (id) => del(`${BASE_URL}/cards/${id}`);
 
 export const getDrawerCards = (drawerId) => get(`${BASE_URL}/cards/drawers/${drawerId}`);
 

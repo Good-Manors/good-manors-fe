@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
 import styles from '../modal/Modal.css';
@@ -8,6 +9,7 @@ import { setHome } from '../../actions/homeActions';
 const NewDrawerModal = ({ isShowing, hide, home }) => {
   const [other, setOther] = useState('');
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleChange = ({ target }) => {
     setOther(target.value);
@@ -19,6 +21,7 @@ const NewDrawerModal = ({ isShowing, hide, home }) => {
     postDrawer(selectedDrawer, home._id)
       .then(home => {
         dispatch(setHome(home));
+        history.push(`/cards/${home.home._id}/${home.drawers[home.drawers.length - 1]._id}`);
         hide();
       });
   };

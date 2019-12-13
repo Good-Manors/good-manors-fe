@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Drawer.css';
 // import icon from '../../assets/temp-icon-black.png';
 import cardIcon from '../../assets/temp-icon.png';
 import { getCards } from '../../selectors/homeSelectors';
+import { deleteDrawer } from '../../services/homes';
+
 import kitchen from '../../assets/icons/kitchen-icon.png';
 import bathroom from '../../assets/icons/bathroom-icon.png';
 import living from '../../assets/icons/living-icon.png';
@@ -22,6 +24,8 @@ import utilityIcon from '../../assets/icons/utility-icon.png';
 import contactIcon from '../../assets/icons/contact-icon.png';
 import plantIcon from '../../assets/icons/plant-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
+import { setHome } from '../../actions/homeActions';
+
 import office from '../../assets/icons/office-icon.png';
 import laundry from '../../assets/icons/laundry-icon.png';
 
@@ -30,6 +34,8 @@ const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
   const [open, setOpen] = useState(isOpen);
   const [term, setTerm] = useState(searchTerm);
   const cards = useSelector(state => getCards(state, index));
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     setOpen(isOpen);
@@ -83,6 +89,15 @@ const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
     Pet: petIcon
   };
 
+  const handleDeleteDrawer = (drawer) => {
+    deleteDrawer(drawer)
+      .then(home => {
+        dispatch(setHome(home));
+      });
+  };
+
+
+
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
     console.log(type, type === term, term);
@@ -95,14 +110,17 @@ const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
 
   return (
     <section className={styles.Drawer}>
-      <div className={styles.Name} onClick={() => {
-        open ? setOpen(false) : setOpen(true);
-      }}>
+      <div className={styles.Name}>
         <img src={icon} />
-        <h3>{name}</h3>
+        <Link to={`/cards/${home._id}/${id}`}><h3>{name}</h3></Link>
+        <button className={styles.goButton} onClick={() => {
+          open ? setOpen(false) : setOpen(true);
+        }}>></button>
+        <div className={styles.spaceDiv}></div>
         <button
-          className={`${styles.dropButton} ${open ? styles.up : styles.down} `}
-        >^</button>
+          className={`${styles.dropButton}`}
+          onClick={() => handleDeleteDrawer(id)}
+        >x</button>
       </div>
 
       <div className={`${styles.Tray} ${open ? styles.open : styles.closed} `}>
