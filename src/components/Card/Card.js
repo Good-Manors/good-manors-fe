@@ -198,7 +198,7 @@ const Card = ({ name, type, content, _id, edit }) => {
       </>
       :
       <>
-        <div className={styles.Card}>
+        <div className={`${styles.Card} ${styles[type]}`}>
           <a name={_id}></a>
           <section className={styles.Section}>
             <h3>{name}</h3>
