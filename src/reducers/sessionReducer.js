@@ -14,7 +14,7 @@ export default function reducer(state = initialState, action) {
     case SET_SESSION:
       return { ...action.payload, loading: false, error: null };
     case SET_SESSION_END:
-      return { ...action.payload, user: null, loading: false, error: null };
+      return { initialState };
     case SET_SESSION_ERROR:
       return { ...state, loading: false, error: action.payload };
     default:
