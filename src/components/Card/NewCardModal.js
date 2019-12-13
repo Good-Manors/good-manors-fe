@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import styles from '../modal/Modal.css';
 import CardForm1 from './CardForm1';
 import CardForm2 from './CardForm2';
-import { initializeHome, postCard } from '../../services/homes';
-import { setHome } from '../../actions/homeActions';
-import { getCardsByDrawer } from '../../selectors/homeSelectors';
+import { postCard } from '../../services/homes';
 
 const NewCardModal = ({ isShowing, hide, drawer }) => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -14,9 +11,14 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
   const [cardType, setCardType] = useState('');
   const [cardContent, setCardContent] = useState([]);
   const [cardId, setCardId] = useState('');
-  const dispatch = useDispatch();
 
-  const allCards = useSelector(state => getCardsByDrawer(state, drawer));
+  const handleModalClose = () => {
+    hide();
+    setCurrentStep(1);
+    setCardName('');
+    setCardType('');
+  };
+
   const handleChange = ({ target }) => {
     setCardName(target.value);
   };
@@ -26,7 +28,6 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
     setCardType(cardType);
     postCard(cardName, cardType, drawer)
       .then(card => {
-        console.log(card);
         setCardId(card._id);
         setCardContent(card.content);
         setCurrentStep(step + 1);
@@ -50,7 +51,7 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
           <div className={styles.modal}>
 
             <div className={styles.modalHeader}>
-              <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={hide}>
+              <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={handleModalClose}>
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>

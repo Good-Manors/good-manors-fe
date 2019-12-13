@@ -15,7 +15,7 @@ const NewDrawerModal = ({ isShowing, hide, home }) => {
 
   const handleForm = () => {
     let selectedDrawer = document.querySelector('input[name="drawer"]:checked').value;
-    if (selectedDrawer === 'Other') selectedDrawer = other;
+    if(selectedDrawer === 'Other') selectedDrawer = other;
     postDrawer(selectedDrawer, home._id)
       .then(home => {
         dispatch(setHome(home));

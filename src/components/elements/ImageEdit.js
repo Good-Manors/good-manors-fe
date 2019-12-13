@@ -1,36 +1,28 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import uploadImageToCloudinary from '../../services/cloudinary';
 import fileReader from '../../services/readFile';
+import styles from './ImageEdit.css';
 
 const ImageEdit = ({ imageURL, handleImageUpload, index }) => {
-  const [file, setFile] = useState();
-  // const [uploadedImage, setUploadedImage] = useState();
+  // const [file, setFile] = useState();
+  const [uploadedImage, setUploadedImage] = useState(imageURL);
 
-  const placeholderImage = require('../../assets/blank-file.png');
+  // const placeholderImage = require('../../assets/blank-file.png');
 
   return (
-    <form onSubmit={event => {
-      event.preventDefault();
-
-      // let file = event.target;
-
-      fileReader(file)
-        .then(result => {
-          return uploadImageToCloudinary(result);
-        })
-        .then(result => {
-          handleImageUpload(result.url, index);
-          // result.delete_token <-- This token allows us to delete images from the front end.
-          // returnUrl = result.url;
-        });
-    }} >
+    <section className={styles.ImgEdit}>
+      <img className={styles.Image} src={uploadedImage} />
       <input type="file" id="input"
-        onChange={({ target }) => { setFile(target.files[0]); }} 
+        onChange={({ target }) => {
+          // setFile(target.files[0]);
+          fileReader(target.files[0])
+            .then(result => {
+              setUploadedImage(result);
+              handleImageUpload(result, index);
+            });
+        }}
       />
-      <img src={imageURL || placeholderImage}/>
-      <button>Submit</button>
-    </form>
+    </section>
   );
 
 };

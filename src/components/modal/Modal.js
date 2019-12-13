@@ -48,6 +48,14 @@ const Modal = ({ isShowing, hide }) => {
       });
   };
 
+  const handleModalClose = () => {
+    hide();
+    setCurrentStep(1);
+    setName('');
+    setDrawer([]);
+    setCard([]);
+  };
+
   const drawerSteps = drawer.map((eachDrawer, i) => {
     return <Form3 index={i} key={i} drawerName={eachDrawer} currentStep={currentStep} card={card} handleForm={handleForm} />;
   });
@@ -62,11 +70,11 @@ const Modal = ({ isShowing, hide }) => {
           <div className={styles.modalWrapper} aria-modal aria-hidden tabIndex={-1} role="dialog">
             <div className={styles.modal}>
 
-              <div className={styles.modalHeader}>
-                <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={hide}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+            <div className={styles.modalHeader}>
+              <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={handleModalClose}>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
 
               <Form1 handleChange={handleChange} handleForm={handleForm} name={name} currentStep={currentStep} />
               <Form2 currentStep={currentStep} handleForm={handleForm} />

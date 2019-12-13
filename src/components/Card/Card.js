@@ -18,7 +18,9 @@ import utilityIcon from '../../assets/icons/utility-icon.png';
 import contactIcon from '../../assets/icons/contact-icon.png';
 import plantIcon from '../../assets/icons/plant-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
+import uploadImageToCloudinary from '../../services/cloudinary';
 import customIcon from '../../assets/icons/custom-card-icon.png';
+import placeholder from '../../assets/blank-file.png';
 
 import { setHome } from '../../actions/homeActions';
 
@@ -27,6 +29,7 @@ const Card = ({ name, type, content, _id, edit }) => {
   const [editMode, setEditMode] = useState(edit);
   const [editedName, setEditedName] = useState(name);
   const [editedContent, setEditedContent] = useState(content);
+  // const [images, setImages] = useState([]);
   const dispatch = useDispatch();
 
   //localContent will look like 
@@ -103,22 +106,24 @@ const Card = ({ name, type, content, _id, edit }) => {
   };
 
   const handleImageUpload = (url, idx) => {
-    setEditedContent(editedContent.map((element, i) => {
-      if(idx != i) {
-        return element;
-      }
-      return [element[0], url];
-    }));
+    uploadImageToCloudinary(url)
+      .then(result => {
+        setEditedContent(editedContent.map((element, i) => {
+          if(idx != i) {
+            return element;
+          }
+          console.log('got there');
+          return [element[0], result.url];
+        }));
+      });
   };
 
   const handleSaveChanges = () => {
-    console.log(_id);
     updateCard(_id, { name: editedName, content: editedContent, type: type })
       .then(home => {
         dispatch(setHome(home));
       })
       .then(() => {
-        console.log('editMode');
         setEditMode(false);
       });
   };

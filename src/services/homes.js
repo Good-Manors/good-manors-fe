@@ -10,10 +10,14 @@ export const getAllHomes = () => get(`${BASE_URL}/homes`);
 
 export const getDefaultHomeId = () => get(`${BASE_URL}/users/default-home`);
 
+export const deleteHome = (id) => del(`${BASE_URL}/homes/${id}`);
+
 export const postDrawer = (name, home) => post(`${BASE_URL}/drawers`,
   { name: name, home: home });
 
 export const getHomeDrawers = (homeId) => get(`${BASE_URL}/drawers/home/${homeId}`);
+
+export const deleteDrawer = (id) => del(`${BASE_URL}/drawers/${id}`);
 
 export const postCard = (name, type, drawer) => post(`${BASE_URL}/cards`,
   { name: name, type: type, drawer: drawer });

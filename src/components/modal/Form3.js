@@ -3,27 +3,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form2.css';
 
-const Form3 = ({ currentStep, index, drawerName, card, skipModal, handleForm }) => {
+const Form3 = ({ currentStep, index, drawerName, card, handleForm }) => {
   if(currentStep !== 3 + index) return null;
   return (
     <>
       <section className={styles.Form2}>
-        <h3>Select all cards that apply to your {drawerName}</h3>
+        <h3>Select cards for your {drawerName}</h3>
 
         <form>
-          <input type="checkbox" name={card} value="Appliance" /> Appliance
-          <input type="checkbox" name={card} value="Material" /> Material
-          <input type="checkbox" name={card} value="PaintSwatch" /> Paint
-          <input type="checkbox" name={card} value="Utility" /> Utility
-          <input type="checkbox" name={card} value="Contact" /> Contact
-          <input type="checkbox" name={card} value="Plant" /> Plant
-          <input type="checkbox" name={card} value="Pet" /> Pet
+          <div>
+            <p><input type="checkbox" name={card} value="Appliance" /> Appliance</p>
+            <p><input type="checkbox" name={card} value="Material" /> Material</p>
+            <p><input type="checkbox" name={card} value="PaintSwatch" /> Paint</p>
+            <p><input type="checkbox" name={card} value="Utility" /> Utility</p>
+          </div>
+          <div>
+            <p><input type="checkbox" name={card} value="Contact" /> Contact</p>
+            <p><input type="checkbox" name={card} value="Plant" /> Plant</p>
+            <p><input type="checkbox" name={card} value="Pet" /> Pet</p>
+          </div>
         </form>
-        
-        <div>
-          <button onClick={skipModal}>Skip</button>
-          <button onClick={() => handleForm(currentStep) }>Next</button>
-        </div>
+        <button onClick={() => handleForm(currentStep)}>Next</button>
       </section>
     </>
   );
