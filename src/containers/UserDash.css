@@ -41,6 +41,13 @@
   p {
     font-size: 1.4em;
     margin: 0;
+    flex-grow: 1
+  }
+
+  span {
+    font-family: 'Arial';
+    opacity: 0.2;
+    cursor: pointer;
   }
 }
 

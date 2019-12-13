@@ -6,7 +6,7 @@ import Header from '../components/Header/Header';
 import Menu from '../components/Menu';
 import useModal from '../hooks/useModal';
 import styles from './UserDash.css';
-import { getAllHomes, getHome } from '../services/homes';
+import { getAllHomes, getHome, deleteHome } from '../services/homes';
 import { setHome } from '../actions/homeActions';
 import icon from '../assets/icons/custom-drawer-icon.png';
 
@@ -35,6 +35,16 @@ const UserDash = () => {
       });
   };
 
+  const handleDeleteHome = (id) => {
+    deleteHome(id)
+      .then(() => {
+        getAllHomes()
+          .then(homes => {
+            setUserHomes(homes);
+          });
+      });
+  };
+
   if(redirect) return <Redirect to='/home' />;
 
   if(!userHomes) return <h1>Loading</h1>;
@@ -43,6 +53,7 @@ const UserDash = () => {
     return <div className={styles.homeDisplay} key={home._id} onClick={() => handleHomeClick(home._id)}>
       <img src={icon} />
       <p>{home.title}</p>
+      <span onClick={() => handleDeleteHome(home._id)}>x</span>
     </div>;
   });
 

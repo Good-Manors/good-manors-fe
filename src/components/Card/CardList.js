@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import useModal from '../../hooks/useModal';
 import Card from './Card';
 import styles from './CardList.css';
 import PropTypes from 'prop-types';
 import { getCardsByDrawer } from '../../selectors/homeSelectors';
-import { setHome } from '../../actions/homeActions';
 import NewCardModal from './NewCardModal';
 
 

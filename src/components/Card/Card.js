@@ -112,13 +112,11 @@ const Card = ({ name, type, content, _id, edit }) => {
   };
 
   const handleSaveChanges = () => {
-    console.log(_id);
     updateCard(_id, { name: editedName, content: editedContent, type: type })
       .then(home => {
         dispatch(setHome(home));
       })
       .then(() => {
-        console.log('editMode');
         setEditMode(false);
       });
   };
