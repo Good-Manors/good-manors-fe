@@ -1,20 +1,24 @@
 .Menu {
   grid-area: menu;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin: 30px 30px 0 0;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-end;
+  margin: 0 30px 0 0;
+  width: 100%;
 
   h5 {
     font-family: 'Sulphur', sans-serif;
     font-weight: 700;
-    font-size: .9rem;
+    font-size: 1rem;
     color: black;
     letter-spacing: .08em;
-    margin-bottom: 10px;
+    margin: 33px 10px;
   }
 
-  nav {
+  
+
+  /*nav {
     display: flex;
     flex-direction: column;
     border: 5px solid black;
@@ -23,7 +27,7 @@
     width: auto;
     cursor: pointer;
     padding: 5px;
-  }
+  }*/
 
   a {
     font-family: 'Sulphur', sans-serif;
@@ -31,9 +35,61 @@
     font-size: .8rem;
     color: black;
     letter-spacing: .08em;
-    padding: 3px 0;
+    padding: 8px 0;
     margin: 0 7px;
     text-decoration: none;
   }
 
+}
+
+:global(.bm-burger-button) {
+  position: relative;
+  width: 26px;
+  height: 20px;
+  margin: 30px 30px 0 0;
+}
+
+:global(.bm-burger-bars) {
+  background: black;
+}
+
+:global(.bm-burger-bars-hover) {
+  background: #8ab4b1;
+}
+
+:global(.bm-cross-button) {
+  height: 24px;
+  width: 24px;
+}
+
+:global(.bm-cross) {
+  background: black;
+}
+
+:global(.bm-cross-hover) {
+  background-color: #8ab4b1;
+}
+
+:global(.bm-menu-wrap) {
+  position: fixed;
+  height: 100%;
+}
+
+:global(.bm-menu) {
+  background-color: rgb(215, 227, 147);
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+:global(.bm-item-list) {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+:global(.bm-item) {
+  display: inline-block;
+}
+
+:global(.bm-overlay) {
+  background: rgba(0, 0, 0, 0.3);
 }

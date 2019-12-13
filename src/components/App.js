@@ -28,6 +28,7 @@ const PrivateRoute = ({ ...rest }) => {
 
   if(loading) {
     return <h1>Loading...</h1>;
+
   }
 
   if(!loading && !sessionId) {

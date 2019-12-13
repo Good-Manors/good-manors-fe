@@ -31,8 +31,10 @@
     "fs": "0.0.1-security",
     "react": "^16.12.0",
     "react-burger-menu": "^2.6.13",
+    "react-crossfade-image": "^1.2.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
+    "react-reveal": "^1.2.2",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"

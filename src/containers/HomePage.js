@@ -35,7 +35,7 @@ const HomePage = () => {
   return (
     <section id='home-page-wrapper' className={styles.HomePageWrapper}>
       <Header />
-      <Menu />
+      <Menu handleSubmit={() => { }} />
       <Search home={home} />
       <section className={styles.DrawerListWrapper}>
         <DrawerList drawers={drawers || []} home={home || {}} />
