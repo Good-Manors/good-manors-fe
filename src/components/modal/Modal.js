@@ -70,11 +70,11 @@ const Modal = ({ isShowing, hide }) => {
           <div className={styles.modalWrapper} aria-modal aria-hidden tabIndex={-1} role="dialog">
             <div className={styles.modal}>
 
-            <div className={styles.modalHeader}>
-              <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={handleModalClose}>
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+              <div className={styles.modalHeader}>
+                <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={handleModalClose}>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
 
               <Form1 handleChange={handleChange} handleForm={handleForm} name={name} currentStep={currentStep} />
               <Form2 currentStep={currentStep} handleForm={handleForm} />
