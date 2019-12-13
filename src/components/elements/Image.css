@@ -1,10 +1,10 @@
-.Image {
-  width: 300px;
-  height: 150px;
+.ImageWrapper {
+  width: 80%;
+  max-width: 20rem;
   object-fit: contain;
   
   img {
-    height: 100%;
+    width: 100%;
     object-position: center;
   }
 }
