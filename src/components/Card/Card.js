@@ -19,7 +19,6 @@ import contactIcon from '../../assets/icons/contact-icon.png';
 import plantIcon from '../../assets/icons/plant-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
 import uploadImageToCloudinary from '../../services/cloudinary';
-import customIcon from '../../assets/icons/custom-card-icon.png';
 import placeholder from '../../assets/blank-file.png';
 
 import { setHome } from '../../actions/homeActions';

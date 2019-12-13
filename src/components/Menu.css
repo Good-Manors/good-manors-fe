@@ -33,10 +33,6 @@
 
 }
 
-.menuItem : hover {
-  background: #8ab4b1;
-}
-
 :global(.bm-burger-button) {
   position: relative;
   width: 26px;

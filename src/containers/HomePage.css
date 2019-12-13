@@ -14,7 +14,7 @@
   grid-area: drawerListWrapper;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 60vh;
   align-content: center;
   overflow: auto;
   margin: 2em 1em;
