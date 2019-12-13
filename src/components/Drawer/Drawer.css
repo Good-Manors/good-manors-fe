@@ -20,7 +20,18 @@
       letter-spacing: .06em;
       color: black;
       margin: 10px 20px 10px 10px;
+    }
+
+    .goButton {
+      margin: 0;
+      background-color: #a7d0b1;
+      color: black;
+    }
+
+    .spaceDiv {
       flex-grow: 1;
+      width: 15px;
+
     }
 
     .dropButton {

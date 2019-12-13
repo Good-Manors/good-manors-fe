@@ -14,7 +14,7 @@ export default function Search({ home }) {
       <h2>{title || ''}</h2>
       <div>
         <img src={searchIcon} />
-        <input type='text' onChange={}/>
+        <input type='text' />
       </div>
     </section>
   );

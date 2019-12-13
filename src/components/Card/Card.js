@@ -19,6 +19,7 @@ import contactIcon from '../../assets/icons/contact-icon.png';
 import plantIcon from '../../assets/icons/plant-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
 import editIcon from '../../assets/icons/edit-icon.png';
+import deleteIcon from '../../assets/icons/delete-icon.png';
 import uploadImageToCloudinary from '../../services/cloudinary';
 import customIcon from '../../assets/icons/custom-card-icon.png';
 import placeholder from '../../assets/blank-file.png';
@@ -207,7 +208,7 @@ const Card = ({ name, type, content, _id, edit }) => {
           {mappedDisplayElements}
           <div className={styles.buttonIcons}>
             <button className={styles.buttonIcons} onClick={() => setEditMode(true)}><img className={styles.Icon} src={editIcon} /></button>
-            <button classNSame={styles.buttonIcons} onClick={() => handleDeleteCard(_id)}><img className={styles.Icon} src={customIcon} /></button>
+            <button className={styles.buttonIcons} onClick={() => handleDeleteCard(_id)}><img className={styles.Icon} src={deleteIcon} /></button>
           </div>
         </div>
       </>

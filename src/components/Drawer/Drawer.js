@@ -62,6 +62,10 @@ const Drawer = ({ name, index, home, id }) => {
       });
   };
 
+  const goToDrawer = (id) => {
+
+  }
+
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
     return <Link key={i} to={`/cards/${home._id}/${id}#${card._id}`}>
@@ -78,6 +82,8 @@ const Drawer = ({ name, index, home, id }) => {
         <h3 onClick={() => {
           open ? setOpen(false) : setOpen(true);
         }}>{name}</h3>
+        <Link to={`/cards/${home._id}/${id}`}><button className={styles.goButton} onClick={() => goToDrawer(id)}>></button></Link>
+        <div className={styles.spaceDiv}></div>
         <button
           className={`${styles.dropButton}`}
           onClick={() => handleDeleteDrawer(id)}
