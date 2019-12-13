@@ -44,8 +44,9 @@
       font-weight: 700;
       font-size: 1.0em;
       color: black;
-      opacity: 0.3;
+      opacity: 0.8;
       padding: 0;
+      outline: none;
     } 
 
     .dropButton:focus { 
@@ -168,7 +169,13 @@
 @media only screen and (max-width: 450px) {
   .Drawer{
     width: 90%;
+
     .Name{
+      font-size: 0.8rem;
+      width: 100%;
+    }
+
+    .Tray{
       width: 100%;
     }
   }

@@ -28,6 +28,10 @@
     text-align: right;
   }
 
+  a:visited {
+    color: black;
+  }
+
   a:focus {
     outline: none;
   }
@@ -80,6 +84,7 @@
 }
 
 :global(.bm-item) {
+  color: black;
   display: inline-block;
 }
 
@@ -87,3 +92,5 @@
   background: rgba(0, 0, 0, 0);
   display: none;
 }
+
+
