@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { useSelector } from 'react-redux';
-// import { getSessionUsername } from '../selectors/sessionSelectors';
 import { slide as HamburgerMenu } from 'react-burger-menu';
 import styles from './Menu.css';
 
@@ -51,24 +49,3 @@ hamburgerMenu.propTypes = {
 };
 
 export default connect(mapStateToProps)(hamburgerMenu);
-
-// import React from 'react';
-// import { useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
-// import styles from './Menu.css';
-// import { getSessionUsername } from '../selectors/sessionSelectors';
-
-// export default function Menu() {
-
-//   const username = useSelector(getSessionUsername);
-
-//   return (
-//     <div className={styles.Menu}>
-//       <h5>hi, {username}</h5>
-//       <nav>
-//         <Link to="/">Dashboard</Link>
-//         <Link to="/about-us">About Us</Link>
-//       </nav>
-//     </div>
-//   );
-// }
