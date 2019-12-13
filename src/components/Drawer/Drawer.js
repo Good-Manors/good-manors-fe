@@ -17,7 +17,7 @@ import master from '../../assets/icons/master-icon.png';
 import dining from '../../assets/icons/dining-icon.png';
 import exterior from '../../assets/icons/exterior-icon.png';
 import utilities from '../../assets/icons/utilities-icon.png';
-import custom from '../../assets/icons/custom-drawer-icon.png';
+import custom from '../../assets/icons/custom-icon.png';
 import applianceIcon from '../../assets/icons/appliance-icon.png';
 import materialIcon from '../../assets/icons/material-icon.png';
 import paintIcon from '../../assets/icons/paint-icon.png';
@@ -25,9 +25,10 @@ import utilityIcon from '../../assets/icons/utility-icon.png';
 import contactIcon from '../../assets/icons/contact-icon.png';
 import plantIcon from '../../assets/icons/plant-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
-import customIcon from '../../assets/icons/custom-card-icon.png';
 import { setHome } from '../../actions/homeActions';
 
+import office from '../../assets/icons/office-icon.png';
+import laundry from '../../assets/icons/laundry-icon.png';
 
 
 const Drawer = ({ name, index, home, id }) => {
@@ -37,14 +38,41 @@ const Drawer = ({ name, index, home, id }) => {
 
 
   let icon;
-  if(name === 'Kitchen') icon = kitchen;
-  if(name === 'Bathroom') icon = bathroom;
-  if(name === 'Living') icon = living;
-  if(name === 'Dining') icon = dining;
-  if(name === 'Master') icon = master;
-  if(name === 'Bedroom') icon = bedroom;
-  if(name === 'Exterior') icon = exterior;
-  if(name === 'Utilities') icon = utilities;
+  switch (name) {
+    case 'Kitchen':
+      icon = kitchen;
+      break;
+    case 'Bathroom':
+      icon = bathroom;
+      break;
+    case 'Living':
+      icon = living;
+      break;
+    case 'Dining':
+      icon = dining;
+      break;
+    case 'Master':
+      icon = master;
+      break;
+    case 'Bedroom':
+      icon = bedroom;
+      break;
+    case 'Exterior':
+      icon = exterior;
+      break;
+    case 'Utilities':
+      icon = utilities;
+      break;
+    case 'Office':
+      icon = office;
+      break;
+    case 'Laundry':
+      icon = laundry;
+      break;
+    default:
+      icon = custom;
+      break;
+  }
 
   const cardIcons = {
     Appliance: applianceIcon,

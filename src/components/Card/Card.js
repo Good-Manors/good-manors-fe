@@ -21,7 +21,6 @@ import petIcon from '../../assets/icons/pet-icon.png';
 import editIcon from '../../assets/icons/edit-icon.png';
 import deleteIcon from '../../assets/icons/delete-icon.png';
 import uploadImageToCloudinary from '../../services/cloudinary';
-import customIcon from '../../assets/icons/custom-card-icon.png';
 import placeholder from '../../assets/blank-file.png';
 
 import { setHome } from '../../actions/homeActions';

@@ -23,6 +23,7 @@ const Form2 = ({ currentStep, handleForm }) => {
             <p><input type="checkbox" name='drawer' value="Bathroom" /> Bathroom</p>
             <p><input type="checkbox" name='drawer' value="Exterior" /> Exterior</p>
             <p><input type="checkbox" name='drawer' value="Office" /> Office</p>
+            <p><input type="checkbox" name='drawer' value="Laundry" /> Laundry</p>
             <p><input type="checkbox" name='drawer' value="Utilities" /> Utilities</p>
           </div>
         </form>
