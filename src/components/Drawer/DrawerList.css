@@ -14,3 +14,10 @@
     color: white;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .DrawerList{
+    margin: 0;
+    width: 80%;
+  }
+}
