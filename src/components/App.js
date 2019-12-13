@@ -16,6 +16,7 @@ import './App.css';
 import HomePage from '../containers/HomePage';
 import AuthPage from './auth/AuthPage';
 import DrawerPage from '../containers/DrawerPage';
+import AboutPage from '../components/AboutPage';
 
 const PrivateRoute = ({ ...rest }) => {
   const sessionId = useSelector(getSessionId);
@@ -52,6 +53,7 @@ function App() {
           <Route path='/auth' component={AuthPage} />
           <PrivateRoute path='/cards/:homeId/:drawerId' component={DrawerPage} />
           <PrivateRoute path='/home' component={HomePage} />
+          <PrivateRoute path='/about-us' component={AboutPage} />
         </Switch>
       </Router>
     </div>

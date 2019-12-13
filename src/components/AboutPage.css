@@ -1,0 +1,130 @@
+.AboutWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 20% 80;
+  grid-template-areas: "header menu"
+                       "header ProfileWrapper";
+}
+
+.ProfileWrapper {
+  align-content: center;
+  margin: 0 1em;
+  overflow: scroll;
+  height: 80vh;
+
+  .Intro {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 700;
+    font-size: 2.4em;
+    letter-spacing: .07em;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .Profiles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    height: 80%;
+    width: 80%;
+  }
+
+  .profileContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .Profiles {
+    width: 80%;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #d7e393;
+    padding: 2em;
+    border-radius: 10px;
+    width: 35%;
+    height: 400px;
+    margin: 10px;
+  }
+
+  .Name {
+    font-size: 1.5em;
+    color: #08b89d;
+    margin-bottom: 0;
+  }
+
+  .content {
+    width: 100%;
+    font-size: .9em;
+    line-height: 1.3em;
+  }
+
+  .Angela {
+    display: flex;
+    justify-content: center;
+    background: url(../assets/about/Angela.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 5px solid #08b89d;
+    border-radius: 10px;
+    margin-bottom: 7px;
+    height: 200px;
+    width: 200px;
+  }
+
+  .Allison {
+    display: flex;
+    justify-content: center;
+    background: url(../assets/about/Allison.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 5px solid #08b89d;
+    border-radius: 10px;
+    margin-bottom: 7px;
+    height: 200px;
+    width: 200px;
+  }
+
+  .Luke {
+    display: flex;
+    justify-content: center;
+    background: url(../assets/about/Luke.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 5px solid #08b89d;
+    border-radius: 10px;
+    margin-bottom: 7px;
+    height: 200px;
+    width: 200px;
+  }
+
+  .John {
+    display: flex;
+    justify-content: center;
+    background: url(../assets/about/John.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 5px solid #08b89d;
+    border-radius: 10px;
+    margin-bottom: 7px;
+    height: 200px;
+    width: 200px;
+  }
+
+  .linkPage {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: .07em;
+    text-transform: lowercase;
+  }
+}
