@@ -20,7 +20,7 @@ const DrawerPage = () => {
       .then(home => {
         dispatch(setHome(home));
       });
-  });
+  }, []);
 
 
   const drawers = useSelector(getDrawers);

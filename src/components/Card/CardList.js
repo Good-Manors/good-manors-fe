@@ -34,7 +34,7 @@ const CardList = ({ drawer }) => {
       <button className={styles.CardButton} onClick={toggle}>+ New Card</button>
       <button className={styles.CardButton} onClick={handleDeleteDrawer}>Delete Drawer</button>
       <NewCardModal isShowing={isShowing} hide={toggle} drawer={drawer} />
-      <section>
+      <section className={styles.List}>
         {mappedCards}
       </section>
     </section>
