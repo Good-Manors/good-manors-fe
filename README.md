@@ -20,10 +20,16 @@ Keep all of the relevant info about your home in one place with Good Manors. Thi
 - Node
 - MongoDB
 
+## Wireframe / Mockup
+![UML Diagram](assets/goodManors-Layout.jpg)
+![UML Diagram](assets/goodManors-Layout2.jpg)
+![UML Diagram](assets/goodManors-Layout3.jpg)
+![UML Diagram](assets/goodManors-Layout4.jpg)
+![UML Diagram](assets/goodManors-Layout5.jpg)
+
 ## Created By
 This app was made at Alchemy Code Lab by:
 - [Angela Vawser](http://hello-jelly.com/)
 - [Luke Donahue](https://www.linkedin.com/in/lukedonahue/)
 - [Allison Busse](http://www.allisonbusse.com)
 - [John Nelson](https://www.linkedin.com/in/johnnelson4850/)
-
