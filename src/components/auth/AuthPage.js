@@ -17,8 +17,6 @@ import livingRoom from '../../assets/img-horizontal/livingRoom.jpg';
 
 const bgImageArray = [deck, garden, bedroom, dining, houseplants, nursery, livingRoom];
 
-// const bgImageArray = ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/full-lonely.jpg', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/full-carezza-lake.jpg'];
-
 const AuthPage = ({ handleSubmit }) => {
   const sessionId = useSelector(getSessionId);
   const [username, setUsername] = useState('');
