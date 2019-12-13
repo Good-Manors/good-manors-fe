@@ -8,15 +8,21 @@ import styles from './DrawerList.css';
 import { getHomeInfo } from '../../selectors/homeSelectors';
 
 
-const DrawerList = ({ drawers }) => {
+const DrawerList = ({ drawers, isOpen, searchTerm }) => {
 
   const { isShowing, toggle } = useModal();
   const home = useSelector(getHomeInfo);
-  // const dispatch = useDispatch();
-
 
   const mappedDrawers = drawers.map((drawer, i) => {
-    return <Drawer key={i} name={drawer.name} home={home} id={drawer._id} index={i} />;
+    return <Drawer 
+      key={i} 
+      name={drawer.name} 
+      home={home} 
+      id={drawer._id} 
+      index={i} 
+      isOpen={isOpen}
+      searchTerm={searchTerm} 
+    />;
   });
 
   return (

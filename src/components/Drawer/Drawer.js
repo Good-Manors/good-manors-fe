@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -25,9 +25,15 @@ import petIcon from '../../assets/icons/pet-icon.png';
 import customIcon from '../../assets/icons/custom-card-icon.png';
 
 
-const Drawer = ({ name, index, home, id }) => {
-  const [open, setOpen] = useState(false);
+const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
+  const [open, setOpen] = useState(isOpen);
+  const [term, setTerm] = useState(searchTerm);
   const cards = useSelector(state => getCards(state, index));
+
+  useEffect(() => {
+    setOpen(isOpen);
+    setTerm(searchTerm);
+  }, [isOpen, searchTerm]);
 
   let icon;
   if(name === 'Kitchen') icon = kitchen;
@@ -48,11 +54,14 @@ const Drawer = ({ name, index, home, id }) => {
     Plant: plantIcon,
     Pet: petIcon
   };
-  
+
+  // type == term ? styles.Highlight : null
+
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
+    console.log(type, type === term, term);
     return <Link key={i} to={`/cards/${home._id}/${id}#${card._id}`}>
-      <div className={styles[type]}>
+      <div className={`${styles[type]} ${type.toLowerCase().includes(term.toLowerCase()) ? styles.Highlight : null}`}>
         <img src={cardIcons[card.type]} />
         <p>{card.name}</p>
       </div></Link>;

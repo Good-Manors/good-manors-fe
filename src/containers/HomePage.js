@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header/Header';
 import Menu from '../components/Menu';
@@ -11,7 +11,8 @@ import Search from '../components/Search';
 import loading from '../assets/loader.gif';
 
 const HomePage = () => {
-
+  const [drawersOpen, setDrawersOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useDispatch();
   const home = useSelector(getHomeInfo);
   let title;
@@ -30,15 +31,19 @@ const HomePage = () => {
         });
   }, []);
 
+  useEffect(() => {
+    setSearchTerm(searchTerm);
+  }, [searchTerm]);
+
   if(!home) return <img src={loading} />;
 
   return (
     <section id='home-page-wrapper' className={styles.HomePageWrapper}>
       <Header />
       <Menu handleSubmit={() => { }} />
-      <Search home={home} />
+      <Search home={home} setDrawersOpen={setDrawersOpen} setSearchTerm={setSearchTerm} />
       <section className={styles.DrawerListWrapper}>
-        <DrawerList drawers={drawers || []} home={home || {}} />
+        <DrawerList drawers={drawers || []} home={home || {}} isOpen={drawersOpen} searchTerm={searchTerm} />
       </section>
 
     </section>
