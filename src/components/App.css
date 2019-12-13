@@ -55,6 +55,10 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  color: #8AB4B1;
+}
+
 textarea {
   width: 80%;
   min-height: 100px;
