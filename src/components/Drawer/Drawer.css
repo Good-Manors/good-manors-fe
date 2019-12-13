@@ -164,3 +164,12 @@
     max-height: 0px;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .Drawer{
+    width: 90%;
+    .Name{
+      width: 100%;
+    }
+  }
+}

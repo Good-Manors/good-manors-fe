@@ -6,8 +6,7 @@
   grid-template-rows: 15% 15% 70%;
   grid-template-areas: "header menu"
                        "header search"
-                       "header drawerListWrapper";
-                       
+                       "header drawerListWrapper";              
 }
 
 .DrawerListWrapper {
@@ -18,4 +17,19 @@
   align-content: center;
   overflow: auto;
   margin: 2em 1em;
+}
+
+@media only screen and (max-width: 450px) {
+  .HomePageWrapper{
+    grid-template-columns: 100%;
+    grid-template-rows: 18% 15% 67%;
+    grid-template-areas: "header"
+                          "search"
+                          "drawerListWrapper"; 
+  }
+
+  .DrawerListWrapper{
+    border: solid black 2px;
+    width: 100%;
+  }
 }

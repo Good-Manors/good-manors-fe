@@ -8,3 +8,11 @@
   background-color: black;
   transition: 3s;
 }
+
+
+  @media only screen and (max-width: 450px) {
+    .Header{
+      width: 100%;
+    }
+  }
+

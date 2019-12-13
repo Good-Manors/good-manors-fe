@@ -7,7 +7,6 @@ import styles from './Drawer.css';
 import cardIcon from '../../assets/temp-icon.png';
 import { getCards } from '../../selectors/homeSelectors';
 import { deleteDrawer } from '../../services/homes';
-
 import kitchen from '../../assets/icons/kitchen-icon.png';
 import bathroom from '../../assets/icons/bathroom-icon.png';
 import living from '../../assets/icons/living-icon.png';
