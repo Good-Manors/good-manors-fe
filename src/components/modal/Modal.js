@@ -9,6 +9,7 @@ import Form3 from './Form3';
 import Form4 from './Form4';
 import { initializeHome } from '../../services/homes';
 import { setHome } from '../../actions/homeActions';
+import Fade from 'react-reveal/Fade';
 
 const Modal = ({ isShowing, hide }) => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -64,9 +65,10 @@ const Modal = ({ isShowing, hide }) => {
   return (
     isShowing ? ReactDOM.createPortal(
       <>
-        <div className={styles.modalOverlay} />
-        <div className={styles.modalWrapper} aria-modal aria-hidden tabIndex={-1} role="dialog">
-          <div className={styles.modal}>
+        <div className={styles.modalOverlay} style={{ background: 'rgba(0, 0, 0, .5)' }} />
+        <Fade top>
+          <div className={styles.modalWrapper} aria-modal aria-hidden tabIndex={-1} role="dialog">
+            <div className={styles.modal}>
 
             <div className={styles.modalHeader}>
               <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={handleModalClose}>
@@ -74,12 +76,13 @@ const Modal = ({ isShowing, hide }) => {
               </button>
             </div>
 
-            <Form1 handleChange={handleChange} handleForm={handleForm} name={name} currentStep={currentStep} />
-            <Form2 currentStep={currentStep} handleForm={handleForm} />
-            {drawerSteps}
-            <Form4 currentStep={currentStep} drawer={drawer} card={card} handleFormSubmit={handleFormSubmit} />
+              <Form1 handleChange={handleChange} handleForm={handleForm} name={name} currentStep={currentStep} />
+              <Form2 currentStep={currentStep} handleForm={handleForm} />
+              {drawerSteps}
+              <Form4 currentStep={currentStep} drawer={drawer} card={card} handleFormSubmit={handleFormSubmit} />
+            </div>
           </div>
-        </div>
+        </Fade>
       </>, document.body
     ) : null
   );

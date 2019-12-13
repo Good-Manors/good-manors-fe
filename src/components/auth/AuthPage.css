@@ -7,7 +7,9 @@
   justify-content: center;
   position: relative;
 
-  div {
+
+
+  .logoDiv {
     width: 250px;
     height: 250px;
     background: #E9F5F1;
@@ -16,21 +18,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2em;
     z-index: 2;
   }
 
   img {
-    height: 61%;
+    height: 65%;
     object-fit: contain;
   }
 
   .Form {
-    width: 25%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     z-index: 2;
+    padding: 2rem;
+
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    
+
+    .Light{
+      display: inline;
+      font-weight: 500;
+    }
+
+    span {     
+      display: inline;
+      font-family: 'Sulphur', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      line-height: 1.4em;
+      margin: 7px 0px 20px 2px; 
+    }
+  }
 
     input {
       margin: .5em 0;
@@ -47,17 +71,22 @@
       font-size: .9rem;
       letter-spacing: .08em;
       margin: 5px 0 0 10px;
+      border-radius: .2rem;
     }
 
     .Toggle {
       display: flex;
       justify-content: flex-end;
+      font-family: 'Sulphur', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: .05em;
       color: white;
-      font-family: sans-serif;
-      letter-spacing: .05rem;
-      text-shadow: 0px 0px 3px black;
+
 
       span {
+        text-decoration: underline;
         margin-top: 10px;
       }
 
@@ -66,12 +95,13 @@
       }
     }
   }
+  
 }
 
-.SignupLogin::before {
+.Before {
   content: "";
-  background: url('../../assets/img-horizontal/livingRoom.jpg');
   position: absolute;
+  background: url(../../assets/img-horizontal/livingRoom.jpg);
   top: 0;
   bottom: 0;
   left: 0;
@@ -81,5 +111,11 @@
   width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
+  background-blend-mode: darken;
+  transition: 3s;
+}
+
+.Invisible{
+  display: none;
 }
