@@ -33,6 +33,7 @@ const HomePage = () => {
 
   useEffect(() => {
     setSearchTerm(searchTerm);
+    if(searchTerm === '') setDrawersOpen(false);
   }, [searchTerm]);
 
   if(!home) return <img src={loading} />;

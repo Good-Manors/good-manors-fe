@@ -61,7 +61,7 @@ const Drawer = ({ name, index, home, id, isOpen, searchTerm }) => {
     const type = card.type;
     console.log(type, type === term, term);
     return <Link key={i} to={`/cards/${home._id}/${id}#${card._id}`}>
-      <div className={`${styles[type]} ${type.toLowerCase().includes(term.toLowerCase()) ? styles.Highlight : null}`}>
+      <div className={`${styles[type]} ${type.toLowerCase().includes(term.toLowerCase()) && term !== '' ? styles.Highlight : null}`}>
         <img src={cardIcons[card.type]} />
         <p>{card.name}</p>
       </div></Link>;
