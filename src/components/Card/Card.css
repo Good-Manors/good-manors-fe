@@ -77,6 +77,12 @@
   }
 }
 
+@media only screen and (max-width: 450px) {
+  .Card{
+    margin: 1rem;
+  }
+}
+
 .Appliance {
   border-bottom: 20px solid #9e5569;
   h3 {

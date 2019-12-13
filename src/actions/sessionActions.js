@@ -1,8 +1,10 @@
-import { signup, login, verifySession } from '../services/auth';
+import { signup, login, verifySession, endSession } from '../services/auth';
 
 export const SET_SESSION = 'SET_SESSION';
 export const SET_SESSION_LOADING = 'SET_SESSION_LOADING';
 export const SET_SESSION_ERROR = 'SET_SESSION_ERROR';
+export const SET_SESSION_END = 'SET_SESSION_END';
+export const SET_SESSION_DEFAULT = 'SET_SESSION_DEFAULT';
 
 export const sessionSignup = (username, password) => dispatch => {
   dispatch({
@@ -49,4 +51,24 @@ export const sessionVerify = () => dispatch => {
         payload: err
       });
     });
+};
+
+export const sessionEnd = () => dispatch => {
+  dispatch({
+    type: SET_SESSION_LOADING
+  });
+
+  return endSession()
+    .then(() => {
+      dispatch({
+        type: SET_SESSION_END
+      });
+    });
+};
+
+export const defaultHomeAction = (defaultHomeId) => dispatch => {
+  dispatch({
+    SET_SESSION_DEFAULT,
+    payload: defaultHomeId
+  });
 };

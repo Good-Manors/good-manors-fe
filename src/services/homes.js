@@ -10,6 +10,9 @@ export const getAllHomes = () => get(`${BASE_URL}/homes`);
 
 export const getDefaultHomeId = () => get(`${BASE_URL}/users/default-home`);
 
+export const setDefaultHomeId = (id) => put(`${BASE_URL}/users/default-home`,
+  { home: id });
+
 export const deleteHome = (id) => del(`${BASE_URL}/homes/${id}`);
 
 export const postDrawer = (name, home) => post(`${BASE_URL}/drawers`,

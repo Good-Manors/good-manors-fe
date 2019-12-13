@@ -102,6 +102,7 @@ exports[`Tests small components Search.js 1`] = `
       src="/path/image"
     />
     <input
+      onChange={[Function]}
       type="text"
     />
   </div>

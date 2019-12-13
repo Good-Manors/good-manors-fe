@@ -19,7 +19,7 @@ const AboutPage = () => {
               <div className={styles.Luke} />
               <div className={styles.content}>
                 <h3 className={styles.Name}>Luke Donahue</h3>
-                <p>Software Developer & Educator</p>
+                <p>With a spare hour on his hands, Luke might sit down to write some creative code, find some friends to play a board game, or write/record music.</p>
                 <h5 className={styles.linkPage}>github.com/Luke9389</h5>
               </div>
             </li>

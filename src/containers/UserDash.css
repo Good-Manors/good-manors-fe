@@ -18,7 +18,6 @@
   }
 }
 
-
 .homeSection {
   width: 60vw;
   margin: 0 auto;
@@ -51,7 +50,6 @@
   }
 }
 
-
 button {
   font-family: 'Sulphur', sans-serif;
   font-weight: 700;
@@ -64,3 +62,25 @@ button {
   color: white;
 }
 
+@media only screen and (max-width: 450px) {
+  .UserDash {
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "header"
+                         "userDashWrapper";
+  }
+
+  .homeSection{
+    width: 80vw;
+  }
+
+  .UserDashWrapper {
+    grid-area: userDashWrapper;
+    height: 80vh;
+    margin-top: 3rem;
+
+    h2 {
+      color: black;
+    }
+  }
+}
