@@ -38,7 +38,7 @@ const Card = ({ name, type, content, _id, edit }) => {
         dispatch(setHome(home));
       });
   };
-  //TODO Update Card Name
+  
   const handleNameChange = ({ target }) => {
     setEditedName(target.value);
   };
@@ -167,10 +167,14 @@ const Card = ({ name, type, content, _id, edit }) => {
   });
 
   const mappedDisplayElements = editedContent.map((element, i) => {
-    if(element[0] === 'text') return <Text key={i} title={element[1]} text={element[2]} index={i} />;
-    if(element[0] === 'key-value') return <KeyValue key={i} entryKey={element[1][0]} value={element[1][1]} index={i} />;
-    if(element[0] === 'log') return <Log key={i} title={element[1]} logEntries={element[2]} index={i} />;
-    if(element[0] === 'image') return <Image key={i} image={element[1]} className={styles.CloudImg} index={i} />;
+    if(element[0] === 'text') 
+      return <Text key={i} title={element[1]} text={element[2]} index={i} />;
+    if(element[0] === 'key-value') 
+      return <KeyValue key={i} entryKey={element[1][0]} value={element[1][1]} index={i} />;
+    if(element[0] === 'log') 
+      return <Log key={i} title={element[1]} logEntries={element[2]} index={i} />;
+    if(element[0] === 'image') 
+      return <Image key={i} image={element[1]} className={styles.CloudImg} index={i} />;
   });
 
   const cardIcons = {
@@ -182,7 +186,6 @@ const Card = ({ name, type, content, _id, edit }) => {
     Plant: plantIcon,
     Pet: petIcon
   };
-
 
   return (
     editMode ?
