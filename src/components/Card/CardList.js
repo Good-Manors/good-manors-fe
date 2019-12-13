@@ -5,7 +5,6 @@ import Card from './Card';
 import styles from './CardList.css';
 import PropTypes from 'prop-types';
 import { getCardsByDrawer } from '../../selectors/homeSelectors';
-import { setHome } from '../../actions/homeActions';
 import NewCardModal from './NewCardModal';
 
 
@@ -24,7 +23,7 @@ const CardList = ({ drawer }) => {
       <h2>{drawer.name}</h2>
       <button className={styles.CardButton} onClick={toggle}>+ New Card</button>
       <NewCardModal isShowing={isShowing} hide={toggle} drawer={drawer} />
-      <section>
+      <section className={styles.List}>
         {mappedCards}
       </section>
     </section>
