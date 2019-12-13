@@ -2,11 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSessionUsername } from '../selectors/sessionSelectors';
+import { sessionEnd } from '../actions/sessionActions';
 import { slide as HamburgerMenu } from 'react-burger-menu';
 import styles from './Menu.css';
 
 const mapStateToProps = (state) => ({
   username: getSessionUsername(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+  handleSignOut(event) {
+    event.preventDefault();
+    dispatch(sessionEnd());
+  }
 });
 
 class hamburgerMenu extends React.Component {
@@ -29,6 +37,11 @@ class hamburgerMenu extends React.Component {
     this.setState({ menuOpen: false });
   }
 
+  signOutClick(){
+    this.closeMenu();
+    this.handleSignOut();
+  }
+
   render() {
 
     return (
@@ -39,6 +52,7 @@ class hamburgerMenu extends React.Component {
             <Link to="/" onClick={() => this.closeMenu()} className={'menu-item'}>Dashboard</Link>
             <Link to="/home" onClick={() => this.closeMenu()} className={'menu-item'}>Current Home</Link>
             <Link to="/about-us" onClick={() => this.closeMenu()} className={'menu-item'}>About Us</Link>
+            <Link to="/home" onClick={() => this.signOutClick()} className={'menu-item'}>Sign Out</Link>
           </HamburgerMenu>
         </div>
       </>
@@ -46,4 +60,7 @@ class hamburgerMenu extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(hamburgerMenu);
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(hamburgerMenu);

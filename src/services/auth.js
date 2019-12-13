@@ -9,3 +9,5 @@ export const login = (username, password) => post(`${AUTH_URL}/signin`,
   { username, password });
 
 export const verifySession = () => get(`${AUTH_URL}/verify`);
+
+export const endSession = () => get(`${AUTH_URL}/signout`);

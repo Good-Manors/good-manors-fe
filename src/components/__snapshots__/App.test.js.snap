@@ -11,7 +11,7 @@ exports[`App component renders App 1`] = `
         exact={true}
         path="/"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         path="/card"
       />
@@ -27,11 +27,11 @@ exports[`App component renders App 1`] = `
         }
         path="/auth"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
-        path="/cards/:drawerId"
+        path="/cards/:homeId/:drawerId"
       />
-      <Route
+      <PrivateRoute
         component={[Function]}
         path="/home"
       />

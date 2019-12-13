@@ -6,7 +6,7 @@ exports[`Header and Logo Logo 1`] = `
   id="logo-background"
 >
   <img
-    src="src/assets/good-manors-logo.png"
+    src="/path/image"
   />
 </div>
 `;
