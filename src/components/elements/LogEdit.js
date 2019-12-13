@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../Card/Card.css';
 
 const LogEdit = ({ logEntries, title, index, handleAddLogEntry, handleRemoveLogEntry, handleLogEntryChange }) => {
 
@@ -11,8 +12,9 @@ const LogEdit = ({ logEntries, title, index, handleAddLogEntry, handleRemoveLogE
           data-entry-index={i}
           value={entry} 
           onChange={handleLogEntryChange} 
+          className={styles.logInput}
         />
-        <button data-index={index} data-entry-index={i} onClick={handleRemoveLogEntry}>X</button>
+        <button data-index={index} className={styles.logButton} data-entry-index={i} onClick={handleRemoveLogEntry}>X</button>
         <hr />
       </div>
     );
@@ -22,7 +24,7 @@ const LogEdit = ({ logEntries, title, index, handleAddLogEntry, handleRemoveLogE
     <div>
       <h4>{title}</h4>
       {entries}
-      <button data-index={index} onClick={handleAddLogEntry}>Add New</button>
+      <button data-index={index} onClick={handleAddLogEntry}>+ Log</button>
     </div>
   );
 

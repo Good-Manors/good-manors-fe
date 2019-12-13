@@ -19,4 +19,8 @@
       width: 20px;
     }
   }
+
+  .cardType {
+    margin-right: 10px;
+  }
 }
