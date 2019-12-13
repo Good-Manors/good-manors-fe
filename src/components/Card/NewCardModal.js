@@ -16,6 +16,13 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
   const [cardId, setCardId] = useState('');
   const dispatch = useDispatch();
 
+  const handleModalClose = () => {
+    hide();
+    setCurrentStep(1);
+    setCardName('');
+    setCardType('');
+  };
+
   const allCards = useSelector(state => getCardsByDrawer(state, drawer));
   const handleChange = ({ target }) => {
     setCardName(target.value);
@@ -26,7 +33,6 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
     setCardType(cardType);
     postCard(cardName, cardType, drawer)
       .then(card => {
-        console.log(card);
         setCardId(card._id);
         setCardContent(card.content);
         setCurrentStep(step + 1);
@@ -50,7 +56,7 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
           <div className={styles.modal}>
 
             <div className={styles.modalHeader}>
-              <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={hide}>
+              <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={handleModalClose}>
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>

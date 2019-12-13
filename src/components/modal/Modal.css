@@ -27,9 +27,21 @@
   position: relative;
   margin: 30vh auto;
   border-radius: 3px;
-  max-width: 600px;
-  padding: 20px;
+  max-width: 580px;
+  padding: 40px;
   border-bottom: 20px solid #8ab4b1;
+
+  h3 {
+    font-size: 1.6em;
+  }
+
+  input {
+    width: 300px;
+  }
+
+  button {
+    text-align: center;
+  }
 }
 
 .modalHeader {

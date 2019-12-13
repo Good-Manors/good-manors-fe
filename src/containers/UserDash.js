@@ -54,7 +54,7 @@ const UserDash = () => {
       <Menu />
       <section className={styles.UserDashWrapper}>
         <h2>Dashboard</h2>
-        <button className={styles.buttonDefault} onClick={toggle}>+ New Home</button>
+        <button onClick={toggle}>+ New Home</button>
         <section className={styles.homeSection}>
           {mappedHomes}
         </section>

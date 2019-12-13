@@ -9,21 +9,24 @@ const Form2 = ({ currentStep, handleForm }) => {
   return (
     <>
       <section className={styles.Form2}>
-        <h3>Select all that apply to your project</h3>
+        <h3>Choose the drawers you want in your home.</h3>
 
-        <form>
-          <input type="checkbox" name='drawer' value="Kitchen" /> Kitchen
-          <input type="checkbox" name='drawer' value="Living" /> Living
-          <input type="checkbox" name='drawer' value="Dining" /> Dining
-          <input type="checkbox" name='drawer' value="Master" /> Master
-          <input type="checkbox" name='drawer' value="Bedroom" /> Bedroom
-          <input type="checkbox" name='drawer' value="Bathroom" /> Bathroom
-          <input type="checkbox" name='drawer' value="Exterior" /> Exterior
-          <input type="checkbox" name='drawer' value="Office" /> Office
-          <input type="checkbox" name='drawer' value="Utilities" /> Utilities
-
-          <button onClick={() => handleForm(currentStep)}>Next</button>
+        <form className={styles.flexForm}>
+          <div>
+            <p><input type="checkbox" name='drawer' value="Kitchen" /> Kitchen</p>
+            <p><input type="checkbox" name='drawer' value="Living" /> Living</p>
+            <p><input type="checkbox" name='drawer' value="Dining" /> Dining</p>
+            <p><input type="checkbox" name='drawer' value="Master" /> Master Bedroom</p>
+            <p><input type="checkbox" name='drawer' value="Bedroom" /> Bedroom</p>
+          </div>
+          <div>
+            <p><input type="checkbox" name='drawer' value="Bathroom" /> Bathroom</p>
+            <p><input type="checkbox" name='drawer' value="Exterior" /> Exterior</p>
+            <p><input type="checkbox" name='drawer' value="Office" /> Office</p>
+            <p><input type="checkbox" name='drawer' value="Utilities" /> Utilities</p>
+          </div>
         </form>
+        <button onClick={() => handleForm(currentStep)}>Next</button>
       </section>
     </>
   );

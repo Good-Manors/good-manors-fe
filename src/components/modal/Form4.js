@@ -7,10 +7,10 @@ const Form4 = ({ currentStep, drawer, handleFormSubmit }) => {
   if(currentStep !== 3 + drawer.length) return null;
 
   return (
-    <>
-      <h2>Thanks! We've set up a home for you based on your answers.</h2>
+    <section>
+      <h3>Your home is now ready to go!</h3>
       <button onClick={() => handleFormSubmit(currentStep)}>Finish</button>
-    </>
+    </section>
   );
 };
 
