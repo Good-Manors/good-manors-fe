@@ -41,6 +41,7 @@ const NewCardModal = ({ isShowing, hide, drawer }) => {
     setCardType('');
     setCardContent([]);
     setCardId('');
+    
   };
 
   return (

@@ -10,7 +10,7 @@ import Log from '../elements/Log';
 import KeyValueEdit from '../elements/KeyValueEdit';
 import LogEdit from '../elements/LogEdit';
 import styles from './Card.css';
-import { updateCard, } from '../../services/homes';
+import { updateCard, deleteCard, } from '../../services/homes';
 import applianceIcon from '../../assets/icons/appliance-icon.png';
 import materialIcon from '../../assets/icons/material-icon.png';
 import paintIcon from '../../assets/icons/paint-icon.png';
@@ -18,6 +18,7 @@ import utilityIcon from '../../assets/icons/utility-icon.png';
 import contactIcon from '../../assets/icons/contact-icon.png';
 import plantIcon from '../../assets/icons/plant-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
+import editIcon from '../../assets/icons/edit-icon.png';
 import uploadImageToCloudinary from '../../services/cloudinary';
 import customIcon from '../../assets/icons/custom-card-icon.png';
 import placeholder from '../../assets/blank-file.png';
@@ -29,12 +30,14 @@ const Card = ({ name, type, content, _id, edit }) => {
   const [editMode, setEditMode] = useState(edit);
   const [editedName, setEditedName] = useState(name);
   const [editedContent, setEditedContent] = useState(content);
-  // const [images, setImages] = useState([]);
   const dispatch = useDispatch();
 
-  //localContent will look like 
-  // [ ['key-value',['key','']] , ['log', title, []] , ['text', title, ''] , ['image', ''] ]
-
+  const handleDeleteCard = (id) => {
+    deleteCard(id)
+      .then(home => {
+        dispatch(setHome(home));
+      });
+  };
   //TODO Update Card Name
   const handleNameChange = ({ target }) => {
     setEditedName(target.value);
@@ -112,7 +115,6 @@ const Card = ({ name, type, content, _id, edit }) => {
           if(idx != i) {
             return element;
           }
-          console.log('got there');
           return [element[0], result.url];
         }));
       });
@@ -203,7 +205,10 @@ const Card = ({ name, type, content, _id, edit }) => {
             <img className={styles.Icon} src={cardIcons[type]} />
           </section>
           {mappedDisplayElements}
-          <button onClick={() => setEditMode(true)}>Edit</button>
+          <div className={styles.buttonIcons}>
+            <button className={styles.buttonIcons} onClick={() => setEditMode(true)}><img className={styles.Icon} src={editIcon} /></button>
+            <button classNSame={styles.buttonIcons} onClick={() => handleDeleteCard(_id)}><img className={styles.Icon} src={customIcon} /></button>
+          </div>
         </div>
       </>
   );

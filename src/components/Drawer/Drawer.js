@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Drawer.css';
 // import icon from '../../assets/temp-icon-black.png';
 import cardIcon from '../../assets/temp-icon.png';
 import { getCards } from '../../selectors/homeSelectors';
+import { deleteDrawer } from '../../services/homes';
+
 import kitchen from '../../assets/icons/kitchen-icon.png';
 import bathroom from '../../assets/icons/bathroom-icon.png';
 import living from '../../assets/icons/living-icon.png';
@@ -23,11 +25,15 @@ import contactIcon from '../../assets/icons/contact-icon.png';
 import plantIcon from '../../assets/icons/plant-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
 import customIcon from '../../assets/icons/custom-card-icon.png';
+import { setHome } from '../../actions/homeActions';
+
 
 
 const Drawer = ({ name, index, home, id }) => {
   const [open, setOpen] = useState(false);
   const cards = useSelector(state => getCards(state, index));
+  const dispatch = useDispatch();
+
 
   let icon;
   if(name === 'Kitchen') icon = kitchen;
@@ -48,7 +54,14 @@ const Drawer = ({ name, index, home, id }) => {
     Plant: plantIcon,
     Pet: petIcon
   };
-  
+
+  const handleDeleteDrawer = (drawer) => {
+    deleteDrawer(drawer)
+      .then(home => {
+        dispatch(setHome(home));
+      });
+  };
+
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
     return <Link key={i} to={`/cards/${home._id}/${id}#${card._id}`}>
@@ -60,14 +73,15 @@ const Drawer = ({ name, index, home, id }) => {
 
   return (
     <section className={styles.Drawer}>
-      <div className={styles.Name} onClick={() => {
-        open ? setOpen(false) : setOpen(true);
-      }}>
+      <div className={styles.Name}>
         <img src={icon} />
-        <h3>{name}</h3>
+        <h3 onClick={() => {
+          open ? setOpen(false) : setOpen(true);
+        }}>{name}</h3>
         <button
-          className={`${styles.dropButton} ${open ? styles.up : styles.down} `}
-        >^</button>
+          className={`${styles.dropButton}`}
+          onClick={() => handleDeleteDrawer(id)}
+        >x</button>
       </div>
 
       <div className={`${styles.Tray} ${open ? styles.open : styles.closed} `}>
