@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -62,9 +63,7 @@ const Drawer = ({ name, index, home, id }) => {
       });
   };
 
-  const goToDrawer = (id) => {
 
-  }
 
   const mappedCards = cards.map((card, i) => {
     const type = card.type;
@@ -79,10 +78,10 @@ const Drawer = ({ name, index, home, id }) => {
     <section className={styles.Drawer}>
       <div className={styles.Name}>
         <img src={icon} />
-        <h3 onClick={() => {
+        <Link to={`/cards/${home._id}/${id}`}><h3>{name}</h3></Link>
+        <button className={styles.goButton} onClick={() => {
           open ? setOpen(false) : setOpen(true);
-        }}>{name}</h3>
-        <Link to={`/cards/${home._id}/${id}`}><button className={styles.goButton} onClick={() => goToDrawer(id)}>></button></Link>
+        }}>></button>
         <div className={styles.spaceDiv}></div>
         <button
           className={`${styles.dropButton}`}
