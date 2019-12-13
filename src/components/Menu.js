@@ -33,7 +33,7 @@ class hamburgerMenu extends React.Component {
       <>
         <div className={styles.Menu}>
           <h5>hi, {this.state.username}</h5>
-          <HamburgerMenu right width={'200px'} isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)}>
+          <HamburgerMenu right width={'16px'} isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)}>
             <Link to="/" onClick={() => this.closeMenu()} className={'menu-item'}>Dashboard</Link>
             <Link to="/about-us" onClick={() => this.closeMenu()} className={'menu-item'}>About Us</Link>
           </HamburgerMenu>
