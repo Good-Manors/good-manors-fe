@@ -30,7 +30,7 @@ const AboutPage = () => {
               <div className={styles.content}>
                 <h3 className={styles.Name} >Angela Vawser</h3>
                 <p>Software Developer w/ a background in Graphic Design and Animation. Enjoys gardening, costume designing, cooking, anime, and horror/sci-fi flicks.</p>
-                <a href="https://hello-jelly.com"className={styles.linkPage}>hello-jelly.com</a>
+                <a href="http://hello-jelly.com"className={styles.linkPage}>hello-jelly.com</a>
 
               </div>
             </li>
@@ -40,7 +40,7 @@ const AboutPage = () => {
               <div className={styles.content}>
                 <h3 className={styles.Name}>Allison Busse</h3>
                 <p>Allison is a software developer and former technical writer who still appreciates proper grammar. When not staring at a computer screen, you can find her reading, hiking, cooking, and wondering if it’s too late for another cup of coffee.</p>
-                <a href="https://allisonbusse.com"className={styles.linkPage}>allisonbusse.com</a>
+                <a href="http://allisonbusse.com"className={styles.linkPage}>allisonbusse.com</a>
               </div>
             </li>
 
