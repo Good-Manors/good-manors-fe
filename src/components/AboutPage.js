@@ -20,7 +20,8 @@ const AboutPage = () => {
               <div className={styles.content}>
                 <h3 className={styles.Name}>Luke Donahue</h3>
                 <p>With a spare hour on his hands, Luke might sit down to write some creative code, find some friends to play a board game, or write/record music.</p>
-                <h5 className={styles.linkPage}>github.com/Luke9389</h5>
+                <a href="https://github.com/Luke9389"className={styles.linkPage}>github.com/Luke9389</a>
+
               </div>
             </li>
             
@@ -29,7 +30,8 @@ const AboutPage = () => {
               <div className={styles.content}>
                 <h3 className={styles.Name} >Angela Vawser</h3>
                 <p>Software Developer w/ a background in Graphic Design and Animation. Enjoys gardening, costume designing, cooking, anime, and horror/sci-fi flicks.</p>
-                <h5 className={styles.linkPage}>hello-jelly.com</h5>
+                <a href="https://hello-jelly.com"className={styles.linkPage}>hello-jelly.com</a>
+
               </div>
             </li>
 
@@ -38,7 +40,7 @@ const AboutPage = () => {
               <div className={styles.content}>
                 <h3 className={styles.Name}>Allison Busse</h3>
                 <p>Allison is a software developer and former technical writer who still appreciates proper grammar. When not staring at a computer screen, you can find her reading, hiking, cooking, and wondering if it’s too late for another cup of coffee.</p>
-                <h5 className={styles.linkPage}>allisonbusse.com</h5>
+                <a href="https://allisonbusse.com"className={styles.linkPage}>allisonbusse.com</a>
               </div>
             </li>
 
@@ -47,7 +49,8 @@ const AboutPage = () => {
               <div className={styles.content}>
                 <h3 className={styles.Name}>John Nelson</h3>
                 <p>Software Developer & Firefighter</p>
-                <h5 className={styles.linkPage}>github.com/John4850</h5>
+                <a href="https://github.com/John4850"className={styles.linkPage}>github.com/John4850</a>
+
               </div>
             </li>
           </ul>
