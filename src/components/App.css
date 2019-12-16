@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Sulphur+Point:300,400,700&display=swap');
+
+body {
+  background: #E9F5F1;
+}
+
+h2 {
+  font-family: 'Sulphur', sans-serif;
+  font-weight: 700;
+  font-size: 3em;
+  color: #8ab4b1;
+  letter-spacing: .04em;
+  margin: 0 40px; 
+}
+
+h3 {
+  font-family: 'Sulphur', sans-serif;
+  font-weight: 700;
+  font-size: 1.3em;
+  color: #8ab4b1;
+  letter-spacing: .04em;
+  line-height: 1.1em;
+  margin: 0 0 20px 0;
+}
+
+p {
+  font-family: 'Sulphur', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  color: black;
+  letter-spacing: .04em;
+  margin: .5em 0;
+}
+
+h4 {
+  font-family: 'Sulphur', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  color: black;
+  letter-spacing: .04em;
+  margin: 20px 0;
+}
+
+input {
+  font-family: 'Sulphur', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  color: black;
+  letter-spacing: .05em;
+  padding: .3em;
+  font-size: .9em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #8AB4B1;
+}
+
+textarea {
+  width: 80%;
+  min-height: 100px;
+}
+
+.loading {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+}
+
+

@@ -1,0 +1,34 @@
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+
+  .loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    background: #fff;
+    margin: auto;
+    display: flex;
+    z-index: 5;
+    opacity: 1;
+  }
+
+  img {
+    margin: auto auto;
+    border-radius: 50%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .Loader {
+  .loaderContainer {
+    width: 7rem;
+    height: 7rem;
+  }
+  }
+}

@@ -1,0 +1,10 @@
+.ImgEdit{
+  display: flex;
+  flex-direction: column;
+
+  .Image{
+    display: block;
+    width: 80%;
+  }
+
+}

@@ -1,0 +1,24 @@
+.DrawerList {
+  width: 60vw;
+  margin: 0 auto;
+
+  button {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: .08em;
+    border: none;
+    padding: .5rem 1rem;
+    margin: 20px 40px;
+    background: #8ab4b1;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .DrawerList{
+    margin: 0;
+    width: 80%;
+    
+  }
+}

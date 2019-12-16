@@ -1,0 +1,96 @@
+.Menu {
+  grid-area: menu;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-end;
+  margin: 0 35px 0 0;
+  width: 100%;
+
+  h5 {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: black;
+    letter-spacing: .08em;
+    margin: 38px 10px;
+  }
+
+  a {
+    font-family: 'Sulphur', sans-serif;
+    font-weight: 700;
+    font-size: .8rem;
+    color: black;
+    letter-spacing: .08em;
+    padding: 8px 0;
+    margin: 0 2px;
+    text-decoration: none;
+    text-align: right;
+  }
+
+  a:visited {
+    color: black;
+  }
+
+  a:focus {
+    outline: none;
+  }
+
+}
+
+:global(.bm-burger-button) {
+  position: relative;
+  width: 26px;
+  height: 20px;
+  margin: 35px 30px 0 0;
+}
+
+:global(.bm-burger-bars) {
+  background: black;
+}
+
+:global(.bm-burger-bars-hover) {
+  background: #8ab4b1;
+}
+
+:global(.bm-cross-button) {
+  margin: 24px 22px 0 0;
+  opacity: 0;
+  height: 20px;
+  width: 24px;
+}
+
+:global(.bm-cross) {
+  background: black;
+}
+
+:global(.bm-cross-hover) {
+  background-color: #8ab4b1;
+}
+
+:global(.bm-menu-wrap) {
+  position: fixed;
+  height: 100%;
+}
+
+:global(.bm-menu) {
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+:global(.bm-item-list) {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+:global(.bm-item) {
+  color: black;
+  display: inline-block;
+}
+
+:global(.bm-overlay) {
+  background: rgba(0, 0, 0, 0);
+  display: none;
+}
+
+

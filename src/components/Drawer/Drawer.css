@@ -1,0 +1,182 @@
+.Drawer {
+  .Name {
+    display: flex;
+    align-items: center;
+    background: #a7d0b1;
+    margin: 20px 40px;
+    padding: 5px 20px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    
+    h3 {
+      height: fit-content;
+      font-family: 'Sulphur', sans-serif;
+      font-weight: 700;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: black;
+      margin: 10px 20px 10px 10px;
+    }
+
+    .goButton {
+      margin: 0;
+      background-color: #a7d0b1;
+      color: black;
+    }
+
+    .spaceDiv {
+      flex-grow: 1;
+      width: 15px;
+
+    }
+
+    .dropButton {
+      height: fit-content;
+      background: transparent;
+      border: none;
+      transform: rotate(0deg);
+      transition: transform 0.3s;
+      font-family: 'Sulphur', sans-serif;
+      font-weight: 700;
+      font-size: 1.0em;
+      color: black;
+      opacity: 0.8;
+      padding: 0;
+      outline: none;
+    } 
+
+    .dropButton:focus { 
+      outline: none;
+    }
+
+    .up {
+      transform: rotate(180deg);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .down {
+      transform: rotate(90deg);   
+      margin-top: 0; 
+      margin-bottom: 0;
+    }
+  }
+
+  .Tray {
+    display: flex;
+    flex-direction: column;
+    transition: max-height 0.3s;
+    background: white;
+    margin: -20px 40px 20px 40px;
+    justify-content: left;
+  }
+
+  .Appliance {
+    border: 3px solid #9e5569;
+    p {
+      color: #9e5569;
+    }
+  }
+
+  .Material {
+    border: 3px solid #c08962;
+    p {
+      color: #c08962;
+    }
+  }
+
+  .PaintSwatch {
+    border: 3px solid #d58ac3;
+    p {
+      color: #d58ac3;
+    }
+  }
+
+  .Utility {
+    border: 3px solid #97a5bf;
+    p {
+      color: #97a5bf;
+    }
+  }
+
+  .Contact {
+    border: 3px solid #fb9e7f;
+    p {
+      color: #fb9e7f;
+    }
+  }
+
+  .Plant {
+    border: 3px solid #95b565;
+    p {
+      color: #95b565;
+    }
+  }
+
+  .Pet {
+    border: 3px solid #c7c1cb;
+
+    p {
+      color: #c7c1cb;
+    }
+  }
+
+  .open{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+
+    div {
+      display: flex;
+      align-items: center;
+      height: 35px;
+      padding: 5px 15px;
+      margin: 5px 10px;
+      border-radius: 10px;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    p {
+      font-family: 'Sulphur', sans-serif;
+      font-weight: 600;
+      font-size: 1.1em;
+      letter-spacing: .07em;
+      text-transform: lowercase;
+    }
+
+    .Highlight{
+      background: #f5e0e9;
+    }
+
+  }
+
+  .closed{
+    visibility: hidden;
+    max-height: 0px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .Drawer{
+    width: 90%;
+
+    .Name{
+      font-size: 0.8rem;
+      width: 100%;
+    }
+
+    .Tray{
+      width: 100%;
+    }
+  }
+}

@@ -1,7 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component renders App 1`] = `
-<h1>
-  Hello World
-</h1>
+<div
+  className="App"
+>
+  <BrowserRouter>
+    <Switch>
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <PrivateRoute
+        component={[Function]}
+        path="/card"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(AuthPage)",
+            "type": [Function],
+          }
+        }
+        path="/auth"
+      />
+      <PrivateRoute
+        component={[Function]}
+        path="/cards/:homeId/:drawerId"
+      />
+      <PrivateRoute
+        component={[Function]}
+        path="/home"
+      />
+    </Switch>
+  </BrowserRouter>
+</div>
 `;

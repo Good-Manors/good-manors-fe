@@ -1,0 +1,18 @@
+.Header {
+  grid-area: header;
+  background:url(../../assets/img-vertical/cat-yard-vert.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 2rem;
+  background-color: black;
+  transition: 3s;
+}
+
+
+  @media only screen and (max-width: 450px) {
+    .Header{
+      width: 100%;
+    }
+  }
+
