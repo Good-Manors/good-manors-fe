@@ -2,91 +2,128 @@
 
 exports[`Tests small components AboutUs.js 1`] = `
 <section
-  className="AboutUs"
+  className="AboutWrapper"
+  id="about-wrapper"
 >
-  <h1>
-    Meet our team
-  </h1>
-  <ul
-    className="chGrid"
+  <Header />
+  <Connect(hamburgerMenu) />
+  <section
+    className="ProfileWrapper"
   >
-    <li>
-      <div
-        className="chItem"
+    <h1
+      className="Intro"
+    >
+      Meet The Devs
+    </h1>
+    <section
+      className="profileContainer"
+    >
+      <ul
+        className="Profiles"
       >
-        <div
-          className="chImg1"
+        <li
+          className="profile"
         >
-          <h3>
-            Angela Vawser
-          </h3>
-          <p>
-            description
-          </p>
-          <h5>
-            hello-jelly.com
-          </h5>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div
-        className="chItem"
-      >
-        <div
-          className="chImg2"
+          <div
+            className="Luke"
+          />
+          <div
+            className="content"
+          >
+            <h3
+              className="Name"
+            >
+              Luke Donahue
+            </h3>
+            <p>
+              With a spare hour on his hands, Luke might sit down to write some creative code, find some friends to play a board game, or write/record music.
+            </p>
+            <a
+              className="linkPage"
+              href="https://github.com/Luke9389"
+            >
+              github.com/Luke9389
+            </a>
+          </div>
+        </li>
+        <li
+          className="profile"
         >
-          <h3>
-            Allison Busse
-          </h3>
-          <p>
-            description
-          </p>
-          <h5>
-            allisonbusse.com
-          </h5>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div
-        className="chItem"
-      >
-        <div
-          className="chImg3"
+          <div
+            className="Angela"
+          />
+          <div
+            className="content"
+          >
+            <h3
+              className="Name"
+            >
+              Angela Vawser
+            </h3>
+            <p>
+              Software Developer w/ a background in Graphic Design and Animation. Enjoys gardening, costume designing, cooking, anime, and horror/sci-fi flicks.
+            </p>
+            <a
+              className="linkPage"
+              href="http://hello-jelly.com"
+            >
+              hello-jelly.com
+            </a>
+          </div>
+        </li>
+        <li
+          className="profile"
         >
-          <h3>
-            Luke Donahue
-          </h3>
-          <p>
-            description
-          </p>
-          <h5>
-            github.com/Luke9389
-          </h5>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div
-        className="chItem"
-      >
-        <div
-          className="chImg4"
+          <div
+            className="Allison"
+          />
+          <div
+            className="content"
+          >
+            <h3
+              className="Name"
+            >
+              Allison Busse
+            </h3>
+            <p>
+              Allison is a software developer and former technical writer who still appreciates proper grammar. When not staring at a computer screen, you can find her reading, hiking, cooking, and wondering if it’s too late for another cup of coffee.
+            </p>
+            <a
+              className="linkPage"
+              href="http://allisonbusse.com"
+            >
+              allisonbusse.com
+            </a>
+          </div>
+        </li>
+        <li
+          className="profile"
         >
-          <h3>
-            John Nelson
-          </h3>
-          <p>
-            description
-          </p>
-          <h5>
-            github.com/John4850
-          </h5>
-        </div>
-      </div>
-    </li>
-  </ul>
+          <div
+            className="John"
+          />
+          <div
+            className="content"
+          >
+            <h3
+              className="Name"
+            >
+              John Nelson
+            </h3>
+            <p>
+              Software Developer & Firefighter
+            </p>
+            <a
+              className="linkPage"
+              href="https://github.com/John4850"
+            >
+              github.com/John4850
+            </a>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </section>
 </section>
 `;
 

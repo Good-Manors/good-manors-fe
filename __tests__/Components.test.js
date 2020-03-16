@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Search from '../src/components/Search';
 import Menu from '../src/components/Menu';
-import AboutUs from '../src/components/AboutUs';
+import AboutUs from '../src/components/AboutPage';
 import UserForm from '../src/components/user/UserForm';
 import Dashboard from '../src/components/user/Dashboard';
 
