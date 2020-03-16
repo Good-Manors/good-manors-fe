@@ -12,7 +12,8 @@
 
   @media only screen and (max-width: 450px) {
     .Header{
-      width: 100%;
+      width: 100vw;
+      padding: 1.5rem;
     }
   }
 

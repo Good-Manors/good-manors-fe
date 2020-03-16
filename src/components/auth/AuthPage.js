@@ -73,7 +73,7 @@ const AuthPage = ({ handleSubmit }) => {
         <img src={logo} />
       </div>
       <form className={styles.Form} onSubmit={event => handleSubmit(event, username, password, member)}>
-        <p><span className={styles.Light}>home management</span><span> made simple</span></p>
+        <p className={styles.slogan}><span className={styles.Light}>home management</span><span className={styles.Dark}> made simple</span></p>
         <input type="text" placeholder='Username' value={username} onChange={({ target }) => setUsername(target.value)} />
         <input type="password" placeholder='Password' value={password} onChange={({ target }) => setPassword(target.value)} />
         <section id='signup-login-toggle' className={styles.Toggle}>

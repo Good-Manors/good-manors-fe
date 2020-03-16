@@ -6,6 +6,10 @@
   justify-content: flex-end;
   margin: 0 35px 0 0;
   width: 100%;
+  
+  @media only screen and (max-width: 450px) {
+    grid-area: header;
+  }
 
   h5 {
     font-family: 'Sulphur', sans-serif;
@@ -81,6 +85,10 @@
 :global(.bm-item-list) {
   color: #b8b7ad;
   padding: 0.8em;
+
+  @media only screen and (max-width: 450px) {
+    padding: 0;
+  }
 }
 
 :global(.bm-item) {

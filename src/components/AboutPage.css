@@ -13,15 +13,21 @@
   margin: 0 1em;
   overflow: scroll;
   height: 80vh;
+  }
 
   .Intro {
     font-family: 'Sulphur', sans-serif;
     font-weight: 700;
     font-size: 2.4em;
-    letter-spacing: .07em;
+    letter-spacing: .03em;
     color: black;
     text-align: center;
     margin-bottom: 20px;
+
+    @media only screen and (max-width: 450px) {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
   }
 
   .Profiles {
@@ -32,16 +38,20 @@
     text-align: center;
     height: 80%;
     width: 80%;
-  }
+
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+      width: 90%;
+    }
+
+    @media only screen and (max-width: 450px) {
+      width: 100%;
+    }
+  }  
 
   .profileContainer {
     display: flex;
     justify-content: center;
     width: 100%;
-  }
-
-  .Profiles {
-    width: 80%;
   }
 
   .profile {
@@ -54,6 +64,17 @@
     width: 35%;
     height: 400px;
     margin: 10px;
+
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+      width: 100%;
+      height: 370px;
+    }
+
+    @media only screen and (max-width: 450px) {
+      width: 100%;
+      height: 380px;
+      padding: 1.5em 1em;
+    }
   }
 
   .Name {
@@ -79,6 +100,11 @@
     margin-bottom: 15px;
     height: 200px;
     width: 200px;
+
+    @media only screen and (max-width: 450px) {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   .Allison {
@@ -92,6 +118,11 @@
     margin-bottom: 15px;
     height: 200px;
     width: 200px;
+
+    @media only screen and (max-width: 450px) {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   .Luke {
@@ -105,6 +136,11 @@
     margin-bottom: 15px;
     height: 200px;
     width: 200px;
+
+    @media only screen and (max-width: 450px) {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   .John {
@@ -118,19 +154,28 @@
     margin-bottom: 15px;
     height: 200px;
     width: 200px;
+
+    @media only screen and (max-width: 450px) {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   .linkPage {
     font-family: 'Sulphur', sans-serif;
     font-weight: 600;
     font-size: 1.1em;
-    letter-spacing: .07em;
+    letter-spacing: .05em;
     text-transform: lowercase;
     color: black;
     margin-top: 10px;
+
+    @media only screen and (max-width: 450px) {
+      font-size: 1em;
+      height: 150px;
+    }
   }
 
   .linkPage:hover {
     color: #08b89d;
   }
-}
