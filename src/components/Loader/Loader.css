@@ -2,14 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: 50vh;
 
   .loaderContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15rem;
-    height: 15rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
     background: #fff;
     margin: auto;
@@ -21,14 +21,15 @@
   img {
     margin: auto auto;
     border-radius: 50%;
-  }
-}
 
-@media only screen and (max-width: 450px) {
-  .Loader {
-  .loaderContainer {
-    width: 7rem;
-    height: 7rem;
-  }
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+      width: 12rem;
+      height: 12rem;
+    }
+
+    @media only screen and (max-width: 450px) {
+      width: 10rem;
+      height: 10rem;
+    }
   }
 }

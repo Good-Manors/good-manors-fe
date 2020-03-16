@@ -26,21 +26,25 @@
   }
 
   .Form {
-    width: 30%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     z-index: 2;
     padding: 2rem;
 
-  p {
+  .slogan {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    margin-bottom: 20px;
     color: white;
-    
 
-    .Light{
+    .Light {
       display: inline;
       font-weight: 500;
+    }
+
+    .Dark {
+      margin-bottom: 20px;
     }
 
     span {     
@@ -48,9 +52,8 @@
       font-family: 'Sulphur', sans-serif;
       font-size: 1.2rem;
       font-weight: 700;
-      letter-spacing: .08em;
+      letter-spacing: .05em;
       line-height: 1.4em;
-      margin: 7px 0px 20px 2px; 
     }
   }
 
@@ -96,8 +99,11 @@
 
   @media only screen and (max-width: 450px) {
     .logoDiv{
-      margin-bottom: 3rem;
+      height: 200px;
+      width: 200px;
+      margin-bottom: 2.5rem;
     }
+    
     .Form{
       background: rgba(0, 0, 0, 0.427);
       width: 15rem;
@@ -112,6 +118,9 @@
       .Toggle {
         span{
           text-align: center;
+          font-size: .9rem;
+          letter-spacing: .02rem;
+          margin: auto;
         }
       }
 
@@ -140,7 +149,3 @@
 .Invisible{
   display: none;
 }
-
-
-
-
